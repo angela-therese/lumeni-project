@@ -1,5 +1,28 @@
-.FacilityForm {
-    margin: 2em;
-    width: 30vw
+.facility-comp {
+    display:flex;
+    flex-direction: column;
+    width: 80vw
 }
 
+fieldset {
+    width: 35vw;
+}
+
+.FacilityForm {
+    margin: 2em;
+    
+}
+
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2em;
+    height: 8vh;
+    background-color: #D95D39;
+    
+}
+
+.header-user {
+    color: white
+}

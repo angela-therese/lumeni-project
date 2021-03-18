@@ -2,7 +2,15 @@
     display: flex;
 }
 
-
+/* .flex-nav-comp {
+    display: flex;
+   
+} */
+.header-static {
+   background-color: #F18805;
+   height:10vh;
+   width: 100vw
+}
 /* .div-nav-comp {
     display: flex;
     flex-direction: row;

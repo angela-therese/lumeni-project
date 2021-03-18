@@ -32,6 +32,11 @@ export const FacilityForm = () => {
     }
 
         const handleSaveFacility= () => {
+            
+            if(facility.state.length > 2 || facility.name === "" || facility.city ===""){
+                window.alert("Please fill in all fields.")
+            }
+            else {
             addFacility({
                 userId: parseInt(localStorage.getItem("lumeni_user")),
                 name: facility.name,
@@ -42,6 +47,7 @@ export const FacilityForm = () => {
             .then(() => history.push("/facilities"))
             
         }
+    }
 
         useEffect(() => {
             // getMessages().then(() => {
@@ -59,37 +65,36 @@ export const FacilityForm = () => {
          }, [])
 
 
-
     return (
+        <>
+        <section className="facility-comp">
+
+        <div className="header-div">
+            
+        </div>
+
+        <div className="facility-form-comp">
         <form className="FacilityForm">
         <fieldset>
         <h3>Add a Facility</h3>
-        <div className="form-group">
+        <div className="form-group form-fac">
             <label htmlFor="facilityName">Facility Name </label>
             <input className="input-fac" type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Enter facility name here." value={facility.name}/>
             <label htmlFor="facilityName">City</label>
             <input className="input-fac" type="text" id="city" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="City" value={facility.city}/>
             <label htmlFor="facilityState">State</label>
-            <Form.Control as="select" size="sm" custom>
-                    <option>KY</option>
-                    <option>MD</option>
-                    <option>OH</option>
-                    <option>TN</option>
-                    <option>VA</option>
-                    <option>WV</option>
-            </Form.Control>
-            {/* <select className="input-drop-state" id="select-state" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="State" value={facility.state}>
+             <Form.Control as="select" id="state" value={facility.state} onChange={handleControlledInputChange}>
+                <option>Please select a state</option>
                 <option>KY</option>
                 <option>MD</option>
                 <option>OH</option>
                 <option>TN</option>
                 <option>VA</option>
                 <option>WV</option>
-            </select> */}
+             </Form.Control>
        </div>
        </fieldset>
       
-            
        <button className="btn btn-primary"
              disabled={isLoading}
              onClick={event => {
@@ -100,6 +105,9 @@ export const FacilityForm = () => {
 
            {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
         </form>
+        </div>
+        </section>
+        </>
 
 
      )

@@ -11,9 +11,8 @@ import { Button } from 'react-bootstrap'
 
 export const Lumeni = () => (
     <>
-        {/* <h2>Lumeni</h2>
-        <small>Prison Book Project Data Management</small>
-        <Button variant="success">Success</Button>{' '} */}
+     
+        
         <Route
       render={() => {
         if (localStorage.getItem("lumeni_user")) {

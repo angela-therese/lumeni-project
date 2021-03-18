@@ -1,6 +1,17 @@
 .nav-menu{
     background-color: #0E1428;
     width: 20vw;
-    height: 100vh
+    height: 100vh;
+    align-items: center;
 
+}
+
+.nav-header-user {
+    display:flex;
+    font-weight:bold;
+    justify-content: center;
+    align-items: center;
+    background-color: #D95D39;
+    height: 8vh;
+    color: white;
 }

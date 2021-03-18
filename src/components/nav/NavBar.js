@@ -9,7 +9,10 @@ class NavBar extends Component {
     render() {
         return (
             <>
-            <div className='flex-nav-comp'>
+            <section className="nav-comp">
+            <div className="nav-header-user" >
+                <p>Welcome, User</p>
+             </div>
             <Nav defaultActiveKey="/home" className="flex-column nav-menu">
                 <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link>
@@ -20,7 +23,8 @@ class NavBar extends Component {
                     Disabled
                  </Nav.Link> */}
             </Nav>
-            </div>
+        
+            </section>
             
             </>
 

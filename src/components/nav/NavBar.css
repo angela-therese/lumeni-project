@@ -1,8 +1,10 @@
 .nav-menu{
+    display: flex;
     background-color: #0E1428;
     width: 20vw;
     height: 100vh;
-    align-items: center;
+    align-items: left;
+    justify-content: center;
 
 }
 
@@ -14,4 +16,12 @@
     background-color: #D95D39;
     height: 8vh;
     color: white;
+}
+
+.nav-link{
+    border: 1px whitesmoke solid;
+    margin-top: 2em;
+    padding-right:1em;
+    background-color: whitesmoke;
+    border-radius: 2em;
 }

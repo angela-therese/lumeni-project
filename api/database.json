@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "email": "angie@angie.com",
+      "name": "Angela Iafrate",
+      "id": 1
+    },
+    {
+      "email": "luca@luca.com",
+      "name": "Luca Iafrate",
+      "id": 2
+    },
+    {
+      "email": "hazey@hazey.com",
+      "name": "Hazey Iafrate",
+      "id": 4
+    }
+  ],
+  "facilities": [
+    {
+      "userId": 2,
+      "name": "Nashville FCI",
+      "city": "Nashville",
+      "state": "TN",
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "name": "Charleston City Jail",
+      "city": "CHARLESTON",
+      "state": "",
+      "id": 5
+    }
+  ],
+  "parcels": [],
+  "genres": []
+}

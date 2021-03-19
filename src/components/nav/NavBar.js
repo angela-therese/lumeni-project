@@ -1,11 +1,16 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { Nav } from "react-bootstrap"
+import { Image } from "react-bootstrap"
+import  Logo  from './placeholder.png'
 import "./NavBar.css"
+
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 
 class NavBar extends Component {
+
+
     render() {
         return (
             <>
@@ -13,7 +18,10 @@ class NavBar extends Component {
             <div className="nav-header-user" >
                 <p>Welcome, User</p>
              </div>
+           
             <Nav defaultActiveKey="/home" className="flex-column nav-menu">
+            
+                <Image src={Logo } fluid />
                 <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link>
                 <Nav.Link eventKey="link-2" href="/facilities">Facilties</Nav.Link>

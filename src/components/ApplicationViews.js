@@ -12,8 +12,11 @@ export const ApplicationViews = () => {
     return (
         <FacilityProvider>
             <Route exact path='/facilities/'>
-                {/* <FacilityForm /> */}
                 <FacilityList />
+            </Route>
+
+            <Route exact path='/facilities/add'>
+                <FacilityForm />
             </Route>
         </FacilityProvider>
     )

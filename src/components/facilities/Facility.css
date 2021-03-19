@@ -5,11 +5,13 @@
 }
 
 fieldset {
-    width: 35vw;
+    width: 25vw;
 }
 
 .FacilityForm {
     margin: 2em;
+    font-size: small;
+   
     
 }
 
@@ -31,15 +33,25 @@ fieldset {
 .fac-container {
     width: 80vw;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
    
 
 }
 
 .fac-container-state {
     
-    width: 50vw;
+    width: 60vw;
     margin-top: 3em;
+    margin-left: 1em
 
+}
+
+.btn-add {
+    margin-bottom: 2em;
+}
+
+.btn-ret {
+    margin-left: .2em
 }

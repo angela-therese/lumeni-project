@@ -1,6 +1,9 @@
 import React, { useRef } from "react"
 import { useHistory } from "react-router-dom"
 import { Button } from "react-bootstrap"
+import { Image } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import  Logo  from '../nav/placeholder.png'
 import "./Login.css"
 
 export const Register = (props) => {
@@ -54,7 +57,12 @@ export const Register = (props) => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <>
+       <div className="img-login">
+            <Image className="img-login" src={Logo } fluid />
+        </div>
+       
+        <main style={{ textAlign: "center" }} className="register-div">
 
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account with that email address already exists</div>
@@ -79,9 +87,10 @@ export const Register = (props) => {
                     <button type="submit" className="btn btn-primary btn-sign-in"> Register </button>
                 </fieldset>
                 <fieldset>
-                    <Button variant="success" onClick={handleReturnHome} className="btn-return">Return Home</Button>{' '}
+                <Link to="/login">Return to Login</Link>
                 </fieldset>
             </form>
         </main>
+        </>
     )
 }

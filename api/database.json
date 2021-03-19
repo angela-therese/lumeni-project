@@ -2,69 +2,66 @@
   "users": [
     {
       "email": "angie@angie.com",
-      "name": "Angela Iafrate",
+      "name": "Angie Iafrate",
       "id": 1
-    },
-    {
-      "email": "luca@luca.com",
-      "name": "Luca Iafrate",
-      "id": 2
-    },
-    {
-      "email": "hazey@hazey.com",
-      "name": "Hazey Iafrate",
-      "id": 4
     }
   ],
   "facilities": [
     {
       "userId": 2,
-      "name": "Angela Iafrate",
-      "city": "PARKERSBURG",
-      "state": "",
-      "id": 11
+      "name": "Trousdale Correctional",
+      "city": "Hartsville",
+      "state": "TN",
+      "id": 1
     },
     {
       "userId": 2,
-      "name": "Angela Iafrate",
-      "city": "aha",
-      "state": "2",
-      "id": 12
+      "name": "Tiptonville Correctional",
+      "city": "Tiptonville",
+      "state": "TN",
+      "id": 2
     },
     {
       "userId": 2,
-      "name": "pburg",
-      "city": "PARKERSBURG",
-      "state": "OH",
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "name": "FCI Hazelton",
-      "city": "Hazelton",
-      "state": "WV",
-      "id": 14
-    },
-    {
-      "userId": 2,
-      "name": "FCI Pikeville",
-      "city": "Pikeville",
-      "state": "",
-      "id": 15
-    },
-    {
-      "userId": 2,
-      "name": "FCI Pikeville",
-      "city": "Pikeville",
+      "name": "Western Kentucky Correctional Facility",
+      "city": "Fredonia",
       "state": "KY",
-      "id": 16
+      "id": 3
     },
     {
       "userId": 2,
-      "name": "Angela Iafrate",
-      "city": "PARKERSBURG",
-      "state": "OH",
-      "id": 17
+      "name": "Central Maryland Correctional Facility",
+      "city": "Sykesville",
+      "state": "MD",
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "name": "FCI Hazelton-Women's",
+      "city": "Bruceton Mills",
+      "state": "WV",
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "name": "FCI Hazelton-Men's",
+      "city": "Bruceton Mills",
+      "state": "WV",
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "name": "Little Sandy Correctional Facility",
+      "city": "Sandy Hook",
+      "state": "KY",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "name": "Roxbury Correctional Institution",
+      "city": "Hagerstown",
+      "state": "MD",
+      "id": 8
     }
   ],
   "parcels": [],

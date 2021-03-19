@@ -1,6 +1,8 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
+import { Image } from "react-bootstrap"
+import  Logo  from '../nav/placeholder.png'
 import "./Login.css"
 
 
@@ -22,7 +24,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("lumeni_user", exists.id)
-                    history.push("/")
+                    history.push("/home")
                 } else {
                     existDialog.current.showModal()
                 }
@@ -31,6 +33,13 @@ export const Login = props => {
 
     return (
         <>
+         
+        <div className="img-login">
+            <Image className="img-login" src={Logo } fluid />
+        </div>
+        
+        
+       
         <div className="div-nav-comp">
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>
@@ -40,8 +49,7 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Lumeni</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="font-weight-normal"> Lumeni Sign-In</h1>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
@@ -54,12 +62,14 @@ export const Login = props => {
                         <button type="submit" className="btn btn-primary btn-sign-in">
                             Sign in
                         </button>
+                        <section className="link--register">
+                             <Link to="/register">Need to register?</Link>
+                         </section>
                     </fieldset>
                 </form>
+                
             </section>
-            <section className="link--register">
-                <Link to="/register">Need to register?</Link>
-            </section>
+            
         </main>
         </div>
         </>

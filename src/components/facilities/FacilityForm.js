@@ -3,6 +3,7 @@ import { FacilityContext } from "./FacilityProvider"
 import "./Facility.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Form } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 export const FacilityForm = () => {
 
@@ -69,9 +70,7 @@ export const FacilityForm = () => {
         <>
         <section className="facility-comp">
 
-        <div className="header-div">
-            
-        </div>
+        <div className="header-div"></div>
 
         <div className="facility-form-comp">
         <form className="FacilityForm">
@@ -95,14 +94,20 @@ export const FacilityForm = () => {
        </div>
        </fieldset>
       
-       <button className="btn btn-primary"
+      <div className="btns-save-return">
+       <Button variant="primary" className="btn btn-primary" size="sm"
              disabled={isLoading}
              onClick={event => {
                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                handleSaveFacility()
              }}>
-           <>Save Facility</> </button>
+           <>Save Facility</> </Button>
 
+           <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
+                    history.push("/facilities/")}}>Return to List</Button>{' '}
+
+
+        </div>
            {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
         </form>
         </div>

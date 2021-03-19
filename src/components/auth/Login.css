@@ -52,6 +52,27 @@ fieldset {
     background-position-x: right;
     /* background-image: url(logo.png); */
     z-index: 1;
+    /* min-height: 25rem;
+    min-width: 45rem; */
+    height: 100vh;
+    width: 50vw;
+    background-color: hsla(0,0%,100%,0.40);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding-left: 5em
+    
+
+}
+
+
+.form--register {
+    background-position-x: right;
+    /* background-image: url(logo.png); */
+    z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
     background-color: hsla(0,0%,100%,0.40);
@@ -77,4 +98,23 @@ fieldset {
 
 .btn-return {
     margin-top: 1em
+}
+
+.register-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+.link--register {
+    text-align: left;
+}
+
+.img-login {
+    background-color: #0E1428;
+    height: 100vh;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -20,11 +20,11 @@ class NavBar extends Component {
              </div>
            
             <Nav defaultActiveKey="/home" className="flex-column nav-menu">
-            
+           
                 <Image src={Logo } fluid />
                 <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link>
-                <Nav.Link eventKey="link-2" href="/facilities">Facilties</Nav.Link>
+                <Nav.Link eventKey="link-2" href="/facilities">Facilities</Nav.Link>
                 <Nav.Link eventKey="link-3" href="/parcels">Parcels</Nav.Link>
                 <Nav.Link eventKey="link-4" href="/returns">Returns</Nav.Link>
                 {/* <Nav.Link eventKey="disabled" disabled>
@@ -36,22 +36,6 @@ class NavBar extends Component {
             
             </>
 
-            // <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
-            //     <ul className="nav nav-pills nav-fill">
-            //         <li className="nav-item">
-            //             <Link className="nav-link" to="/articles">Articles</Link>
-            //         </li>
-            //         <li className="nav-item">
-            //             <Link className="nav-link" to="/messages">Messages</Link>
-            //         </li>
-            //         <li className="nav-item">
-            //             <Link className="nav-link" to="/tasks">Tasks</Link>
-            //         </li>
-            //         <li className="nav-item">
-            //             <Link className="nav-link" to="/events">Events</Link>
-            //         </li>
-            //     </ul>
-            // </nav>
         )
     }
 }

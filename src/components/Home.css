@@ -1,0 +1,17 @@
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2em;
+    height: 8vh;
+    background-color: #D95D39;
+    width: 80vw;
+   
+}
+
+.section-home {
+    display: flex;
+    flex-direction: column;
+    
+
+}

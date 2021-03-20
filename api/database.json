@@ -64,6 +64,104 @@
       "id": 8
     }
   ],
-  "parcels": [],
+  "parcels": [
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "year": 2021,
+      "facilityId": null,
+      "parcelNumber": "256541",
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "year": 2021,
+      "parcelNumber": null,
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "year": 2021,
+      "parcelNumber": "14253",
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "year": 2021,
+      "parcelNumber": "14254",
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "year": 2021,
+      "parcelNumber": 14255,
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "dateSent": "3/20/2021",
+      "parcelNumber": 14256,
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "year": 2021,
+      "parcelNumber": 14257,
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "parcelNumber": 14257,
+      "facilityId": null,
+      "genreId": null,
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "dateSent": "2021-03-20",
+      "parcelNumber": 14258,
+      "facilityId": null,
+      "genreId": null,
+      "title": "Harry Potter ",
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 15
+    }
+  ],
   "genres": []
 }

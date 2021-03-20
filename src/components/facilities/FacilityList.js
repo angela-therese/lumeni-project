@@ -46,7 +46,7 @@ return (
                 <td>{facility.name}</td>
                 <td>{facility.city}</td>
                 <td>{facility.state}</td>
-                <td><button>Edit</button> <button>Return</button> <button>Delete</button></td>
+                <td><button className="btn-edit">Edit</button> <button className="btn-ret">Return</button> <button className="btn-del">Delete</button></td>
                 </tr>
             </tbody>
          )} 

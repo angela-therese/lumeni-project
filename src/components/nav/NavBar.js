@@ -22,7 +22,7 @@ class NavBar extends Component {
             <Nav defaultActiveKey="/home" className="flex-column nav-menu">
            
                 <Image src={Logo } fluid />
-                <Nav.Link href="/home">Home</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link>
                 <Nav.Link eventKey="link-2" href="/facilities">Facilities</Nav.Link>
                 <Nav.Link eventKey="link-3" href="/parcels">Parcels</Nav.Link>

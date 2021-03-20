@@ -49,7 +49,7 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1 className="font-weight-normal"> Lumeni Sign-In</h1>
+                    <h3 className="font-weight-normal"> Sign into Lumeni</h3>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"

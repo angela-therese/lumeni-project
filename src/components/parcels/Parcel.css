@@ -1,0 +1,51 @@
+.parcel-container {
+    display:flex;
+    flex-direction: column;
+    width: 80vw
+}
+
+fieldset {
+    width: 25vw;
+}
+
+.ParcelForm {
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    font-size: small; 
+}
+
+.form-parcel {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.form-input {
+    margin: .5em
+}
+
+.date-input {
+    border: lightgray 1px solid
+
+}
+
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2em;
+    height: 8vh;
+    background-color: #D95D39;
+    width: 80vw;
+    
+}
+
+.btns-save-return {
+    padding: .7em
+}
+
+.header-user {
+    color: white
+}
+

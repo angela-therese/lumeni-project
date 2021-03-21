@@ -6,6 +6,7 @@ import {Home} from "./Home"
 import { FacilityProvider } from "./facilities/FacilityProvider"
 import { FacilityForm } from "./facilities/FacilityForm";
 import { FacilityList } from "./facilities/FacilityList"
+
 import { ParcelProvider } from "./parcels/ParcelProvider"
 import { ParcelForm } from "./parcels/ParcelForm"
 
@@ -17,6 +18,7 @@ export const ApplicationViews = () => {
         <Route exact path="/">
                 <Home />
             </Route>
+            
         
         <FacilityProvider>
             <Route exact path='/facilities/'>
@@ -26,6 +28,11 @@ export const ApplicationViews = () => {
             <Route exact path='/facilities/add'>
                 <FacilityForm />
             </Route>
+
+            <Route exact path="/facilities/edit/:facilityId(\d+)">
+              <FacilityForm />
+          </Route>
+
         </FacilityProvider>
 
         <ParcelProvider>

@@ -1,8 +1,8 @@
-.facility-comp {
+/* .facility-comp {
     display:flex;
     flex-direction: column;
     width: 80vw
-}
+} */
 
 fieldset {
     width: 25vw;
@@ -15,14 +15,17 @@ fieldset {
     
 }
 
+h4.section-heading {
+    text-align: left;
+}
 .header-div {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-between;
-    padding-right: 2em;
     height: 8vh;
     background-color: #D95D39;
     width: 80vw;
+    margin: 0 0 0 0
    
     
 }
@@ -31,21 +34,32 @@ fieldset {
     color: white
 }
 
-.fac-container {
-    width: 80vw;
+/* .fac-container {
+     width: 80vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center; 
    
 
+}  */
+
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    margin-top: 2em;
 }
 
-.fac-container-state {
+.facility-container {
     
-    width: 60vw;
-    margin-top: 3em;
-    margin-left: 1em
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+    padding: 0em;
 
 }
 
@@ -55,24 +69,52 @@ fieldset {
 
 .btn-edit {
     background-color: #F0A202;
-    border-color:white;
     border-radius: .4em;
-    color:whitesmoke
+    color:whitesmoke;
+    margin-right: .5em
 
 }
-
 
 .btn-ret {
     margin-left: .2em;
     background-color: #7B9E89;
-    border-color:white;
     border-radius: .4em;
     color:whitesmoke
 }
 
 .btn-del {
-   background-color: #D95D39;
+  background-color: #D95D39;
    border-radius: .4em;
-   border-color:white;
-   color:whitesmoke
+   color: whitesmoke
+}
+
+.btn-det {
+    background-color: #D95D39;
+     border-radius: .4em;
+     color: whitesmoke
+  }
+
+  .btn-header {
+      width: 70vw;
+      text-align: left;
+  }
+
+.fac-table {
+    width:18vw
+}
+.city-table {
+    width: 11vw
+}
+
+.state-table {
+    width: 5vw
+}
+
+.mod-table {
+    width: 12vw;
+    text-align: center
+}
+
+.table-facility-list {
+    width: 70vw
 }

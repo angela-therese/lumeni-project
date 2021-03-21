@@ -1,4 +1,4 @@
-import Reach, {useState, createContext} from "react"
+import React, {useState, createContext} from "react"
 
 //context stores data for your application and is used by individual components that need to access that data. The context is imported into relevant components. Nothing is there when it is first defined; just an empty warehouse to be filled
 export const ParcelContext = createContext()

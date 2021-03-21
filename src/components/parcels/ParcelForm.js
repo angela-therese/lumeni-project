@@ -1,17 +1,23 @@
 import React, { useContext, useState, useEffect} from "react"
 import { ParcelContext } from "./ParcelProvider"
+import { FacilityContext } from "../facilities/FacilityProvider";
 import "./Parcel.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Form } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
-import { FacilityContext } from "../facilities/FacilityProvider";
+
 
 export const ParcelForm = () => {
 
     const { addParcel, getParcelById } = useContext(ParcelContext)
-    
-   
+    const {  facilities, getFacilities } = useContext(FacilityContext)
 
+    //button inactive while waiting for data
+    const [isLoading, setIsLoading] = useState(true);
+    
+    const {parcelId} = useParams();
+	const history = useHistory();
+   
     const [ parcel, setParcel ] = useState({
         userId: parseInt(localStorage.getItem("lumeni_user")),
         dateSent: "",
@@ -22,11 +28,7 @@ export const ParcelForm = () => {
         returnDate: "",
         returnDetail:""
     })
-    //button inactive while waiting for data
-        const [isLoading, setIsLoading] = useState(true);
-    //
-        const {parcelId} = useParams();
-	    const history = useHistory();
+    
 
     //this function updates state with input change
         const handleControlledInputChange = (event) => {
@@ -57,13 +59,25 @@ export const ParcelForm = () => {
                 returnDetail:false
 
             })
-            .then(() => history.push("/parcels"))
-            
-        
+            .then(() => history.push("/parcels")) 
     }
 
+    // useEffect(() => {
+    //      if(parcelId) {
+    //                 getParcelById(parcelId)
+    //                 .then(parcel => {
+    //                     setParcel(parcel)
+    //                     setIsLoading(false)
+                        
+    //                 })
+    //             } else {
+    //                 setIsLoading(false)
+    //             }
+    //         }, [])
+
         useEffect(() => {
-            
+            getFacilities().then(() => {
+
                 if(parcelId) {
                     getParcelById(parcelId)
                     .then(parcel => {
@@ -74,10 +88,12 @@ export const ParcelForm = () => {
                 } else {
                     setIsLoading(false)
                 }
+             })
  
        
          }, [])
 
+            // const facilitiesMenu = require("../../../api/database.json")
 
     return (
         <>
@@ -90,26 +106,46 @@ export const ParcelForm = () => {
         <fieldset>
         <h3>Add a Parcel</h3>
 
-        <div className="form-group form-fac">
-            <label>Date Sent</label>
-            <input type="date"  onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}></input>
+        <div className="form-group form-parcel">
+            <input className="form-input date-input" type="date"  onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}></input>
 
-            <label htmlFor="ParcelNumber" >Number</label>
-            <input className="input-fac" type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Enter parcel number here." value={parcel.number}/>
+           
+            <input type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter parcel number here." value={parcel.number}/>
        
 
-            <label>Genre</label>
-             <Form.Control as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
-                <option>Please select a genre</option>
+            
+             <Form.Control className="form-input" as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
+                <option value="0">Select a genre</option>
+                <option>Reference</option>
+                <option>Mystery</option>
+                <option>Western</option>
+                <option>Science Fiction</option>
+                <option>Religion</option>
+                <option>Biography</option>
              </Form.Control>
 
-             <label>Genre</label>
-             <Form.Control as="select" id="facilityId" value={parcel.facilityId} onChange={handleControlledInputChange}>
-                <option>Please select a genre</option>
+            <select>
+                {facilities.map(f => {
+                    return (
+                    <option key={f.id} value={f.name}>
+                        {f.name}
+                    </option>
+
+              
+                     ) }
+                     
+                )}
+             </select>
+            
+
+
+             
+             <Form.Control className="form-input" as="select" id="facilityId" value={parcel.facilityId} onChange={handleControlledInputChange}>
+                <option>Select a facility</option>
              </Form.Control>
 
-             <label>Book Title</label>
-            <input className="input-fac" type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Enter title here." value={parcel.title}/>
+             
+            <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Book Title" value={parcel.title}/>
              
        </div>
        </fieldset>

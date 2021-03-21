@@ -82,18 +82,21 @@ fieldset {
 
 .button--close {
     position: relative;
-    bottom: -2rem;
+    bottom: -1.5rem;
  
 }
 
 .dialog {
     min-width: 15rem;
-    min-height: 5rem;
+    min-height: 9rem;
+    border-color: lightgrey;
+    border-radius: 1em;
+    
     
 }
 
 .btn-sign-in {
-    margin-top: 1em
+    margin-top: .5em
 }
 
 .btn-return {
@@ -118,3 +121,4 @@ fieldset {
     justify-content: center;
     align-items: center;
 }
+

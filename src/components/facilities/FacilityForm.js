@@ -9,14 +9,14 @@ import { Button } from 'react-bootstrap'
 
 export const FacilityForm = () => {
 
-    const { addFacility, getFacilityById } = useContext(FacilityContext)
+    const { addFacility, getFacilityById, updateFacility, deleteFacility } = useContext(FacilityContext)
 
     const [ facility, setFacility ] = useState({
        name: "",
        city: "",
        state: "",
        notes: "",
-       userId: null
+       
         
     })
     //button inactive while waiting for data
@@ -39,12 +39,25 @@ export const FacilityForm = () => {
             if(facility.state.length > 2 || facility.name === "" || facility.city ===""){
                 window.alert("Please fill in all fields.")
             }
-            else {
+
+            else if(facilityId){
+                setIsLoading(true)
+                updateFacility({
+                    id: facility.id,
+                    name: facility.name,
+                    city: facility.city,
+                    state: facility.state, 
+                    notes: facility.notes
+    
+                })
+                .then(() => history.push(`/facilities`))
+            } else {
             addFacility({
-                userId: parseInt(localStorage.getItem("lumeni_user")),
+              
                 name: facility.name,
                 city: facility.city,
-                state: facility.state
+                state: facility.state,
+                notes: facility.notes
 
             })
             .then(() => history.push("/facilities"))
@@ -53,7 +66,7 @@ export const FacilityForm = () => {
     }
 
         useEffect(() => {
-            // getMessages().then(() => {
+           
                 if(facilityId) {
                     getFacilityById(facilityId)
                     .then(facility => {
@@ -64,8 +77,15 @@ export const FacilityForm = () => {
                     setIsLoading(false)
                 }
  
-            // })
          }, [])
+
+        const handleDelete = () => {
+        deleteFacility(facility.id)
+          .then(() => {
+            history.push("/facilities")
+          })
+      }
+       
 
 
     return (
@@ -73,12 +93,13 @@ export const FacilityForm = () => {
         <section className="facility-comp">
 
         <div className="header-div"></div>
-
         <div className="facility-form-comp">
+
         <form className="FacilityForm">
         <fieldset>
         <h3>Add a Facility</h3>
         <div className="form-group form-fac">
+
             <label htmlFor="facilityName">Facility Name </label>
             <input className="input-fac" type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Enter facility name here." value={facility.name}/>
             <label htmlFor="facilityName">City</label>
@@ -97,16 +118,18 @@ export const FacilityForm = () => {
        </fieldset>
       
       <div className="btns-save-return">
-       <Button variant="primary" className="btn btn-primary" size="sm"
+       <button variant="primary" className="btn-edit" size="sm"
              disabled={isLoading}
              onClick={event => {
-               event.preventDefault() // Prevent browser from submitting the form and refreshing the page
-               handleSaveFacility()
-             }}>
-           <>Save Facility</> </Button>
+                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                handleSaveFacility()
+              }}>
+          {facilityId ? <>Submit Changes</> : <>Save</>} </button>
 
-           <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
-                    history.push("/facilities/")}}>Return to List</Button>{' '}
+           <button size="sm" className="btn-ret" onClick={() => {
+                    history.push("/facilities/")}}>Return to List</button>{' '}
+
+        <button className="btn-del" size="sm"  onClick={handleDelete}>Delete</button>
 
 
         </div>
@@ -119,3 +142,6 @@ export const FacilityForm = () => {
 
      )
 }
+
+
+

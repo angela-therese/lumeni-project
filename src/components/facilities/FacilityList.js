@@ -38,6 +38,8 @@ return (
         <th className="city-table">City</th>
         <th className="state-table">State</th>
         <th className="mod-table"></th>
+        <th className="sent-table">Parcels</th>
+        <th className="returns-table">Returns</th>
         </tr>
     </thead>
     {sortedFacilities.map(facility => { 
@@ -48,9 +50,11 @@ return (
                 <td className="fac-table" >{facility.name}</td>
                 <td className="city-table">{facility.city}</td>
                 <td className="state-table">{facility.state}</td>
-                <td className="mod-table"><button className="btn-edit"  onClick={() => {
+                <td className="mod-table"><button size="sm" className="btn-edit"  onClick={() => {
                     history.push(`/facilities/edit/${facility.id}`)
-              }}>Edit or Delete</button> <button className="btn-det">Details</button></td> 
+              }}>Modify</button> <button size="sm" className="btn-det">Details</button></td> 
+                <td className="sent-table"></td>
+                <td className="returns-table"></td>
                 </tr>
             </tbody>
          )} 

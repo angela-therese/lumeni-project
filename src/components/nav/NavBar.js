@@ -23,10 +23,10 @@ class NavBar extends Component {
            
                 <Image src={Logo } fluid />
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link>
-                <Nav.Link eventKey="link-2" href="/facilities">Facilities</Nav.Link>
                 <Nav.Link eventKey="link-3" href="/parcels">Parcels</Nav.Link>
+                <Nav.Link eventKey="link-2" href="/facilities">Facilities</Nav.Link>
                 <Nav.Link eventKey="link-4" href="/returns">Returns</Nav.Link>
+                <Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link>
                 {/* <Nav.Link eventKey="disabled" disabled>
                     Disabled
                  </Nav.Link> */}

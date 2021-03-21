@@ -97,7 +97,7 @@ export const FacilityForm = () => {
 
         <form className="FacilityForm">
         <fieldset>
-        <h3>Add a Facility</h3>
+        <h3> {facilityId ? <>Edit Facility</> : <>Add a Facility</>}</h3>
         <div className="form-group form-fac">
 
             <label htmlFor="facilityName">Facility Name </label>

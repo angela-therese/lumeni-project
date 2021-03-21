@@ -89,7 +89,7 @@ h4.section-heading {
 }
 
 .btn-det {
-    background-color: #D95D39;
+    background-color: #7B9E89;
      border-radius: .4em;
      color: whitesmoke
   }
@@ -103,11 +103,18 @@ h4.section-heading {
     width:18vw
 }
 .city-table {
-    width: 11vw
+    width: 9vw
 }
 
 .state-table {
-    width: 5vw
+    width: 4vw
+}
+
+.sent-table {
+    width: 4vw
+}
+.returns-table {
+    width: 4vw
 }
 
 .mod-table {

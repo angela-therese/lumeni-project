@@ -23,7 +23,7 @@ return (
    
    <section className="facility-container">
    <div className="div-header"></div>
-    {/* <section> */}
+    {/* <section > */}
     <div className="section-heading"><h4>Facilities</h4></div> 
     <div className="btn-header"><Button variant="info" size="sm" className="btn-add" onClick={() => {
     history.push("/facilities/add")}}>Add New</Button>{' '}</div>
@@ -65,26 +65,11 @@ return (
          )}
      </Table>
       </section>
-    
-      
-        
-      <input list="states" id="facility-state" name="facility-state" />
-            <datalist id="states">
-            {sortedFacilities.map(facility => {
-              return(
-              <option value={facility.state + "--" + facility.name} />
-              )
-             })}
-            </datalist>
-           
-        
-  
-
 
 
     </article>
     </section>
-     {/* </section> */}
+  
       </>
     )
   
@@ -93,6 +78,10 @@ return (
          
 
   
+
+
+
+
 
 
 

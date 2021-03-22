@@ -127,6 +127,17 @@
       "id": 18
     }
   ],
-  "parcels": [],
+  "parcels": [
+    {
+      "dateSent": "2021-03-09",
+      "parcelNumber": 14257,
+      "facilityId": "9",
+      "genreId": "4",
+      "title": "How to React",
+      "returnDate": false,
+      "returnDetail": false,
+      "id": 1
+    }
+  ],
   "genres": []
 }

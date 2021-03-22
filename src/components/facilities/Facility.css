@@ -5,10 +5,13 @@ fieldset {
 
 .FacilityForm {
     margin: 2em;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .form-fac {
-   width: 40vw
+   width: 30vw
 }
 
 h4.section-heading {
@@ -52,33 +55,39 @@ h4.section-heading {
     margin-bottom: 2em;
 }
 
-.btn-edit {
-    background-color:   #D95D39;
+.btn-save {
     border-radius: .4em;
-    color:whitesmoke;
+   color: whitesmoke;
+   border: none;
+   padding: .5em;
+   margin-right: .1em;
+   margin-top: .5em;
+   width: 8vw;
+}
+
+.btn-edit {
+    background-color:  #D95D39;
+    border-radius: .4em;
+    color: whitesmoke;
     border: none;
     padding: .5em;
     margin-right: .1em;
-    border: none;
-
+    margin-top: .5em;
+    width: 8vw;
 }
 
-.btns-save-return {
+.btns-container {
   display: flex;
+  flex-direction: row;
   justify-content: left;
-  width: 60vw
+ 
   
 }
 
-.btn-ret {
+.btn-return {
     
-    background-color:  #D95D39;
-    border-radius: .4em;
-    color:whitesmoke;
-    border: none;
-    padding: .5em;
-    margin-right: .1em;
-    font-weight: bolder;
+    
+
 }
 
 .btn-del {
@@ -88,7 +97,8 @@ h4.section-heading {
    border: none;
    padding: .5em;
    margin-right: .1em;
-   
+   margin-top: .5em;
+   width: 8vw;
 }
 
 .btn-det {
@@ -99,7 +109,6 @@ h4.section-heading {
     padding: .5em;
     margin-right: .1em;
     border: none;
-    
   }
 
 .btn-header {
@@ -108,7 +117,7 @@ h4.section-heading {
   }
 
 .fac-table {
-    width: 26vw
+    width: 20vw
 }
 .city-table {
     width: 9vw
@@ -126,7 +135,7 @@ h4.section-heading {
 }
 
 .mod-table {
-    width: 6vw;
+    width: 4vw;
     text-align: center
 }
 

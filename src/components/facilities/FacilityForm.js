@@ -98,11 +98,12 @@ export const FacilityForm = () => {
         <form className="FacilityForm">
         <fieldset>
         <h3> {facilityId ? <>Edit Facility</> : <>Add a Facility</>}</h3>
+       
         <div className="form-group form-fac">
 
             <label htmlFor="facilityName">Facility Name </label>
             <input className="input-fac" type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Enter facility name here." value={facility.name}/>
-            <label htmlFor="facilityName">City</label>
+            <label htmlFor="cityName">City</label>
             <input className="input-fac" type="text" id="city" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="City" value={facility.city}/>
             <label htmlFor="facilityState">State</label>
              <Form.Control as="select" id="state" value={facility.state} onChange={handleControlledInputChange}>
@@ -116,14 +117,8 @@ export const FacilityForm = () => {
              </Form.Control>
 
 
-
-
-             
-       </div>
-       </fieldset>
-      
-      <div className="btns-save-return">
-       <Button variant="info" className="btn-edit" 
+             <div className="btns-container">
+       <Button variant="info" className="btn-save" 
              disabled={isLoading}
              onClick={event => {
                 event.preventDefault() // Prevent browser from submitting the form and refreshing the page
@@ -132,9 +127,15 @@ export const FacilityForm = () => {
           {facilityId ? <>Submit Changes</> : <>Save</>}</Button>
 
         <button className="btn-del" onClick={handleDelete}>Delete</button> 
+            
         </div>
         <Button variant="link"className="btn-ret" onClick={() => {
                     history.push("/facilities/")}}>Return to List</Button>{' '}
+             
+       </div>
+       </fieldset>
+      
+      
 
            {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
         </form>

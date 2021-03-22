@@ -9,8 +9,8 @@ import { Button } from 'react-bootstrap'
 
 export const ParcelForm = () => {
 
-    const { addParcel, getParcelById } = useContext(ParcelContext)
-    const {  facilities, getFacilities } = useContext(FacilityContext)
+    const { addParcel, getParcelById, updateParcel, deleteParcel } = useContext(ParcelContext)
+    const { facilities, getFacilities } = useContext(FacilityContext)
 
     //button inactive while waiting for data
     const [isLoading, setIsLoading] = useState(true);
@@ -19,14 +19,16 @@ export const ParcelForm = () => {
 	const history = useHistory();
    
     const [ parcel, setParcel ] = useState({
-        userId: parseInt(localStorage.getItem("lumeni_user")),
+
+       
         dateSent: "",
-        parcelNumber: null,
+        parcelNumber:null,
         facilityId: null,
         genreId: null,
-        title:"",
-        returnDate: "",
-        returnDetail:""
+        title: "",
+        returnDate:false,
+        returnDetails:false
+
     })
     
 
@@ -39,18 +41,34 @@ export const ParcelForm = () => {
             setParcel(newParcel)
     }
 
-    const currentDate = new Date()
-    const localDateString = currentDate.toLocaleDateString('en-CA')
+    // const currentDate = new Date()
+    // const localDateString = currentDate.toLocaleDateString('en-US')
 
         const handleSaveParcel= () => {
             
-            // if(Parcel.state.length > 2 || Parcel.name === "" || Parcel.city ===""){
-            //     window.alert("Please fill in all fields.")
-            // }
-            // else {
+            if (parcel.dateSent === "" || parcel.parcelNumber === null || parcel.facilityId === false || parcel.genreId ==="" || parcel.title === ""){
+                window.alert("Please fill in all fields.")
+            }
+            else if(parcelId){
+
+                setIsLoading(true)
+
+                updateParcel({
+                    id: parcel.id,
+                    dateSent: parcel.dateSent,
+                    parcelNumber: parseInt(parcel.parcelNumber),
+                    facilityId: parcel.facilityId,
+                    genreId: parcel.genreId,
+                    title: parcel.title,
+                    returnDate: false,
+                    returnDetails:false
+    
+                })
+                .then(() => history.push(`/parcels`))
+            }
+            else {
             addParcel({
-                userId: parseInt(localStorage.getItem("lumeni_user")),
-                dateSent: localDateString,
+                dateSent: parcel.dateSent,
                 parcelNumber: parseInt(parcel.parcelNumber),
                 facilityId: parcel.facilityId,
                 genreId: parcel.genreId,
@@ -61,23 +79,10 @@ export const ParcelForm = () => {
             })
             .then(() => history.push("/parcels")) 
     }
-
-    // useEffect(() => {
-    //      if(parcelId) {
-    //                 getParcelById(parcelId)
-    //                 .then(parcel => {
-    //                     setParcel(parcel)
-    //                     setIsLoading(false)
-                        
-    //                 })
-    //             } else {
-    //                 setIsLoading(false)
-    //             }
-    //         }, [])
+}
 
         useEffect(() => {
             getFacilities().then(() => {
-
                 if(parcelId) {
                     getParcelById(parcelId)
                     .then(parcel => {
@@ -93,78 +98,89 @@ export const ParcelForm = () => {
        
          }, [])
 
-            // const facilitiesMenu = require("../../../api/database.json")
+         const handleDelete = () => {
+            deleteParcel(parcel.id)
+              .then(() => {
+                history.push("/parcels")
+              })
+          }
+
+         const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
     return (
         <>
         <section className="parcel-container">
 
-        <div className="header-div"></div>
+        <div className="div-header"></div>
         <div className="parcel-form-container">
 
         <form className="ParcelForm">
         <fieldset>
-        <h3>Add a Parcel</h3>
-
+        <h3> {parcelId ? <>Edit Parcel</> : <>Add a Parcel</>}</h3>
+    
         <div className="form-group form-parcel">
-            <input className="form-input date-input" type="date"  onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}></input>
+            <div className="div-label-input">
+            <label>Date Sent</label>
+            <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}/>
+            </div>
 
-           
-            <input type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter parcel number here." value={parcel.number}/>
-       
+            <div className="div-label-input">
+            <label>Parcel Number</label>
+            <input type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter parcel number here." value={parcel.parcelNumber}/>
+            </div>
 
-            
-             <Form.Control className="form-input" as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
+            <div className="div-label-input">
+                <label>Genre</label>
+             <Form.Control className="form-input"  as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
                 <option value="0">Select a genre</option>
-                <option>Reference</option>
-                <option>Mystery</option>
-                <option>Western</option>
-                <option>Science Fiction</option>
-                <option>Religion</option>
-                <option>Biography</option>
+                <option value="1">Reference</option>
+                <option value="2">Mystery</option>
+                <option value="3">Western</option>
+                <option value="4">Science Fiction</option>
+                <option value="5">Religion</option>
+                <option value="6">Biography</option>
              </Form.Control>
+             </div>
+             
 
-            <select>
-                {facilities.map(f => {
-                    return (
-                    <option key={f.id} value={f.name}>
-                        {f.name}
-                    </option>
-
-              
-                     ) }
-                     
-                )}
-             </select>
+             <div className="div-label-input">
+             <label>Facility </label>
+            <Form.Control as="select" value={parcel.facilityId} className="form-input"  onChange={handleControlledInputChange} id="facilityId">
             
+            <option value="0">Select a facility</option>
+                {sortedFacilities.map(f => (
+                <option key={f.id} value={f.id}>
+                  {f.state + "--" + f.name}
+                </option>
+              ))}
+            </Form.Control>
+            </div>
+        
 
+ 
+            <div className="div-label-input">
+            <label>Book Title</label>
+            <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter title" value={parcel.title}/>
+             </div>
 
-             
-             <Form.Control className="form-input" as="select" id="facilityId" value={parcel.facilityId} onChange={handleControlledInputChange}>
-                <option>Select a facility</option>
-             </Form.Control>
-
-             
-            <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Book Title" value={parcel.title}/>
-             
-       </div>
-       </fieldset>
-      
-      <div className="btns-save-return">
-       <Button variant="primary" className="btn btn-primary" size="sm"
+       
+      <div className="btns-container">
+       <Button variant="info" className="btn btn-primary" size="sm"
              disabled={isLoading}
              onClick={event => {
                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                handleSaveParcel()
              }}>
-           <>Save Parcel</> </Button>
-
-           <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
-                    history.push("/parcels/")}}>Return to List</Button>{' '}
-
+           <>Save Parcel</> </Button> <button className="btn-del" onClick={handleDelete}>Delete</button> 
 
         </div>
+        <Button variant="link" size="sm" className="btn-ret" onClick={() => {
+                    history.push("/parcels/")}}>Return to List</Button>{' '}
            {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
+      
+        </div>
+       </fieldset>
+      
         </form>
         </div>
         </section>
@@ -173,3 +189,12 @@ export const ParcelForm = () => {
 
      )
 }
+
+{/* <input list="states"  name="facility-state" />
+<datalist id="states">
+{sortedFacilities.map(facility => {
+  return(
+  <option value={facility.state + "--" + facility.name} />
+  )
+ })}
+</datalist> */}

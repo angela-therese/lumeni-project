@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import { Image } from "react-bootstrap"
-import  Logo  from '../nav/placeholder.png'
+import  Logo  from '../nav/lumeni-2.png'
 import "./Login.css"
 
 
@@ -24,7 +24,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("lumeni_user", exists.id)
-                    history.push("/home")
+                    history.push("/")
                 } else {
                     existDialog.current.showModal()
                 }

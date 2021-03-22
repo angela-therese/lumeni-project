@@ -23,12 +23,23 @@ export const Lumeni = () => (
             </>
           );
         } else {
-          return <Redirect to="/login" />;
+          return(
+             <>
+             <Redirect to="/login" />;
+             <Route path="/login">
+             <Login />
+           </Route>
+           
+           <Route path="/register">
+             <Register />
+           </Route>
+           </>
+          )
         }
       }}
     />
 
-
+{/* 
         <Route path="/login">
           <Login />
         </Route>
@@ -36,7 +47,7 @@ export const Lumeni = () => (
         <Route path="/register">
           <Register />
         </Route>
-      
+       */}
     
 
    

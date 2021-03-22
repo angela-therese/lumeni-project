@@ -92,7 +92,7 @@ export const FacilityForm = () => {
         <>
         <section className="facility-comp">
 
-        <div className="header-div"></div>
+        <div className="div-header"></div>
         <div className="facility-form-comp">
 
         <form className="FacilityForm">
@@ -114,25 +114,28 @@ export const FacilityForm = () => {
                 <option>VA</option>
                 <option>WV</option>
              </Form.Control>
+
+
+
+
+             
        </div>
        </fieldset>
       
       <div className="btns-save-return">
-       <button variant="primary" className="btn-edit" size="sm"
+       <Button variant="info" className="btn-edit" 
              disabled={isLoading}
              onClick={event => {
                 event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                 handleSaveFacility()
               }}>
-          {facilityId ? <>Submit Changes</> : <>Save</>} </button>
+          {facilityId ? <>Submit Changes</> : <>Save</>}</Button>
 
-           <button size="sm" className="btn-ret" onClick={() => {
-                    history.push("/facilities/")}}>Return to List</button>{' '}
-
-        <button className="btn-del" size="sm"  onClick={handleDelete}>Delete</button>
-
-
+        <button className="btn-del" onClick={handleDelete}>Delete</button> 
         </div>
+        <Button variant="link"className="btn-ret" onClick={() => {
+                    history.push("/facilities/")}}>Return to List</Button>{' '}
+
            {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
         </form>
         </div>

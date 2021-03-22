@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { Button } from "react-bootstrap"
 import { Image } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import  Logo  from '../nav/placeholder.png'
+import  Logo  from '../nav/lumeni-2.png'
 import "./Login.css"
 
 export const Register = (props) => {

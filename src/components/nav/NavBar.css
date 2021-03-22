@@ -1,6 +1,7 @@
 .nav-menu{
     display: flex;
-    background-color: #0E1428;
+    background-color: black;
+    /* background-color: #0E1428; */
     width: 20vw;
     height: 100%;
  
@@ -12,10 +13,10 @@
 
 .nav-header-user {
     display:flex;
-    font-weight:bold;
+    font-weight:normal;
     justify-content: center;
     align-items: center;
-    background-color: #D95D39;
+    background-color:black;
     height: 8vh;
     color: white;
 }

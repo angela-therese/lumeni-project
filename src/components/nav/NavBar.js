@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { Nav } from "react-bootstrap"
 import { Image } from "react-bootstrap"
-import  Logo  from './placeholder.png'
+import  Logo  from './lumeni-2.png'
 import "./NavBar.css"
 
 // import "bootstrap/dist/css/bootstrap.min.css"

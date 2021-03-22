@@ -10,7 +10,7 @@ export const Home = () => {
         <>
         <section className="section-home">
 
-        <div className="header-div"></div>
+        <div className="div-header"></div>
 
         <h3>hey</h3>
 

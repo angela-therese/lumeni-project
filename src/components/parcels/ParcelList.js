@@ -33,16 +33,16 @@ export const ParcelList = () => {
 
         <article className="table-parcels-list">
         <Table striped bordered hover size="sm">
-         <thead>
-        <tr>
+        
+        
         <th className="parcelNumber">Number</th>
         <th className="dateSent">Sent</th>
         <th className="facility">Destination</th>
         <th className="genre">Genre</th>
         <th className="mod">Modify Record</th>
         
-        </tr>
-        </thead>
+      
+       
           {sortedParcels.map(p => { 
       
             return (

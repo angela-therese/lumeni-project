@@ -42,18 +42,11 @@ export const ParcelProvider = (props) => {
             .then(getParcels)
     }
 
-    const deleteParcel= parcelId => {
-        return fetch(`http://localhost:8088/parcels/${parcelId}`, {
-            method: "DELETE"
-        })
-            .then(getParcels)
-            .then(history.push(`/parcels`))
-    }
-
+    
 //return the context provider that holds the functions you defined above. 
 return (
         <ParcelContext.Provider value={{
-            parcels, getParcels, addParcel, getParcelById,updateParcel, deleteParcel
+            parcels, getParcels, addParcel, getParcelById,updateParcel
         }}>
             {props.children}
         </ParcelContext.Provider>

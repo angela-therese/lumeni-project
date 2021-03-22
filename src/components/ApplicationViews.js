@@ -38,12 +38,12 @@ export const ApplicationViews = () => {
 
         <ParcelProvider>
             <FacilityProvider>
-            <Route exact path='/parcels/'>
-                <ParcelList />
-            </Route>
-            <Route exact path='/parcels/add'>
-                <ParcelForm />
-            </Route>
+                <Route exact path='/parcels/'>
+                 <ParcelList />
+                 </Route>
+                <Route exact path='/parcels/add'>
+                    <ParcelForm />
+                 </Route>
 
             <Route exact path="/parcels/edit/:parcelId(\d+)">
               <ParcelForm />

@@ -49,13 +49,13 @@ return (
          return (
             <tbody>
                 <tr>
-                <td className="fac-table" >{facility.name}</td>
-                <td className="mod-table"><Button variant="link" size="sm" className="btn-det">Details</Button></td>
-                <td className="city-table">{facility.city}</td>
-                <td className="state-table">{facility.state}</td>
-                <td className="sent-table"></td>
-                <td className="returns-table"></td>
-                <td className="mod-table"><Button variant="info" size="sm" className="btn-edit"  onClick={() => {
+                <td className="fac-table table-data" >{facility.name}</td>
+                <td className="mod-table table-data"><Button variant="link" size="sm" className="btn-det">Details</Button></td>
+                <td className="city-table table-data">{facility.city}</td>
+                <td className="state-table table-data">{facility.state}</td>
+                <td className="sent-table table-data"></td>
+                <td className="returns-table table-data"></td>
+                <td className="mod-table table-data"><Button variant="info" size="sm" className="btn-edit"  onClick={() => {
                     history.push(`/facilities/edit/${facility.id}`)
               }}>Modify</Button> </td> 
                

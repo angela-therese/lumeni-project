@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap'
 
 export const ParcelForm = () => {
 
-    const { addParcel, getParcelById, updateParcel, deleteParcel } = useContext(ParcelContext)
+    const { addParcel, getParcelById, updateParcel} = useContext(ParcelContext)
     const { facilities, getFacilities } = useContext(FacilityContext)
 
     //button inactive while waiting for data
@@ -54,14 +54,15 @@ export const ParcelForm = () => {
                 setIsLoading(true)
 
                 updateParcel({
-                    id: parcel.id,
+                 
                     dateSent: parcel.dateSent,
                     parcelNumber: parseInt(parcel.parcelNumber),
                     facilityId: parcel.facilityId,
                     genreId: parcel.genreId,
                     title: parcel.title,
                     returnDate: false,
-                    returnDetails:false
+                    returnDetails:false,
+                    id: parcel.id
     
                 })
                 .then(() => history.push(`/parcels`))
@@ -70,11 +71,11 @@ export const ParcelForm = () => {
             addParcel({
                 dateSent: parcel.dateSent,
                 parcelNumber: parseInt(parcel.parcelNumber),
-                facilityId: parcel.facilityId,
-                genreId: parcel.genreId,
+                facilityId: parseInt(parcel.facilityId),
+                genreId: parseInt(parcel.genreId),
                 title: parcel.title,
                 returnDate: false,
-                returnDetail:false
+                returnDetails:false
 
             })
             .then(() => history.push("/parcels")) 
@@ -98,12 +99,7 @@ export const ParcelForm = () => {
        
          }, [])
 
-         const handleDelete = () => {
-            deleteParcel(parcel.id)
-              .then(() => {
-                history.push("/parcels")
-              })
-          }
+      
 
          const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
@@ -171,13 +167,14 @@ export const ParcelForm = () => {
                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                handleSaveParcel()
              }}>
-           <>Save Parcel</> </Button> <button className="btn-del" onClick={handleDelete}>Delete</button> 
+           <>Save Parcel</> </Button> 
+           
 
-        </div>
+       
         <Button variant="link" size="sm" className="btn-ret" onClick={() => {
                     history.push("/parcels/")}}>Return to List</Button>{' '}
            {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
-      
+           </div>
         </div>
        </fieldset>
       

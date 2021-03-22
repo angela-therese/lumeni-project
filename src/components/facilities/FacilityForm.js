@@ -124,7 +124,7 @@ export const FacilityForm = () => {
                 event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                 handleSaveFacility()
               }}>
-          {facilityId ? <>Submit Changes</> : <>Save</>}</Button>
+          {facilityId ? <>Submit</> : <>Save</>}</Button>
 
         <button className="btn-del" onClick={handleDelete}>Delete</button> 
             

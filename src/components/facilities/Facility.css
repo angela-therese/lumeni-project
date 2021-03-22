@@ -63,6 +63,7 @@ h4.section-heading {
    margin-right: .1em;
    margin-top: .5em;
    width: 8vw;
+
 }
 
 .btn-edit {
@@ -80,9 +81,14 @@ h4.section-heading {
   display: flex;
   flex-direction: row;
   justify-content: left;
- 
+  align-items: center;
   
 }
+
+.table-data {
+    font-size: smaller;
+}
+
 
 .btn-return {
     

@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap'
 
 export const ParcelForm = () => {
 
-    const { addParcel, getParcelById, updateParcel, deleteParcel} = useContext(ParcelContext)
+    const { getParcels, addParcel, getParcelById, updateParcel, deleteParcel} = useContext(ParcelContext)
 
     const { facilities, getFacilities } = useContext(FacilityContext)
 
@@ -19,6 +19,7 @@ export const ParcelForm = () => {
     //button inactive while waiting for data
     const [isLoading, setIsLoading] = useState(true);
     
+
     const {parcelId} = useParams();
 	const history = useHistory();
    
@@ -69,6 +70,7 @@ export const ParcelForm = () => {
                     id: parcel.id
     
                 })
+                .then(getParcels)
                 .then(() => history.push(`/parcels`))
             }
             else {
@@ -82,7 +84,20 @@ export const ParcelForm = () => {
                 returnDetails:false
 
             })
-            .then(() => history.push("/parcels")) 
+            .then(() => setParcel({
+
+                dateSent: "",
+                parcelNumber: "",
+                facilityId: 0,
+                genreId: 0, 
+                title: "",
+                returnDate:false,
+                returnDetails:false
+        
+            }))
+            // .then(getParcels)
+            // .then(() => history.push(`/parcels`))
+        
     }
 }
 
@@ -114,16 +129,103 @@ export const ParcelForm = () => {
 
          const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
+         if(parcelId){
+             return (
+                <>
+                
+                {/* <section className="parcel-container"> */}
+        
+                {/* <div className="div-header"></div> */}
+                <div className="parcel-form-container">
+        
+                <form className="ParcelForm">
+                <fieldset>
+                <h5> {parcelId ? <>Edit Parcel</> : <>Add a Parcel</>}</h5>
+            
+                <div className="form-group form-parcel">
+                    <div className="div-label-input">
+                    <label>Date Sent</label>
+                    <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}/>
+                    </div>
+        
+                    <div className="div-label-input">
+                    <label>Parcel Number</label>
+                    <input type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter number" value={parcel.parcelNumber}/>
+                    </div>
+        
+                    <div className="div-label-input">
+                        <label>Genre</label>
+                     <Form.Control className="form-input"  as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
+                     <option value="0">Select a genre</option>
+                     {genres.map(g => (
+                        <option key={g.id} value={g.id}>
+                          {g.name}
+                        </option>
+                      ))}
+                     </Form.Control>
+                     </div>
+                     
+        
+                     <div className="div-label-input">
+                     <label>Facility </label>
+                    <Form.Control as="select" value={parcel.facilityId} className="form-input"  onChange={handleControlledInputChange} id="facilityId">
+                    
+                    <option value="0">Select a facility</option>
+                        {sortedFacilities.map(f => (
+                        <option key={f.id} value={f.id}>
+                          {f.state + "--" + f.name}
+                        </option>
+                      ))}
+                    </Form.Control>
+                    </div>
+                
+        
+         
+                    <div className="div-label-input">
+                    <label>Book Title</label>
+                    <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter title" value={parcel.title}/>
+                     </div>
+        
+               
+              <div className="btns-container">
+               <Button variant="info" className="btn btn-primary" size="sm"
+                     disabled={isLoading}
+                     onClick={event => {
+                       event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                       handleSaveParcel()
+                     }}>
+                  {parcelId ? <>Submit</> : <>Save</>}</Button> 
+                   
+                  <button className="btn-del" onClick={handleParcelDelete}>Delete</button>
+               
+                <Button variant="link" size="sm" className="btn-ret" onClick={() => {
+                            history.push("/parcels/")}}>Return to List</Button>{' '}
+                   {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
+                   </div>
+                </div>
+               </fieldset>
+                </form>
+                
+                </div>
+                {/* </section> */}
+                </>
+        
+        
+             )
+         }
+         else {
+
     return (
         <>
-        <section className="parcel-container">
 
-        <div className="div-header"></div>
+        {/* <section className="parcel-container"> */}
+
+        {/* <div className="div-header"></div> */}
         <div className="parcel-form-container">
 
         <form className="ParcelForm">
         <fieldset>
-        <h3> {parcelId ? <>Edit Parcel</> : <>Add a Parcel</>}</h3>
+        <h5> {parcelId ? <>Edit Parcel</> : <>Add a Parcel</>}</h5>
     
         <div className="form-group form-parcel">
             <div className="div-label-input">
@@ -133,7 +235,7 @@ export const ParcelForm = () => {
 
             <div className="div-label-input">
             <label>Parcel Number</label>
-            <input type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter parcel number here." value={parcel.parcelNumber}/>
+            <input type="text" id="parcelNumber" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter number" value={parcel.parcelNumber}/>
             </div>
 
             <div className="div-label-input">
@@ -142,7 +244,7 @@ export const ParcelForm = () => {
              <option value="0">Select a genre</option>
              {genres.map(g => (
                 <option key={g.id} value={g.id}>
-                  {g.genre}
+                  {g.name}
                 </option>
               ))}
              </Form.Control>
@@ -179,22 +281,19 @@ export const ParcelForm = () => {
              }}>
           {parcelId ? <>Submit</> : <>Save</>}</Button> 
            
-          <button className="btn-del" onClick={handleParcelDelete}>Delete</button>
-       
-        <Button variant="link" size="sm" className="btn-ret" onClick={() => {
-                    history.push("/parcels/")}}>Return to List</Button>{' '}
-           {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
+      
            </div>
         </div>
        </fieldset>
         </form>
         
         </div>
-        </section>
+        {/* </section> */}
         </>
 
 
      )
+}
 }
 
 {/* <input list="states"  name="facility-state" />

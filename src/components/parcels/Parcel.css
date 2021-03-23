@@ -1,7 +1,7 @@
-.parcels-container {
+.list-container {
     display:flex;
     flex-direction: column;
-    width: 70vw;
+    width: 50vw;
     font-size: smaller;
 }
 
@@ -20,9 +20,20 @@ fieldset {
 .ParcelForm {
     display: flex;
     flex-direction: column;
-    margin: 2em;
+    margin: 1em;
     font-size: small; 
-    width: 60vw;
+    width: 30vw;
+}
+ .parcel-form-container {
+     width: 30vw;
+     margin: 1em
+ }
+
+.form-and-list-container {
+    display: flex;
+    width: 70vw;
+    
+
 }
 
 .section-heading {
@@ -34,7 +45,7 @@ fieldset {
 }
 
 .table-parcels-list {
-    width: 55vw;
+    width: 40vw;
     margin-left: 2em
    
 }

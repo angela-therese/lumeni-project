@@ -25,6 +25,8 @@ export const ParcelProvider = (props) => {
             body: JSON.stringify(parcelObj)
         })
         .then(response => response.json())
+        .then(getParcels)
+        
     }
 
     const getParcelById = (id) => {
@@ -44,7 +46,6 @@ export const ParcelProvider = (props) => {
     }
 
     const deleteParcel = parcelId => {
-        debugger
 
         return fetch(`http://localhost:8088/parcels/${parcelId}`, {
             method: "DELETE"

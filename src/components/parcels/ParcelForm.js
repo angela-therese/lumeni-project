@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect} from "react"
 import { ParcelContext } from "./ParcelProvider"
 import { FacilityContext } from "../facilities/FacilityProvider";
+import { GenreContext } from "../GenreProvider"
 import "./Parcel.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Form } from 'react-bootstrap'
@@ -9,9 +10,11 @@ import { Button } from 'react-bootstrap'
 
 export const ParcelForm = () => {
 
-    const { addParcel, getParcelById, updateParcel, deleteParcel } = useContext(ParcelContext)
+    const { addParcel, getParcelById, updateParcel, deleteParcel} = useContext(ParcelContext)
 
     const { facilities, getFacilities } = useContext(FacilityContext)
+
+    const { genres, getGenres } = useContext(GenreContext)
 
     //button inactive while waiting for data
     const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +28,7 @@ export const ParcelForm = () => {
         dateSent: "",
         parcelNumber:null,
         facilityId: null,
-        genre: "",
+        genreId: null, 
         title: "",
         returnDate:false,
         returnDetails:false
@@ -47,7 +50,7 @@ export const ParcelForm = () => {
 
         const handleSaveParcel= () => {
             
-            if (parcel.dateSent === "" || parcel.parcelNumber === null || parcel.facilityId === false || parcel.genreId ==="" || parcel.title === ""){
+            if (parcel.dateSent === "" || parcel.parcelNumber === null || parcel.facilityId === false || parcel.genreId === 0 || parcel.title === ""){
                 window.alert("Please fill in all fields.")
             }
             else if(parcelId){
@@ -59,7 +62,7 @@ export const ParcelForm = () => {
                     dateSent: parcel.dateSent,
                     parcelNumber: parseInt(parcel.parcelNumber),
                     facilityId: parcel.facilityId,
-                    genre: parcel.genre,
+                    genreId: parseInt(parcel.genreId),
                     title: parcel.title,
                     returnDate: false,
                     returnDetails:false,
@@ -73,7 +76,7 @@ export const ParcelForm = () => {
                 dateSent: parcel.dateSent,
                 parcelNumber: parseInt(parcel.parcelNumber),
                 facilityId: parseInt(parcel.facilityId),
-                genre: parcel.genreId,
+                genreId: parseInt(parcel.genreId),
                 title: parcel.title,
                 returnDate: false,
                 returnDetails:false
@@ -84,7 +87,8 @@ export const ParcelForm = () => {
 }
 
         useEffect(() => {
-            getFacilities().then(() => {
+            getGenres().then(getFacilities)
+            .then(() => {
                 if(parcelId) {
                     getParcelById(parcelId)
                     .then(parcel => {
@@ -134,14 +138,13 @@ export const ParcelForm = () => {
 
             <div className="div-label-input">
                 <label>Genre</label>
-             <Form.Control className="form-input"  as="select" id="genre" value={parcel.genre} onChange={handleControlledInputChange}>
-                <option>Select a genre</option>
-                <option>Reference</option>
-                <option>Mystery</option>
-                <option>Western</option>
-                <option >Science Fiction</option>
-                <option>Religion</option>
-                <option>Biography</option>
+             <Form.Control className="form-input"  as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
+             <option value="0">Select a genre</option>
+             {genres.map(g => (
+                <option key={g.id} value={g.id}>
+                  {g.genre}
+                </option>
+              ))}
              </Form.Control>
              </div>
              

@@ -48,7 +48,7 @@ export const ParcelList = () => {
           <td>{p.parcelNumber}</td>
           <td>{p.dateSent}</td>
           <td>{p.facility?.name}</td>
-          <td>{p.genre}</td>
+          <td>{p.genre?.name}</td>
           <td>{p.title}</td>
           <td><button onClick={() => {
           history.push(`/parcels/edit/${p.id}`)}}>Edit</button></td>

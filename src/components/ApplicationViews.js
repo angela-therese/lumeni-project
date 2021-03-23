@@ -11,6 +11,8 @@ import { ParcelProvider } from "./parcels/ParcelProvider"
 import { ParcelForm } from "./parcels/ParcelForm"
 import { ParcelList } from "./parcels/ParcelList"
 
+import { GenreProvider } from "./GenreProvider"
+
 
 export const ApplicationViews = () => {
 
@@ -39,6 +41,8 @@ export const ApplicationViews = () => {
         <ParcelProvider>
                  
             <FacilityProvider>
+
+                <GenreProvider>
                 <Route exact path='/parcels/'>
                  <ParcelList />
                  </Route>
@@ -50,7 +54,7 @@ export const ApplicationViews = () => {
                  <Route exact path="/parcels/edit/:parcelId(\d+)">
                     <ParcelForm />
                 </Route>
-
+                </GenreProvider>
             </FacilityProvider>
         </ParcelProvider>
 

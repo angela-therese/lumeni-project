@@ -8,9 +8,10 @@ export const ParcelProvider = (props) => {
     
     const [parcels, setParcels] = useState([])
     const history = useHistory()
+    
 
     const getParcels = () => {
-        return fetch("http://localhost:8088/parcels?_expand=facility")
+        return fetch(`http://localhost:8088/parcels?_expand=facility&_expand=genre`)
         .then(res => res.json())
         .then(setParcels)
     }
@@ -52,6 +53,8 @@ export const ParcelProvider = (props) => {
         .then(getParcels)
         .then(history.push(`/parcels`))
     }
+
+ 
     
 //return the context provider that holds the functions you defined above. 
 return (
@@ -60,6 +63,7 @@ return (
         }}>
             {props.children}
         </ParcelContext.Provider>
+
 )
 
 }

@@ -127,55 +127,72 @@
   ],
   "parcels": [
     {
-      "dateSent": "2021-03-16",
-      "parcelNumber": 10,
-      "facilityId": 9,
-      "genre": "Mystery",
-      "title": "Nancy Drew",
+      "dateSent": "2021-03-23",
+      "parcelNumber": 13,
+      "facilityId": 5,
+      "genreId": 1,
+      "title": "hshwhy",
       "returnDate": false,
       "returnDetails": false,
+      "id": 1
+    }
+  ],
+  "genres": [
+    {
+      "name": "Art/Music/Movies",
+      "id": 1
+    },
+    {
+      "name": "Business/Finance",
       "id": 2
     },
     {
-      "dateSent": "2021-03-22",
-      "parcelNumber": 11,
-      "facilityId": 12,
-      "genre": "Reference",
-      "title": "Dictionary",
-      "returnDate": false,
-      "returnDetails": false,
-      "id": 3
-    },
-    {
-      "dateSent": "2021-03-15",
-      "parcelNumber": 9,
-      "facilityId": 10,
-      "genre": "Reference",
-      "title": "Dictionary",
-      "returnDate": false,
-      "returnDetails": false,
+      "name": "Classic Fiction",
       "id": 4
     },
     {
-      "dateSent": "2021-03-19",
-      "parcelNumber": 8,
-      "facilityId": 12,
-      "genre": "Biography",
-      "title": "Learning to Code: A Memoir",
-      "returnDate": false,
-      "returnDetails": false,
+      "name": "Coloring/Journal",
       "id": 5
     },
     {
-      "dateSent": "2021-03-18",
-      "parcelNumber": 7,
-      "facilityId": 6,
-      "genre": "Mystery",
-      "title": "Swing",
-      "returnDate": false,
-      "returnDetails": false,
+      "name": "Computers",
+      "id": 3
+    },
+    {
+      "name": "Contemporary Fiction",
       "id": 6
+    },
+    {
+      "name": "Dictionary/Reference",
+      "id": 7
+    },
+    {
+      "name": "Education/Test-Prep",
+      "id": 8
+    },
+    {
+      "name": "Essays/Short Stories",
+      "id": 9
+    },
+    {
+      "name": "Historical Fiction",
+      "id": 10
+    },
+    {
+      "name": "History",
+      "id": 11
+    },
+    {
+      "name": "Horror/True Crime",
+      "id": 12
+    },
+    {
+      "name": "How-To",
+      "id": 13
+    },
+    {
+      "name": "Law/Legal Issues",
+      "id": 14
     }
-  ],
-  "genres": []
+  ]
 }

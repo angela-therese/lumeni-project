@@ -1,9 +1,17 @@
-.parcel-container {
+.parcels-container {
     display:flex;
     flex-direction: column;
-    width: 80vw;
-  
+    width: 70vw;
+    font-size: smaller;
 }
+
+.btns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+  }
 
 fieldset {
     width: 25vw;
@@ -14,10 +22,10 @@ fieldset {
     flex-direction: column;
     margin: 2em;
     font-size: small; 
-    width: 50vw;
+    width: 60vw;
 }
 
-.heading-section {
+.section-heading {
     display: flex;
     flex-direction: column;
     width: 70vw;
@@ -138,4 +146,14 @@ label {
     border: none;
     border-radius: .2em;
 
+}
+
+.btn-del {
+    background-color:  #D95D39;
+   border-radius: .2em;
+   color: whitesmoke;
+   border: none;
+   padding: 6px 0px;
+   margin:0px 0px ;
+   width: 8vw;
 }

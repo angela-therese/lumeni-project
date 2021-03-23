@@ -9,7 +9,8 @@ import { Button } from 'react-bootstrap'
 
 export const ParcelForm = () => {
 
-    const { addParcel, getParcelById, updateParcel} = useContext(ParcelContext)
+    const { addParcel, getParcelById, updateParcel, deleteParcel } = useContext(ParcelContext)
+
     const { facilities, getFacilities } = useContext(FacilityContext)
 
     //button inactive while waiting for data
@@ -24,7 +25,7 @@ export const ParcelForm = () => {
         dateSent: "",
         parcelNumber:null,
         facilityId: null,
-        genreId: null,
+        genre: "",
         title: "",
         returnDate:false,
         returnDetails:false
@@ -58,7 +59,7 @@ export const ParcelForm = () => {
                     dateSent: parcel.dateSent,
                     parcelNumber: parseInt(parcel.parcelNumber),
                     facilityId: parcel.facilityId,
-                    genreId: parcel.genreId,
+                    genre: parcel.genre,
                     title: parcel.title,
                     returnDate: false,
                     returnDetails:false,
@@ -72,7 +73,7 @@ export const ParcelForm = () => {
                 dateSent: parcel.dateSent,
                 parcelNumber: parseInt(parcel.parcelNumber),
                 facilityId: parseInt(parcel.facilityId),
-                genreId: parseInt(parcel.genreId),
+                genre: parcel.genreId,
                 title: parcel.title,
                 returnDate: false,
                 returnDetails:false
@@ -99,7 +100,13 @@ export const ParcelForm = () => {
        
          }, [])
 
-      
+         const handleParcelDelete = () => {
+            deleteParcel(parcel.id)
+                .then(() => {
+                    history.push("/parcels")
+                })
+
+         }
 
          const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
@@ -127,14 +134,14 @@ export const ParcelForm = () => {
 
             <div className="div-label-input">
                 <label>Genre</label>
-             <Form.Control className="form-input"  as="select" id="genreId" value={parcel.genreId} onChange={handleControlledInputChange}>
-                <option value="0">Select a genre</option>
-                <option value="1">Reference</option>
-                <option value="2">Mystery</option>
-                <option value="3">Western</option>
-                <option value="4">Science Fiction</option>
-                <option value="5">Religion</option>
-                <option value="6">Biography</option>
+             <Form.Control className="form-input"  as="select" id="genre" value={parcel.genre} onChange={handleControlledInputChange}>
+                <option>Select a genre</option>
+                <option>Reference</option>
+                <option>Mystery</option>
+                <option>Western</option>
+                <option >Science Fiction</option>
+                <option>Religion</option>
+                <option>Biography</option>
              </Form.Control>
              </div>
              
@@ -167,9 +174,9 @@ export const ParcelForm = () => {
                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                handleSaveParcel()
              }}>
-           <>Save Parcel</> </Button> 
+          {parcelId ? <>Submit</> : <>Save</>}</Button> 
            
-
+          <button className="btn-del" onClick={handleParcelDelete}>Delete</button>
        
         <Button variant="link" size="sm" className="btn-ret" onClick={() => {
                     history.push("/parcels/")}}>Return to List</Button>{' '}
@@ -177,8 +184,8 @@ export const ParcelForm = () => {
            </div>
         </div>
        </fieldset>
-      
         </form>
+        
         </div>
         </section>
         </>

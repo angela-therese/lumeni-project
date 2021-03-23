@@ -23,14 +23,13 @@ return (
    
    <section className="facility-container">
    <div className="div-header"></div>
-    {/* <section > */}
-    <div className="section-heading"><h4>Facilities</h4></div> 
+    <div className="section-heading"><h4>Facilities</h4>
     <div className="btn-header"><Button variant="info" size="sm" className="btn-add" onClick={() => {
-    history.push("/facilities/add")}}>Add New</Button>{' '}</div>
+    history.push("/facilities/add")}}>Add New</Button>{' '}</div></div> 
    
     <article className="table-facility-list">
     
-    <section className="fac-container-state">
+    <section className="facilities-table">
     <Table striped bordered hover size="sm">
     <thead>
         <tr>
@@ -57,7 +56,7 @@ return (
                 <td className="returns-table table-data"></td>
                 <td className="mod-table table-data"><Button variant="info" size="sm" className="btn-edit"  onClick={() => {
                     history.push(`/facilities/edit/${facility.id}`)
-              }}>Modify</Button> </td> 
+              }}>Edit</Button> </td> 
                
                 </tr>
             </tbody>

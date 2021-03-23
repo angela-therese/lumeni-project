@@ -118,7 +118,7 @@ export const FacilityForm = () => {
 
 
              <div className="btns-container">
-       <Button variant="info" className="btn-save" 
+       <Button variant="info" size="sm" className="btn-save" 
              disabled={isLoading}
              onClick={event => {
                 event.preventDefault() // Prevent browser from submitting the form and refreshing the page
@@ -126,11 +126,11 @@ export const FacilityForm = () => {
               }}>
           {facilityId ? <>Submit</> : <>Save</>}</Button>
 
-        <button className="btn-del" onClick={handleDelete}>Delete</button> 
-            
-        </div>
-        <Button variant="link"className="btn-ret" onClick={() => {
+        <button className="btn-del" size="sm" onClick={handleDelete}>Delete</button> 
+        <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
                     history.push("/facilities/")}}>Return to List</Button>{' '}
+        </div>
+        
              
        </div>
        </fieldset>

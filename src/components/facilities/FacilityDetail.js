@@ -30,7 +30,8 @@ export const FacilityDetail = () => {
     <Card.Text>
       With supporting text below as a natural lead-in to additional content.
     </Card.Text>
-    <Button variant="info">Go somewhere</Button>
+    <Button onClick={() => {history.push(`/facilities/`)
+              }}variant="info">Return to List</Button>
   </Card.Body>
 </Card>
         </>

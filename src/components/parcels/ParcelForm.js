@@ -31,8 +31,10 @@ export const ParcelForm = () => {
         facilityId: null,
         genreId: null, 
         title: "",
-        returnDate:false,
-        returnDetails:false
+        return: false,
+        returnDate:"",
+        returnStatus: ""
+        
 
     })
     
@@ -46,6 +48,7 @@ export const ParcelForm = () => {
             setParcel(newParcel)
     }
 
+    
     // const currentDate = new Date()
     // const localDateString = currentDate.toLocaleDateString('en-US')
 
@@ -65,8 +68,8 @@ export const ParcelForm = () => {
                     facilityId: parcel.facilityId,
                     genreId: parseInt(parcel.genreId),
                     title: parcel.title,
-                    returnDate: false,
-                    returnDetails:false,
+                    return: parcel.return,
+                    returnDate:parcel.returnDate,
                     id: parcel.id
     
                 })
@@ -80,8 +83,9 @@ export const ParcelForm = () => {
                 facilityId: parseInt(parcel.facilityId),
                 genreId: parseInt(parcel.genreId),
                 title: parcel.title,
+                return: false,
                 returnDate: false,
-                returnDetails:false
+                
 
             })
             .then(() => setParcel({
@@ -91,8 +95,9 @@ export const ParcelForm = () => {
                 facilityId: 0,
                 genreId: 0, 
                 title: "",
+                return: false,
                 returnDate:false,
-                returnDetails:false
+               
         
             }))
             // .then(getParcels)
@@ -127,13 +132,38 @@ export const ParcelForm = () => {
 
          }
 
+         const handleCancelReturn = () => {
+                
+        
+            setIsLoading(true)
+
+            updateParcel({
+             
+                dateSent: parcel.dateSent,
+                parcelNumber: parseInt(parcel.parcelNumber),
+                facilityId: parcel.facilityId,
+                genreId: parseInt(parcel.genreId),
+                title: parcel.title,
+                return: false,
+                returnDate:"",
+                id: parcel.id
+
+            })
+            .then(getParcels)
+            .then(() => history.push(`/parcels`))
+        
+        
+    }
+
+     
+
          const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
          if(parcelId){
              return (
                 <>
                 
-                {/* <section className="parcel-container"> */}
+                <section className="form-container">
         
                 {/* <div className="div-header"></div> */}
                 <div className="parcel-form-container">
@@ -185,7 +215,24 @@ export const ParcelForm = () => {
                     <label>Book Title</label>
                     <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter title" value={parcel.title}/>
                      </div>
+
+                     <div className="div-label-input">
+                     <label>Undo Return </label>
+                     <button className="btn btn-primary btn-undo" type="date" onClick={event => {
+                       event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                       handleCancelReturn()
+                     }}>Reverse Return</button>
+                    </div>
+
+                    {/* <div className="form-group form-parcel">
+                    <div className="div-label-input">
+                    <label>Returned <br></br>(If applicable)</label>
+                    <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="returnDate" value={parcel.returnDate}/>
+                    </div>
+                    </div> */}
+                   
         
+                   
                
               <div className="btns-container">
                <Button variant="info" className="btn btn-primary" size="sm"
@@ -195,18 +242,20 @@ export const ParcelForm = () => {
                        handleSaveParcel()
                      }}>
                   {parcelId ? <>Submit</> : <>Save</>}</Button> 
+
+                  
                    
                   <button className="btn-del" onClick={handleParcelDelete}>Delete</button>
                
                 <Button variant="link" size="sm" className="btn-ret" onClick={() => {
                             history.push("/parcels/")}}>Return to List</Button>{' '}
-                   {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
                    </div>
                 </div>
                </fieldset>
                 </form>
                 
                 </div>
+                </section>
                 {/* </section> */}
                 </>
 
@@ -218,14 +267,14 @@ export const ParcelForm = () => {
     return (
         <>
 
-        {/* <section className="parcel-container"> */}
+        <section className="form-container">
 
         {/* <div className="div-header"></div> */}
-        <div className="parcel-form-container">
+      
 
         <form className="ParcelForm">
-        <fieldset>
-        <h5> {parcelId ? <>Edit Parcel</> : <>Add a Parcel</>}</h5>
+        {/* <fieldset> */}
+        <h5> {parcelId ? <>Edit Parcel</> : <>Add Parcel</>}</h5>
     
         <div className="form-group form-parcel">
             <div className="div-label-input">
@@ -284,10 +333,10 @@ export const ParcelForm = () => {
       
            </div>
         </div>
-       </fieldset>
+       {/* </fieldset> */}
         </form>
-        
-        </div>
+        {/* </div> */}
+        </section>
         {/* </section> */}
         </>
 

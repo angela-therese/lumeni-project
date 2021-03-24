@@ -1,41 +1,49 @@
+.form-and-list-container {
+    display: flex;
+    width: 80vw;
+}
 .list-container {
     display:flex;
     flex-direction: column;
-    width: 50vw;
+    width: 52vw;
     height: 90vh;
     font-size: smaller;
 }
+    .table-parcels-list {
+    width: 52vw;
+    margin-left: 1em;
+    height: 80vh;
+    overflow-y: auto;
+            }
 
-.btns-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
-  }
 
-fieldset {
+.form-container {
     width: 25vw;
+    margin: 2em;
 }
-
-.ParcelForm {
+    .ParcelForm {
     display: flex;
     flex-direction: column;
     margin: 1em;
     font-size: small; 
     width: 20vw;
-}
- .parcel-form-container {
-     width: 50vw;
-     margin: 1em;
-    
-     
- }
+    }
 
-.form-and-list-container {
+        .btns-container {
     display: flex;
-    width: 70vw;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
     
+        }
+
+
+.parcel-return-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 2em;
+    width: 100vw
 
 }
 
@@ -47,12 +55,6 @@ fieldset {
     margin-left: 2em;
 }
 
-.table-parcels-list {
-    width: 50vw;
-    margin-left: 1em;
-    height: 80vh;
-    overflow-y: auto;
-}
 
 .form-parcel {
     display: flex;
@@ -60,7 +62,8 @@ fieldset {
 }
 
 .form-input {
-    margin: .5em
+    margin: .5em;
+
 }
 
 .date-input {
@@ -102,7 +105,7 @@ fieldset {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    width: 30vw
+    width: 25vw
 }
 
 label {
@@ -140,6 +143,11 @@ label {
     width: 4vw
 }
 
+
+.btn-undo{
+    width: 13vw;
+    
+}
 .btn-edit {
     width: 5vw;
     padding: 0;

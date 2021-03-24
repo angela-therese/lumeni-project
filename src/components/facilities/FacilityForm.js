@@ -125,8 +125,8 @@ export const FacilityForm = () => {
                 handleSaveFacility()
               }}>
           {facilityId ? <>Submit</> : <>Save</>}</Button>
-
-        <button className="btn-del" size="sm" onClick={handleDelete}>Delete</button> 
+{/* 
+        <button className="btn-del" size="sm" onClick={handleDelete}>Delete</button>  */}
         <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
                     history.push("/facilities/")}}>Return to List</Button>{' '}
         </div>

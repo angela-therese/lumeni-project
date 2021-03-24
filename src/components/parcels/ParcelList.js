@@ -9,19 +9,21 @@ import { Button } from "react-bootstrap"
 
 export const ParcelList = () => {
     const history = useHistory()
-    const { parcels, getParcels, getParcelById } = useContext(ParcelContext)
+    const { parcels, getParcels, updateParcel, getParcelById } = useContext(ParcelContext)
     
     // const [showForm, setShowForm] = useState(false)
     // const toggleForm = () => {setShowForm(true)}
 
-    
-    
+
 
     useEffect(() => {
         getParcels()
     },[])
 
     const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
+
+    
+    
 
     // if(showForm === true){
         return (
@@ -44,11 +46,14 @@ export const ParcelList = () => {
             <th>Destination</th>
             <th>Genre</th>
             <th>Title</th>
+            <th>Returned</th>
+            {/* <th>Return Notes</th> */}
             <th></th>
             </tr>
             </thead>
             {sortedParcels.map(p => { 
       
+                let returned = p.return ? 'yes' : 'no'
                     return (
          
                  <tbody>
@@ -58,8 +63,12 @@ export const ParcelList = () => {
                  <td>{p.facility?.state + "--" + p.facility?.name}</td>
                  <td>{p.genre?.name}</td>
                  <td>{p.title}</td>
+                 <td>{returned}</td>
+                 {/* <td>{p.returnDetails}</td> */}
                  <td><button onClick={() => {
-                    history.push(`/parcels/edit/${p.id}`)}}>Edit</button></td>
+                    history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
+                    <button onClick={() => {
+                    history.push(`/parcels/return/${p.id}`)}}>Return</button></td>
                  </tr>
                  </tbody>
       )}  

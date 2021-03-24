@@ -129,7 +129,7 @@
     {
       "dateSent": "2021-03-24",
       "parcelNumber": 1,
-      "facilityId": 1,
+      "facilityId": "17",
       "genreId": 11,
       "title": "Born a Crime",
       "return": false,
@@ -145,12 +145,96 @@
       "return": false,
       "returnDate": "",
       "id": 2
+    },
+    {
+      "dateSent": "2021-03-23",
+      "parcelNumber": 3,
+      "facilityId": 6,
+      "genreId": 29,
+      "title": "The Fire Next Time",
+      "return": false,
+      "returnDate": false,
+      "id": 3
+    },
+    {
+      "dateSent": "2021-03-23",
+      "parcelNumber": 4,
+      "facilityId": 2,
+      "genreId": 8,
+      "title": "GED prep",
+      "return": false,
+      "returnDate": false,
+      "id": 4
+    },
+    {
+      "dateSent": "2021-03-24",
+      "parcelNumber": 5,
+      "facilityId": 11,
+      "genreId": 6,
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "return": false,
+      "returnDate": false,
+      "id": 5
+    },
+    {
+      "dateSent": "2021-03-21",
+      "parcelNumber": 6,
+      "facilityId": 10,
+      "genreId": 4,
+      "title": "Rumble Fish",
+      "return": true,
+      "returnDate": "2021-03-24",
+      "id": 6
+    },
+    {
+      "dateSent": "2021-03-22",
+      "parcelNumber": 7,
+      "facilityId": 9,
+      "genreId": 4,
+      "title": "The Grapes of Wrath",
+      "return": false,
+      "returnDate": false,
+      "id": 7
+    },
+    {
+      "dateSent": "2021-03-17",
+      "parcelNumber": 8,
+      "facilityId": 12,
+      "genreId": 3,
+      "title": "The Dummies' Guide to React",
+      "return": false,
+      "returnDate": false,
+      "id": 8
+    },
+    {
+      "dateSent": "2021-03-16",
+      "parcelNumber": 9,
+      "facilityId": 9,
+      "genreId": 19,
+      "title": "The Dream Keeper",
+      "return": false,
+      "returnDate": false,
+      "id": 9
+    },
+    {
+      "dateSent": "2021-03-15",
+      "parcelNumber": 10,
+      "facilityId": 1,
+      "genreId": 7,
+      "title": "Webster's Dictionary",
+      "return": false,
+      "returnDate": false,
+      "id": 10
     }
   ],
   "genres": [
     {
       "name": "Art/Music/Movies",
       "id": 1
+    },
+    {
+      "name": "Black History",
+      "id": 29
     },
     {
       "name": "Business/Finance",
@@ -193,16 +277,76 @@
       "id": 11
     },
     {
-      "name": "Horror/True Crime",
-      "id": 12
-    },
-    {
       "name": "How-To",
       "id": 13
     },
     {
       "name": "Law/Legal Issues",
       "id": 14
+    },
+    {
+      "name": "Magazine/Comic",
+      "id": 15
+    },
+    {
+      "name": "Memoir/Biography",
+      "id": 16
+    },
+    {
+      "name": "Mystery/Thriller/Horror",
+      "id": 17
+    },
+    {
+      "name": "Philosophy/Sociology/Psychology",
+      "id": 18
+    },
+    {
+      "name": "Poetry",
+      "id": 19
+    },
+    {
+      "name": "Prison Literature",
+      "id": 20
+    },
+    {
+      "name": "Religious/Spirituality",
+      "id": 21
+    },
+    {
+      "name": "Romance",
+      "id": 22
+    },
+    {
+      "name": "Sci-Fi/Fantasy",
+      "id": 23
+    },
+    {
+      "name": "Science/Nature",
+      "id": 24
+    },
+    {
+      "name": "Self-Help/Health/Inspirational",
+      "id": 25
+    },
+    {
+      "name": "Sports/Games",
+      "id": 26
+    },
+    {
+      "name": "True Crime",
+      "id": 12
+    },
+    {
+      "name": "Western",
+      "id": 27
+    },
+    {
+      "name": "World Languages",
+      "id": 28
+    },
+    {
+      "name": "Other",
+      "id": 30
     }
   ]
 }

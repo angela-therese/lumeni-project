@@ -65,9 +65,9 @@ export const ParcelList = () => {
                  <td>{p.title}</td>
                  <td>{returned}</td>
                  {/* <td>{p.returnDetails}</td> */}
-                 <td><button onClick={() => {
+                 <td><button className="btn-edit-list" onClick={() => {
                     history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
-                    <button onClick={() => {
+                    <button className="btn-return-list" onClick={() => {
                     history.push(`/parcels/return/${p.id}`)}}>Return</button></td>
                  </tr>
                  </tbody>

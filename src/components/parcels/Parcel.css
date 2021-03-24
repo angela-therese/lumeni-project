@@ -159,6 +159,28 @@ label {
     
 }
 
+.btn-edit-list {
+    width: 5vw;
+    padding: 0;
+    margin-bottom: 2px;
+    background-color: lightgray;
+    color: black;
+    border: none;
+    border-radius: .2em;
+    
+}
+
+.btn-return-list {
+    width: 5vw;
+    padding: 0;
+    margin: 0;
+    background-color: #7b9e89;
+    color: black;
+    border: none;
+    border-radius: .2em;
+
+}
+
 .btn-return {
     width: 5vw;
     padding: 0;

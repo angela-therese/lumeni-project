@@ -6,12 +6,14 @@ import {Home} from "./Home"
 import { FacilityProvider } from "./facilities/FacilityProvider"
 import { FacilityForm } from "./facilities/FacilityForm";
 import { FacilityList } from "./facilities/FacilityList"
+import { FacilityDetail } from "./facilities/FacilityDetail"
 
 import { ParcelProvider } from "./parcels/ParcelProvider"
 import { ParcelForm } from "./parcels/ParcelForm"
 import { ParcelList } from "./parcels/ParcelList"
 
 import { GenreProvider } from "./GenreProvider"
+
 
 
 export const ApplicationViews = () => {
@@ -36,6 +38,9 @@ export const ApplicationViews = () => {
               <FacilityForm />
             </Route>
 
+            <Route exact path="/facilities/details/:facilityId(\d+)">
+                <FacilityDetail/>
+            </Route>
         </FacilityProvider>
 
         <ParcelProvider>

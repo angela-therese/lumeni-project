@@ -49,7 +49,7 @@ return (
             <tbody>
                 <tr>
                 <td className="fac-table table-data" >{facility.name}</td>
-                <td className="mod-table table-data"><Button variant="link" size="sm" className="btn-det">Details</Button></td>
+                <td className="mod-table table-data"><Button variant="link" size="sm" className="btn-det" onClick={() => { history.push(`/facilities/details/${facility.id}`)}}>Details</Button></td>
                 <td className="city-table table-data">{facility.city}</td>
                 <td className="state-table table-data">{facility.state}</td>
                 <td className="sent-table table-data"></td>

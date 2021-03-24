@@ -55,7 +55,7 @@ export const ParcelList = () => {
                  <tr>
                  <td>{p.parcelNumber}</td>
                  <td>{p.dateSent}</td>
-                 <td>{p.facility?.name}</td>
+                 <td>{p.facility?.state + "--" + p.facility?.name}</td>
                  <td>{p.genre?.name}</td>
                  <td>{p.title}</td>
                  <td><button onClick={() => {

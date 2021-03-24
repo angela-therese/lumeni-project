@@ -2,6 +2,7 @@
     display:flex;
     flex-direction: column;
     width: 50vw;
+    height: 90vh;
     font-size: smaller;
 }
 
@@ -22,11 +23,13 @@ fieldset {
     flex-direction: column;
     margin: 1em;
     font-size: small; 
-    width: 30vw;
+    width: 20vw;
 }
  .parcel-form-container {
-     width: 30vw;
-     margin: 1em
+     width: 50vw;
+     margin: 1em;
+    
+     
  }
 
 .form-and-list-container {
@@ -45,15 +48,15 @@ fieldset {
 }
 
 .table-parcels-list {
-    width: 40vw;
-    margin-left: 2em
-   
+    width: 50vw;
+    margin-left: 1em;
+    height: 80vh;
+    overflow-y: auto;
 }
 
 .form-parcel {
     display: flex;
     flex-direction: column;
-   
 }
 
 .form-input {

@@ -89,9 +89,9 @@ h4.section-heading {
   
 }
 
-.table-data {
+/* .table-data {
     font-size: smaller;
-}
+} */
 
 
 .btn-return {
@@ -151,4 +151,8 @@ h4.section-heading {
 
 .table-facility-list {
     width: 70vw
+}
+
+.facility-detail-card {
+    width: 60vw
 }

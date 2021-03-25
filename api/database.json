@@ -172,7 +172,7 @@
       "facilityId": 11,
       "genreId": 6,
       "title": "Harry Potter and the Sorcerer's Stone",
-      "return": false,
+      "return": true,
       "returnDate": false,
       "id": 5
     },
@@ -182,8 +182,8 @@
       "facilityId": 10,
       "genreId": 4,
       "title": "Rumble Fish",
-      "return": true,
-      "returnDate": "2021-03-24",
+      "return": false,
+      "returnDate": "",
       "id": 6
     },
     {
@@ -193,7 +193,7 @@
       "genreId": 4,
       "title": "The Grapes of Wrath",
       "return": false,
-      "returnDate": false,
+      "returnDate": "",
       "id": 7
     },
     {
@@ -223,7 +223,7 @@
       "genreId": 7,
       "title": "Webster's Dictionary",
       "return": false,
-      "returnDate": false,
+      "returnDate": "",
       "id": 10
     }
   ],

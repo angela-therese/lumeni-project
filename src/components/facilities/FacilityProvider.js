@@ -11,7 +11,7 @@ export const FacilityProvider = (props) => {
     const history = useHistory()
 
     const getFacilities = () => {
-        return fetch("http://localhost:8088/facilities")
+        return fetch("http://localhost:8088/facilities/?_embed=parcels")
         .then(res => res.json())
         .then(setFacilities)
     }
@@ -28,12 +28,12 @@ export const FacilityProvider = (props) => {
     }
 
     const getFacilityById = (id) => {
-        return fetch(`http://localhost:8088/facilities/${id}`)
+        return fetch(`http://localhost:8088/facilities/${id}/?_embed=parcels`)
         .then(res => res.json())
     } 
 
     const updateFacility = facility => {
-        return fetch (`http://localhost:8088/facilities/${facility.id}`, {
+        return fetch (`http://localhost:8088/facilities/${facility.id}/`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -43,7 +43,7 @@ export const FacilityProvider = (props) => {
             .then(getFacilities)
     }
     const deleteFacility = facilityId => {
-        return fetch(`http://localhost:8088/facilities/${facilityId}`, {
+        return fetch(`http://localhost:8088/facilities/${facilityId}?_embed=parcels`, {
             method: "DELETE"
         })
             .then(getFacilities)

@@ -2,42 +2,52 @@ import React, { useState, useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { ParcelContext } from "./ParcelProvider"
 import { ParcelForm } from "./ParcelForm"
+import { SearchBar } from "../SearchBar"
 import './Parcel.css'
 import { Table } from "react-bootstrap"
-import { Button } from "react-bootstrap"
+
 
 
 export const ParcelList = () => {
     const history = useHistory()
-    const { parcels, getParcels, updateParcel, getParcelById } = useContext(ParcelContext)
+    const { parcels, getParcels} = useContext(ParcelContext)
     
     // const [showForm, setShowForm] = useState(false)
     // const toggleForm = () => {setShowForm(true)}
-
-
-
+    
+    const [searchField, setSearchField] = useState("")
+    const [filteredParcels, setFiltered] = useState([])
+    const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
+    
     useEffect(() => {
         getParcels()
     },[])
 
-    const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
+    useEffect(() => {
+      
+        if(searchField !== "") {
+            debugger
+            const list = sortedParcels.filter(p => {
+               return p.title.toLowerCase().includes(searchField.toLowerCase())
+            })
+            setFiltered(list) 
+        }
+        else {
+            setFiltered(sortedParcels)
+        }
+        },[searchField, sortedParcels])
 
-    
-    
-
-    // if(showForm === true){
         return (
             <>
            <article className="form-and-list-container">
-           {/* <div className="div-header"></div> */}
-           
-            
+          
             <section className="list-container">
-    {/* <section > */}
-            <div className="section-heading"><h4>Parcels</h4>
-            {/* <div className="btn-header"><Button variant="info" size="sm" className="btn-add" onClick={toggleForm}>New Entry</Button>{' '}</div> */}
-             </div> 
-             <section className="table-parcels-list">
+            <SearchBar classname="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/>
+
+
+            <div className="section-heading"><h4>Parcels</h4></div> 
+
+            <section className="table-parcels-list">
             <Table striped bordered hover size="sm">
             <thead>
             <tr>
@@ -47,117 +57,41 @@ export const ParcelList = () => {
             <th>Genre</th>
             <th>Title</th>
             <th>Returned</th>
-            {/* <th>Return Notes</th> */}
             <th></th>
             </tr>
             </thead>
-            {sortedParcels.map(p => { 
-      
-                let returned = p.return ? 'yes' : 'no'
+            {
+                filteredParcels.map(p => {
+                    let returned = p.return ? 'yes' : 'no'
                     return (
-         
-                 <tbody>
-                 <tr>
-                 <td>{p.parcelNumber}</td>
-                 <td>{p.dateSent}</td>
-                 <td>{p.facility?.state + "--" + p.facility?.name}</td>
-                 <td>{p.genre?.name}</td>
-                 <td>{p.title}</td>
-                 <td>{returned}</td>
-                 {/* <td>{p.returnDetails}</td> */}
-                 <td><button className="btn-edit-list" onClick={() => {
-                    history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
-                    <button className="btn-return-list" onClick={() => {
-                    history.push(`/parcels/return/${p.id}`)}}>Return</button></td>
-                 </tr>
-                 </tbody>
-      )}  
-      )}
-
+                      
+                <>
+                <tbody>
+                <tr>
+                <td>{p.parcelNumber}</td>
+                <td>{p.dateSent}</td>
+                <td>{p.facility?.state + "--" + p.facility?.name}</td>
+                <td>{p.genre?.name}</td>
+                <td>{p.title}</td>
+                <td>{returned}</td>
+                <td><button className="btn-edit-list" onClick={() => {
+                   history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
+                   <button className="btn-return-list" onClick={() => {
+                   history.push(`/parcels/return/${p.id}`)}}>Return</button></td>
+                </tr>
+                </tbody>
+                </>
+                
+              
+                    )}
+                    )}
+     
     </Table>
     </section>
     </section>
     <ParcelForm/>
     </article>
-    
+    </>
+    )
+ }
             
-            </>
-        )
-      }
-
-
-
-
-      
-//     }
-//     else {
-//     return (
-
-//     <>
-//     <section className="parcels-container">
-//     <div className="div-header"></div>
-//     {/* <section > */}
-//     <div className="section-heading"><h4>Parcels</h4>
-//     <div className="btn-header"><Button variant="info" size="sm" className="btn-add" onClick={toggleForm}>New Entry</Button>{' '}</div>
-//     </div> 
-//    <section className="table-parcels-list">
-//     <Table striped bordered hover size="sm">
-//   <thead>
-//     <tr>
-//       <th>#</th>
-//       <th>Date</th>
-//       <th>Destination</th>
-//       <th>Genre</th>
-//       <th>Title</th>
-//       <th></th>
-//     </tr>
-//   </thead>
-//   {sortedParcels.map(p => { 
-      
-//       return (
-         
-//         <tbody>
-//         <tr>
-//           <td>{p.parcelNumber}</td>
-//           <td>{p.dateSent}</td>
-//           <td>{p.facility?.name}</td>
-//           <td>{p.genre?.name}</td>
-//           <td>{p.title}</td>
-//           <td><button onClick={() => {
-//           history.push(`/parcels/edit/${p.id}`)}}>Edit</button></td>
-//         </tr>
-//         </tbody>
-//       )}  
-//       )}
-
-    // </Table>
-    // </section>
-    // </section>
-
-        // </>
-        // )}
-
-
-
-
-      
-   
-
-// onClick={() => {
-//     history.push("/parcels/add")}}
-
-{/* 
-        {sortedParcels.map(p => { 
-      
-            return (
-                <>
-                <p>p.parcelNumber</p>
-                <p>p.dateSent</p>
-                <button   onClick={() => {
-                    history.push(`/parcels/edit/${p.id}`)
-              }}>Modify</button> 
-                
-                </>
-            )}
-      
-    )} */}

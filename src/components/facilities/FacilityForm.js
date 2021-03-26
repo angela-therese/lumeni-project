@@ -115,6 +115,8 @@ export const FacilityForm = () => {
                 <option>VA</option>
                 <option>WV</option>
              </Form.Control>
+             <label htmlFor="facilityName">Facility Notes</label>
+            <input className="input-fac" type="textarea" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Optional notes here" value={facility.notes}/>
 
 
              <div className="btns-container">

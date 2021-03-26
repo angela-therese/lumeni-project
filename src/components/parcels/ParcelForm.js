@@ -54,7 +54,7 @@ export const ParcelForm = () => {
 
         const handleSaveParcel= () => {
             
-            if (parcel.dateSent === "" || parcel.parcelNumber === null || parcel.facilityId === false || parcel.genreId === 0 || parcel.title === ""){
+            if (parcel.dateSent === "" || parcel.parcelNumber === null || parcel.facilityId === "0" || parcel.genreId === 0 || parcel.title === ""){
                 window.alert("Please fill in all fields.")
             }
             else if(parcelId){
@@ -221,7 +221,7 @@ export const ParcelForm = () => {
                      <button className="btn btn-primary btn-undo" type="date" onClick={event => {
                        event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                        handleCancelReturn()
-                     }}>Reverse Return</button>
+                     }}>Undo Return</button> 
                     </div>
 
                     {/* <div className="form-group form-parcel">

@@ -17,6 +17,8 @@ export const FacilityList = () => {
 
   const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
+
+
 return (
      
   <>   
@@ -24,7 +26,7 @@ return (
    <section className="facility-container">
    <div className="div-header"></div>
     <div className="section-heading"><h4>Facilities</h4>
-    <div className="btn-header"><Button variant="info" size="sm" className="btn-add" onClick={() => {
+    <div className="btn-header"><Button variant="secondary" size="sm" className="btn-add" onClick={() => {
     history.push("/facilities/add")}}>Add New</Button>{' '}</div></div> 
    
     <article className="table-facility-list">
@@ -39,21 +41,22 @@ return (
         <th className="state-table">State</th>
         <th className="sent-table">Parcels</th>
         <th className="returns-table">Returns</th>
+        <th className="notes-table">Notes</th>
         <th className="mod-table"></th>
         
         </tr>
     </thead>
     {sortedFacilities.map(facility => { 
-
-         return (
+     const returnCount = facility.parcels?.filter(p => p.return === true);         return (
             <tbody>
                 <tr>
                 <td className="fac-table table-data" >{facility.name}</td>
                 <td className="mod-table table-data"><Button variant="link" size="sm" className="btn-det" onClick={() => { history.push(`/facilities/details/${facility.id}`)}}>Details</Button></td>
                 <td className="city-table table-data">{facility.city}</td>
                 <td className="state-table table-data">{facility.state}</td>
-                <td className="sent-table table-data"></td>
-                <td className="returns-table table-data"></td>
+                <td className="sent-table table-data">{facility.parcels?.length}</td>
+                <td className="returns-table table-data">{returnCount?.length}</td>
+                <td className="notes-table">{facility.notes}</td>
                 <td className="mod-table table-data"><Button variant="info" size="sm" className="btn-edit"  onClick={() => {
                     history.push(`/facilities/edit/${facility.id}`)
               }}>Edit</Button> </td> 

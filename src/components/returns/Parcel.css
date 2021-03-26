@@ -1,0 +1,220 @@
+.form-and-list-container {
+    display: flex;
+    width: 80vw;
+    margin-top: 2em
+}
+.list-container {
+    display:flex;
+    flex-direction: column;
+    width: 52vw;
+    height: 90vh;
+    font-size: smaller;
+}
+    .table-parcels-list {
+    width: 52vw;
+    margin-left: 1em;
+    height: 80vh;
+    overflow-y: auto;
+            }
+
+
+.form-container {
+    width: 25vw;
+    margin: 2em;
+}
+    .ParcelForm {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    font-size: small; 
+    width: 20vw;
+    }
+
+        .btns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    
+        }
+
+
+.parcel-return-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 2em;
+    width: 100vw
+
+}
+
+.returns-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    justify-content: center;
+    align-items: left;
+    margin-top: 2em;
+    font-size: smaller;
+
+}
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+.returns-heading {
+    text-align: left;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+.form-parcel {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    margin: .5em;
+
+}
+
+.date-input {
+    border: lightgray 1px solid
+
+}
+
+.div-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2em;
+    height: 8vh;
+    background-color: black;
+    width: 85vw;
+    
+}
+
+.btns-save-return {
+    width: 10em;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.header-user {
+    color: white
+}
+
+.date-input {
+    width: 10em;
+    height: 3em;
+    margin-left: -2em;
+    border-radius: .2em;
+}
+
+.div-label-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 25vw
+}
+
+label {
+    width: 10em;
+    
+}
+
+/*PARCELLIST */
+
+.table-data {
+    font-size: smaller;
+}
+
+.parcelNumber {
+    width: 5vw;
+}
+
+.date {
+    width: 8vw;
+}
+
+.facility {
+    width: 16vw;
+}
+
+.genre {
+    width: 8vw
+}
+
+.mod {
+    width: 10vw
+}
+
+.returned {
+    width: 4vw
+}
+
+
+.btn-undo{
+    width: 13vw;
+    
+}
+.btn-edit {
+    width: 5vw;
+    padding: 0;
+    margin: 0;
+    background-color: lightgray;
+    color: black;
+    border: none;
+    border-radius: .2em;
+    
+}
+
+.btn-edit-list {
+    width: 5vw;
+    padding: 0;
+    margin-bottom: 2px;
+    background-color: lightgray;
+    color: black;
+    border: none;
+    border-radius: .2em;
+    
+}
+
+.btn-return-list {
+    width: 5vw;
+    padding: 0;
+    margin: 0;
+    background-color: #7b9e89;
+    color: black;
+    border: none;
+    border-radius: .2em;
+
+}
+
+.btn-return {
+    width: 5vw;
+    padding: 0;
+    margin: 0;
+    background-color: #7b9e89;
+    color: black;
+    border: none;
+    border-radius: .2em;
+
+}
+
+.btn-del {
+    background-color:  #D95D39;
+   border-radius: .2em;
+   color: whitesmoke;
+   border: none;
+   padding: 6px 0px;
+   margin:0px 0px ;
+   width: 8vw;
+}

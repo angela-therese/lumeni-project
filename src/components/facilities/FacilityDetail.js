@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { FacilityContext } from "./FacilityProvider"
-import { Card, Button, Table} from "react-bootstrap"
+import { Card, Button, Table, Modal} from "react-bootstrap"
 import './Facility.css'
 
 export const FacilityDetail = () => {
     const { getFacilityById } = useContext(FacilityContext)
-    
-
     const [ facility, setFacility ] = useState({})
+
 
     const {facilityId} = useParams();
     const history = useHistory();
@@ -20,11 +19,13 @@ export const FacilityDetail = () => {
         })
     }, [] )
 
- 
+   
+    const returnCount = facility.parcels?.filter(p => p.return === true)
 
 
   return (
   <>
+  <article className="card-container">
   <Card className="facility-detail-card">
         
   <Card.Header> <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /></Card.Header>
@@ -32,8 +33,10 @@ export const FacilityDetail = () => {
   <Card.Body>
     <Card.Title>{facility.name}</Card.Title>
     <Card.Text>
-      <h6>Total books sent: </h6>
-      <h6>Total books returned:</h6><br></br>
+      <h6>Total books sent: {facility.parcels?.length}</h6>
+      <h6>Total books returned: {returnCount?.length}</h6><br></br>
+      <h6>Notes</h6>
+      <p>{facility.notes}</p>
       <h6>{facility.name} Parcel List</h6>
       <Table striped border hover size="sm">
       <thead>
@@ -63,8 +66,12 @@ export const FacilityDetail = () => {
     </Card.Text>
     <Button onClick={() => {history.push(`/facilities/`)
               }}variant="info">Return to List</Button>
+
   </Card.Body>
 </Card>
+</article>
+
+
         </>
 
     )

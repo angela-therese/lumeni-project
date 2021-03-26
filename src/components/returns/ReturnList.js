@@ -1,24 +1,23 @@
 import React, { useState, useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { ParcelContext } from "./ParcelProvider"
-import { ParcelForm } from "./ParcelForm"
+import { ParcelContext } from "../parcels/ParcelProvider"
 import { SearchBar } from "../SearchBar"
 import './Parcel.css'
-import { Table } from "react-bootstrap"
+import { Table, Button } from "react-bootstrap"
 
 
 
-export const ParcelList = () => {
+export const ReturnList = () => {
     const history = useHistory()
     const { parcels, getParcels} = useContext(ParcelContext)
     
-      
-        
     // const [showForm, setShowForm] = useState(false)
     // const toggleForm = () => {setShowForm(true)}
     
     const [searchField, setSearchField] = useState("")
     const [filteredParcels, setFiltered] = useState([])
+    
+    
     const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
     
     useEffect(() => {
@@ -29,7 +28,7 @@ export const ParcelList = () => {
       
         if(searchField !== "") {
             const list = sortedParcels.filter(p => {
-               return p.title.toLowerCase().includes(searchField.toLowerCase())
+               return p.title.toLowerCase().includes(searchField.toLowerCase()) 
             })
             setFiltered(list) 
         }
@@ -38,18 +37,20 @@ export const ParcelList = () => {
         }
         },[searchField, sortedParcels])
 
+    
+
+
         return (
             <>
-           <article className="form-and-list-container">
+           <article className="returns-container">
           
-            <section className="list-container">
             <section className="returns-heading">
-            <div><h4>Parcels</h4></div> 
-            <label>Search Parcels</label>
-            <SearchBar classname="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/>
+            <div><h4>Returns</h4></div> 
+            <label>Search Returns</label>
+            <SearchBar className="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/><br></br>
+            <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
+                            history.push("/parcels/")}}>Return to Parcels</Button>{' '}
             </section>
-
-            
 
             <section className="table-parcels-list">
             <Table striped bordered hover size="sm">
@@ -60,13 +61,12 @@ export const ParcelList = () => {
             <th>Destination</th>
             <th>Genre</th>
             <th>Title</th>
-            <th>Returned</th>
-            <th></th>
+            
             </tr>
             </thead>
             {
                 filteredParcels.map(p => {
-                    let returned = p.return ? 'yes' : 'no'
+                    if(p.return === true)
                     return (
                       
                 <>
@@ -77,26 +77,19 @@ export const ParcelList = () => {
                 <td>{p.facility?.state + "--" + p.facility?.name}</td>
                 <td>{p.genre?.name}</td>
                 <td>{p.title}</td>
-                <td>{returned}</td>
-                <td><button className="btn-edit-list" onClick={() => {
-                   history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
-                   <button className="btn-return-list" onClick={() => {
-                   history.push(`/parcels/return/${p.id}`)}}>Return</button>
-                   </td>
+               
                 </tr>
                 </tbody>
-
-      
                 </>
                 
-              
+           
                     )}
                     )}
-
+               
+     
     </Table>
     </section>
-    </section>
-    <ParcelForm/>
+    {/* </section> */}
     </article>
     </>
     )

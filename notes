@@ -1,3 +1,50 @@
+                      //MODAL 
+<Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Return Book</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Did this facility send the book back? Please enter date and click save.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+//END MODAL
+            
+            //MODAL
+        const [show, setShow] = useState(false);
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
+        const saveReturn = () => {
+            if (parcel.return === "" || parcel.parcelNumber === null || parcel.facilityId === "0" || parcel.genreId === 0 || parcel.title === ""){
+                window.alert("Please fill in all fields.")
+            }
+            else if(parcelId){
+
+                setIsLoading(true)
+
+                updateParcel({
+                 
+                    dateSent: parcel.dateSent,
+                    parcelNumber: parseInt(parcel.parcelNumber),
+                    facilityId: parcel.facilityId,
+                    genreId: parseInt(parcel.genreId),
+                    title: parcel.title,
+                    return: parcel.return,
+                    returnDate:parcel.returnDate,
+                    id: parcel.id
+    
+                })
+                .then(getParcels)
+            setShow(false)
+        }
+        //END MODAL
+          
+          
           DEBUGGING FILTER
             if(searchField !== "") {
             debugger

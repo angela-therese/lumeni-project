@@ -129,7 +129,7 @@
     {
       "dateSent": "2021-03-24",
       "parcelNumber": 1,
-      "facilityId": "17",
+      "facilityId": 17,
       "genreId": 11,
       "title": "Born a Crime",
       "return": false,
@@ -152,7 +152,7 @@
       "facilityId": 6,
       "genreId": 29,
       "title": "The Fire Next Time",
-      "return": false,
+      "return": true,
       "returnDate": false,
       "id": 3
     },
@@ -162,7 +162,7 @@
       "facilityId": 2,
       "genreId": 8,
       "title": "GED prep",
-      "return": false,
+      "return": true,
       "returnDate": false,
       "id": 4
     },
@@ -225,6 +225,146 @@
       "return": false,
       "returnDate": "",
       "id": 10
+    },
+    {
+      "dateSent": "2021-03-24",
+      "parcelNumber": 11,
+      "facilityId": 4,
+      "genreId": 1,
+      "title": "Drawing Animals",
+      "return": false,
+      "returnDate": false,
+      "id": 11
+    },
+    {
+      "dateSent": "2021-03-17",
+      "parcelNumber": 12,
+      "facilityId": "9",
+      "genreId": 6,
+      "title": "Restart",
+      "return": true,
+      "returnDate": "2021-03-25",
+      "id": 12
+    },
+    {
+      "dateSent": "2021-03-21",
+      "parcelNumber": 13,
+      "facilityId": 14,
+      "genreId": 16,
+      "title": "The Color of Water",
+      "return": false,
+      "returnDate": false,
+      "id": 13
+    },
+    {
+      "dateSent": "2021-03-19",
+      "parcelNumber": 14,
+      "facilityId": 10,
+      "genreId": 4,
+      "title": "The Invisible Man",
+      "return": false,
+      "returnDate": false,
+      "id": 14
+    },
+    {
+      "dateSent": "2021-03-15",
+      "parcelNumber": 15,
+      "facilityId": "17",
+      "genreId": 24,
+      "title": "The Glass Cage",
+      "return": false,
+      "returnDate": false,
+      "id": 15
+    },
+    {
+      "dateSent": "2021-03-22",
+      "parcelNumber": 16,
+      "facilityId": 5,
+      "genreId": 4,
+      "title": "The Prince and the Pauper",
+      "return": false,
+      "returnDate": false,
+      "id": 16
+    },
+    {
+      "dateSent": "2021-03-22",
+      "parcelNumber": 17,
+      "facilityId": 11,
+      "genreId": 7,
+      "title": "Webster's Dictionary",
+      "return": false,
+      "returnDate": false,
+      "id": 17
+    },
+    {
+      "dateSent": "2021-03-22",
+      "parcelNumber": 18,
+      "facilityId": 12,
+      "genreId": 7,
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "return": false,
+      "returnDate": false,
+      "id": 18
+    },
+    {
+      "dateSent": "2021-03-24",
+      "parcelNumber": 19,
+      "facilityId": 8,
+      "genreId": 14,
+      "title": "Legal Dictionary",
+      "return": false,
+      "returnDate": false,
+      "id": 19
+    },
+    {
+      "dateSent": "2021-03-24",
+      "parcelNumber": 20,
+      "facilityId": 14,
+      "genreId": 18,
+      "title": "Hope in the Dark",
+      "return": false,
+      "returnDate": false,
+      "id": 20
+    },
+    {
+      "dateSent": "2021-03-23",
+      "parcelNumber": 21,
+      "facilityId": 16,
+      "genreId": 9,
+      "title": "The Stories of Breece DJ Pancake",
+      "return": false,
+      "returnDate": false,
+      "id": 21
+    },
+    {
+      "dateSent": "2021-03-24",
+      "parcelNumber": 22,
+      "facilityId": 2,
+      "genreId": 28,
+      "title": "Realidades Level 1",
+      "return": false,
+      "returnDate": false,
+      "id": 22
+    },
+    {
+      "dateSent": "2021-03-25",
+      "parcelNumber": 23,
+      "facilityId": 7,
+      "genreId": 6,
+      "title": "All the Names",
+      "return": false,
+      "returnDate": false,
+      "id": 23
+    },
+    {
+      "dateSent": "2021-03-26",
+      "parcelNumber": 24,
+      "facilityId": 18,
+      "genreId": 15,
+      "title": "ARRL Magazine",
+      "return": false,
+      "returnDate": false,
+      "id": 24
     }
   ],
   "genres": [

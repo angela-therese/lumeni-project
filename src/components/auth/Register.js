@@ -10,6 +10,7 @@ export const Register = (props) => {
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
+    const organization = useRef()
     const conflictDialog = useRef()
     const history = useHistory()
 
@@ -38,7 +39,8 @@ export const Register = (props) => {
                         },
                         body: JSON.stringify({
                             email: email.current.value,
-                            name: `${firstName.current.value} ${lastName.current.value}`
+                            name: `${firstName.current.value} ${lastName.current.value}`,
+                            organization: organization.current.value
                         })
                     })
                         .then(res => res.json())
@@ -82,6 +84,10 @@ export const Register = (props) => {
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="inputOrg"> Organization name </label>
+                    <input ref={organization} type="text" name="organization" className="form-control" placeholder="Organization name" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit" className="btn btn-primary btn-sign-in"> Register </button>

@@ -24,7 +24,6 @@ return (
   <>   
    
    <section className="facility-container">
-   <div className="div-header"></div>
     <div className="section-heading"><h4>Facilities</h4>
     <div className="btn-header"><Button variant="secondary" size="sm" className="btn-add" onClick={() => {
     history.push("/facilities/add")}}>Add New</Button>{' '}</div></div> 

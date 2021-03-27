@@ -1,6 +1,7 @@
 .form-and-list-container {
     display: flex;
     width: 80vw;
+    margin-left: 2em;
 }
 .list-container {
     display:flex;
@@ -45,6 +46,10 @@
     margin: 2em;
     width: 100vw
 
+}
+
+.returns-container {
+    margin: 2em
 }
 
 .section-heading {

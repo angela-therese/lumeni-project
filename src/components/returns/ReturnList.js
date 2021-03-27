@@ -48,8 +48,7 @@ export const ReturnList = () => {
             <div><h4>Returns</h4></div> 
             <label>Search Returns</label>
             <SearchBar className="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/><br></br>
-            <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
-                            history.push("/parcels/")}}>Return to Parcels</Button>{' '}
+            
             </section>
 
             <section className="table-parcels-list">
@@ -88,6 +87,8 @@ export const ReturnList = () => {
                
      
     </Table>
+    <Button variant="link" size="sm" className="btn-ret" onClick={() => {
+                            history.push("/parcels/")}}>Return to Parcel List</Button>{' '}
     </section>
     {/* </section> */}
     </article>

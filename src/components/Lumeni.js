@@ -19,7 +19,7 @@ export const Lumeni = () => (
         if (localStorage.getItem("lumeni_user")) {
           return (
             <>
-              <NavBar />
+              {/* <NavBar /> */}
               <ApplicationViews />
             </>
           );

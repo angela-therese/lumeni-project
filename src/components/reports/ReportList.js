@@ -54,10 +54,10 @@ export const ReportList = () => {
 
         const topGenres = newGenreArray.sort((a, b) => b.parcelLength - a.parcelLength).slice(0,4)
 
-        const genrePercentFirst = topGenres[0]?.parcelLength / currentYearTotal.length
-        const genrePercentSecond = topGenres[1]?.parcelLength / currentYearTotal.length
-        const genrePercentThird = topGenres[2]?.parcelLength / currentYearTotal.length
-        const genrePercentFourth = topGenres[3]?.parcelLength / currentYearTotal.length
+        const genrePercentFirst = (topGenres[0]?.parcelLength / currentYearTotal.length).toFixed(2)
+        const genrePercentSecond = (topGenres[1]?.parcelLength / currentYearTotal.length).toFixed(2)
+        const genrePercentThird = (topGenres[2]?.parcelLength / currentYearTotal.length).toFixed(2)
+        const genrePercentFourth = (topGenres[3]?.parcelLength / currentYearTotal.length).toFixed(2)
         
         
 

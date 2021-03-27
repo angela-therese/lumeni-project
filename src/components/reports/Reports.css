@@ -5,3 +5,9 @@
     justify-content: center;
     align-items: center;
 }
+.reports-state-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70vw;
+}

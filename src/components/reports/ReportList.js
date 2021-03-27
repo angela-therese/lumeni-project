@@ -1,26 +1,30 @@
 import React, { useState, useContext, useEffect } from "react"
 // import { useHistory } from "react-router-dom"
 import { ParcelContext } from "../parcels/ParcelProvider"
+import { GenreContext } from "../GenreProvider"
+
 import './Reports.css'
 
 
 export const ReportList = () => {
 
 
-  
+        const { genres, getGenres } = useContext(GenreContext)
         const { parcels, getParcels} = useContext(ParcelContext)
         const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
-        const [filteredParcels, setFiltered] = useState([])
+        // const [filteredParcels, setFiltered] = useState([])
 
 
         useEffect(() => {
             getParcels()
+            .then(getGenres)
         },[])
     
-        useEffect(() => {
-                setFiltered(sortedParcels)
-            },[])
+        // useEffect(() => {
+        //         setFiltered(sortedParcels)
+        //     },[])
 
+            //STATE CALCULATIONS
             const currentYearTotal = sortedParcels.filter(p => p.dateSent.includes("2021"))
             
             const totalKY = sortedParcels.filter(p => p.facility?.state === "KY")
@@ -46,17 +50,34 @@ export const ReportList = () => {
             const wvPercentage = (totalWV.length / currentYearTotal.length).toFixed(2)
            
 
-          
 
+
+        const newGenreArray = genres.map(g => {
+            return (
+                { "name" : g.name, "parcelLength": g.parcels?.length}
+            )
+        })
+
+        const topGenres = newGenreArray.sort((a, b) => b.parcelLength - a.parcelLength).slice(0,4)
+
+        const genrePercentFirst = topGenres[0]?.parcelLength / currentYearTotal.length
+        const genrePercentSecond = topGenres[1]?.parcelLength / currentYearTotal.length
+        const genrePercentThird = topGenres[2]?.parcelLength / currentYearTotal.length
+        const genrePercentFourth = topGenres[3]?.parcelLength / currentYearTotal.length
+        
+        
 
 
      return(
         <>
         <section className="reports-container">
         <h3>Reports Go Here</h3>
-        <article className="report-state-list">
-        <h5>Yearly Total</h5>
-        <p>{currentYearTotal.length}</p>
+        <h5>Yearly Total </h5><p>{currentYearTotal.length}</p>
+        <article className="reports-state-list">
+        
+        
+        <div className ="state-totals-list">
+        <h5>State-by-State</h5>
         <h6>Kentucky</h6>
         <p>{totalKY.length} -- {kyPercentage}</p>
         <h6>Maryland</h6>
@@ -69,6 +90,14 @@ export const ReportList = () => {
         <p>{totalVA.length} -- {vaPercentage}</p>
         <h6>West Virginia</h6>
         <p>{totalWV.length} -- {wvPercentage}</p>
+        </div>
+        <div className="genre-totals-list">
+            <h5>Genres</h5>
+             <p>{topGenres[0]?.name}--{topGenres[0]?.parcelLength}--{genrePercentFirst}</p>
+             <p>{topGenres[1]?.name}--{topGenres[1]?.parcelLength}--{genrePercentSecond}</p>
+             <p>{topGenres[2]?.name}--{topGenres[2]?.parcelLength}--{genrePercentThird}</p>
+             <p>{topGenres[3]?.name}--{topGenres[3]?.parcelLength}--{genrePercentFourth}</p>
+        </div>
                     
     </article>
     </section>

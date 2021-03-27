@@ -11,7 +11,20 @@
 
 .section-home {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: row;
+    width: 80vw;
+    justify-content: center; 
+    align-items: center;
 
+}
+
+.card-div {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+    font-size: smaller
+}
+
+.splash-card {
+    border-radius: 6em;
 }

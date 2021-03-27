@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
-// import { useHistory } from "react-router-dom"
+import React, { useContext, useEffect } from "react"
 import { ParcelContext } from "../parcels/ParcelProvider"
 import { GenreContext } from "../GenreProvider"
 
@@ -12,17 +11,12 @@ export const ReportList = () => {
         const { genres, getGenres } = useContext(GenreContext)
         const { parcels, getParcels} = useContext(ParcelContext)
         const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
-        // const [filteredParcels, setFiltered] = useState([])
-
 
         useEffect(() => {
             getParcels()
             .then(getGenres)
         },[])
     
-        // useEffect(() => {
-        //         setFiltered(sortedParcels)
-        //     },[])
 
             //STATE CALCULATIONS
             const currentYearTotal = sortedParcels.filter(p => p.dateSent.includes("2021"))
@@ -51,7 +45,7 @@ export const ReportList = () => {
            
 
 
-
+            //GENRE CALCULATIONS
         const newGenreArray = genres.map(g => {
             return (
                 { "name" : g.name, "parcelLength": g.parcels?.length}
@@ -91,6 +85,7 @@ export const ReportList = () => {
         <h6>West Virginia</h6>
         <p>{totalWV.length} -- {wvPercentage}</p>
         </div>
+
         <div className="genre-totals-list">
             <h5>Genres</h5>
              <p>{topGenres[0]?.name}--{topGenres[0]?.parcelLength}--{genrePercentFirst}</p>

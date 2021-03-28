@@ -4,9 +4,8 @@
     background-color: black;
     /* background-color: #0E1428; */
     width: 15vw;
-    height: 125%;
-    position:absolute
-
+    height: 100vw
+  
 }
 
 .nav-header-user {
@@ -22,17 +21,17 @@
 
 .nav-link{
     /* border: 1px whitesmoke solid; */
+   
     color: whitesmoke;
     font-size: larger;
-    font-weight: bold;
-    margin-bottom: 1em;
-    padding-right:1em;
+    font-weight: bolder;
+   background-color: rgb(10, 10, 10);
+   border: black 1px solid;
+
    text-align: center;
-    /* border-radius: 1em; */
+
 }
 
-/* .menu-item {
-    display: flex;
-    flex-direction: row;
-    height:8vh;
-} */
+.active {
+    /* background-color: darkgray; */
+}

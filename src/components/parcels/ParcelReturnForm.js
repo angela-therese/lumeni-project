@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect} from "react"
 import { ParcelContext } from "./ParcelProvider"
 import { FacilityContext } from "../facilities/FacilityProvider";
 import { GenreContext } from "../GenreProvider"
-import { FacilityList } from "../facilities/FacilityList"
+import { ReturnList } from "../returns/ReturnList"
 import "./Parcel.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Form } from 'react-bootstrap'
@@ -96,7 +96,7 @@ export const ParcelReturnForm = () => {
              return (
                 <>
                 
-                {/* <section className="parcel-container"> */}
+                <section className="parcel-container">
         
                 {/* <div className="div-header"></div> */}
                 <div className="parcel-return-container">
@@ -123,14 +123,16 @@ export const ParcelReturnForm = () => {
 
             
                 <Button variant="link" size="sm" className="btn-ret" onClick={() => {
-                            history.push("/parcels/")}}>Return to List</Button>{' '}
+                            history.push("/parcels/")}}>Go Back to Parcel List</Button>{' '}
                 </div>
                 </div>
                </fieldset>
                 </form>
                 
                 </div>
-                {/* </section> */}
+                <ReturnList />
+                </section>
+                
                 </>
 
         

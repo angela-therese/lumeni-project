@@ -43,7 +43,7 @@ export const ReturnList = () => {
         return (
             <>
            <article className="returns-container">
-          
+           <div>
             <section className="returns-heading">
             <div><h4>Returns</h4></div> 
             <label>Search Returns</label>
@@ -88,10 +88,13 @@ export const ReturnList = () => {
      
     </Table>
     <Button variant="link" size="sm" className="btn-ret" onClick={() => {
-                            history.push("/parcels/")}}>Return to Parcel List</Button>{' '}
+                            history.push("/parcels/")}}>Go Back to Parcel List</Button>{' '}
     </section>
     {/* </section> */}
+    
+    </div>
     </article>
+
     </>
     )
  }

@@ -1,20 +1,55 @@
 
- #root {
-     background-color: whitesmoke;
+
+
+ .home-container {
+     width: 80vw;
+     margin-top: 2em;
  }
 
-article {
-    /* background-color:  black; */
-    width: 100%
+ .header {
+     width: 80vw;
+     background-color: black;
+     color: whitesmoke;
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+     margin-bottom: 3em;
+     
+ }
+
+ .btn-logout {
+    width: 8em;
+    border-radius: 1em;
+    background-color: #7b9e89;
+    font-weight: bolder;
+}
+
+ .header-message {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    justify-content: center;
+    align-items: flex-end;
+    margin-right: 1em;
+   
+ }
+
+  article {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+width: 80vw
 }
 
 
 .section-home {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 80vw;
     justify-content: center; 
     align-items: center;
+    padding: 0em
 }
 
 .card-div {
@@ -23,6 +58,7 @@ article {
     margin: 1em;
     font-size:small;
     justify-content: center;
+    align-items: center;
    
 }
 
@@ -40,34 +76,10 @@ article {
 
 }
 
-.header { 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1em;
-    margin-bottom: 2em;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    background-color: black;
-    color: whitesmoke;
-    height: 18vh
-}
 
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: right;
-}
 
-.btn-logout {
-    width: 8em;
-    border-radius: 1em;
-    background-color: #7b9e89;
-    font-weight: bolder;
-}
+
+
 
 .greeting-div {
     display: flex;
@@ -82,4 +94,4 @@ article {
  flex-direction: column;
  justify-content: center;
  align-items: center;
-}
+}  

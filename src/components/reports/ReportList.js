@@ -65,11 +65,12 @@ export const ReportList = () => {
      return(
         <>
         <section className="reports-container">
+        <>
         <h3>Reports Go Here</h3>
         <h5>Yearly Total </h5><p>{currentYearTotal.length}</p>
         <article className="reports-state-list">
         
-        
+       
         <div className ="state-totals-list">
         <h5>State-by-State</h5>
         <h6>Kentucky</h6>
@@ -85,7 +86,7 @@ export const ReportList = () => {
         <h6>West Virginia</h6>
         <p>{totalWV.length} -- {wvPercentage}</p>
         </div>
-
+        
         <div className="genre-totals-list">
             <h5>Genres</h5>
              <p>{topGenres[0]?.name}--{topGenres[0]?.parcelLength}--{genrePercentFirst}</p>
@@ -93,8 +94,9 @@ export const ReportList = () => {
              <p>{topGenres[2]?.name}--{topGenres[2]?.parcelLength}--{genrePercentThird}</p>
              <p>{topGenres[3]?.name}--{topGenres[3]?.parcelLength}--{genrePercentFourth}</p>
         </div>
-                    
+       
     </article>
+    </>  
     </section>
     </>
     )

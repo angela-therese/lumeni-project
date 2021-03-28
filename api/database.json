@@ -244,8 +244,8 @@
       "facilityId": "9",
       "genreId": 6,
       "title": "Restart",
-      "return": true,
-      "returnDate": "2021-03-25",
+      "return": false,
+      "returnDate": "",
       "id": 12
     },
     {
@@ -364,8 +364,8 @@
       "facilityId": 18,
       "genreId": 15,
       "title": "ARRL Magazine",
-      "return": false,
-      "returnDate": false,
+      "return": true,
+      "returnDate": "2021-03-19",
       "id": 24
     },
     {
@@ -385,7 +385,7 @@
       "genreId": 11,
       "title": "A People's History of the United States",
       "return": false,
-      "returnDate": false,
+      "returnDate": "",
       "id": 26
     },
     {
@@ -435,7 +435,7 @@
       "genreId": 7,
       "title": "GED Preparation Manual",
       "return": false,
-      "returnDate": false,
+      "returnDate": "",
       "id": 31
     }
   ],

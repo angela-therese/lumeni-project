@@ -26,12 +26,13 @@ export const ApplicationViews = () => {
     return (
         <>
         <Route exact path="/">
+             <NavBar /> 
                 <UserProvider>
                     <ParcelProvider>
-                <Home />
+                        <Home />
                     </ParcelProvider>
                 </UserProvider>
-            </Route>
+        </Route>
             
         
         <FacilityProvider>
@@ -67,11 +68,14 @@ export const ApplicationViews = () => {
                          <ParcelForm />
                      </Route>
 
-
+                     <Route exact path="/parcels/return/:parcelId(\d+)">
+                        <NavBar /> 
+                        <ParcelReturnForm />
+                        
+                    </Route>
                     <Route exact path="/reports">
                         <NavBar /> 
                         <ReportList />
-                        
                     </Route>
 
                     <Route exact path="/returns">

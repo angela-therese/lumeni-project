@@ -5,15 +5,17 @@ fieldset {
    
 }
 
+
 .main-container {
     width: 60vw
 }
 .table-facility-list {
     width: 53vw;
-   height: 80vh;
+    height: 80vh;
    padding-right: 0em;
    margin-left: 2em;
-    overflow-y: auto;
+   overflow-y: auto;
+   
 }
 .facility-container {
     
@@ -28,11 +30,9 @@ fieldset {
 
 }
 
-/* .table-facility-list {
-    width: 50vw;
-    margin-left: 2em
-} */
-
+.facility-comp {
+    width: 20vw
+}
 .form-fac {
    width: 20vw
 }

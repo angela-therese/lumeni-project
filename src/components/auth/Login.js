@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import { Image } from "react-bootstrap"
-import  Logo  from '../nav/lumeni-2.png'
+import  Logo  from '../images/lumeni-no-bg.png'
 import "./Login.css"
 
 

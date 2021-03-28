@@ -1,7 +1,6 @@
 .form-and-list-container {
     display: flex;
     width: 80vw;
-    margin-top: 2em
 }
 .list-container {
     display:flex;
@@ -17,6 +16,9 @@
     overflow-y: auto;
             }
 
+.parcel-container {
+    width: 80vw
+}
 
 .form-container {
     width: 25vw;
@@ -39,25 +41,33 @@
         }
 
 
-.parcel-return-container {
+/* .parcel-return-container {
     display: flex;
     flex-direction: column;
     align-items: left;
     margin: 2em;
     width: 100vw
 
-}
+} */
 
 .returns-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    height: 100vh;
     width: 80vw;
-    justify-content: center;
     align-items: left;
+    justify-content: left;
     margin-top: 2em;
     font-size: smaller;
 
 }
+
+.returns-heading {
+    text-align: left;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
 
 .section-heading {
     display: flex;
@@ -67,11 +77,6 @@
     margin-left: 2em;
 }
 
-.returns-heading {
-    text-align: left;
-    margin-bottom: 2em;
-    margin-left: 1em;
-}
 
 .form-parcel {
     display: flex;

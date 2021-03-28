@@ -21,6 +21,7 @@ export const ParcelList = () => {
     const [filteredParcels, setFiltered] = useState([])
     const sortedParcels =  parcels.sort((a, b) => (a.parcelNumber > b.parcelNumber ? -1 : 1))
     
+    
     useEffect(() => {
         getParcels()
     },[])
@@ -44,6 +45,7 @@ export const ParcelList = () => {
            <article className="form-and-list-container">
           
             <section className="list-container">
+         
             <section className="returns-heading">
             <div><h4>Parcels</h4></div> 
             <label>Search Parcels</label>
@@ -61,7 +63,7 @@ export const ParcelList = () => {
             <th>Destination</th>
             <th>Genre</th>
             <th>Title</th>
-            <th>Returned</th>
+            {/* <th>Returned</th> */}
             <th></th>
             </tr>
             </thead>
@@ -78,7 +80,7 @@ export const ParcelList = () => {
                 <td>{p.facility?.state + "--" + p.facility?.name}</td>
                 <td>{p.genre?.name}</td>
                 <td>{p.title}</td>
-                <td>{returned}</td>
+                {/* <td>{returned}</td> */}
                 <td><button className="btn-edit-list" onClick={() => {
                    history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
                    <button className="btn-return-list" onClick={() => {
@@ -96,8 +98,10 @@ export const ParcelList = () => {
 
     </Table>
     </section>
+
     </section>
     <ParcelForm/>
+    
     </article>
     </>
     )

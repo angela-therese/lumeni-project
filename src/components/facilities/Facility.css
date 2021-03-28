@@ -2,6 +2,7 @@
 
 fieldset {
     width: 25vw;
+   
 }
 
 .main-container {
@@ -21,7 +22,7 @@ fieldset {
     width: 60vw;
 }
 .FacilityForm {
-    margin: 2em;
+    /* margin: 2em; */
     display: flex;
     flex-direction: column;
 

@@ -1,5 +1,7 @@
 
- 
+ #root {
+     background-color: whitesmoke;
+ }
 
 article {
     /* background-color:  black; */
@@ -33,7 +35,8 @@ article {
 }
 
 .img {
-    height: 200px;
+    height: 80px;
+
 
 }
 
@@ -41,6 +44,7 @@ article {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1em;
     margin-bottom: 2em;
@@ -48,6 +52,7 @@ article {
     padding-bottom: 2em;
     background-color: black;
     color: whitesmoke;
+    height: 18vh
 }
 
 .header-right {
@@ -62,4 +67,19 @@ article {
     border-radius: 1em;
     background-color: #7b9e89;
     font-weight: bolder;
+}
+
+.greeting-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.flex-row-div {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }

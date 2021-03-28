@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
-import {Button, Card} from "react-bootstrap"
+import {Button, Card, Image} from "react-bootstrap"
 import { UserContext } from "./UsersProvider"
 import { ParcelContext } from "./parcels/ParcelProvider"
 import "./Home.css" 
@@ -9,6 +9,7 @@ import Facilities from './images/1.png'
 import Parcels from './images/2.png'
 import Returns from './images/3.png'
 import Reports from './images/4.png'
+import Light from './images/book-light.png'
 
 
 
@@ -36,11 +37,22 @@ const currentUser = users.find(u => u.id == localStorage.getItem("lumeni_user"))
         <header className="header">
         <div><img  src={ Logo } className="no-border img" thumbnail /></div>
         <div className="header-right">
-          <h2>Welcome to Lumeni, {printUser}!</h2>
+          <h3>Welcome to Lumeni, {printUser}!</h3>
           <button className="btn-logout" size="sm">Log out</button>
           </div>
         </header>
-        <h2>{printOrg} has sent a total of {bookTotal} books to people who are incarcerated.</h2> <h2>That's a lot of light! </h2>
+
+        <section className="greeting-div">
+        {/* <div className="flex-row-div"> */}
+{/*         
+        <h4>{printOrg}'s total books sent: {bookTotal}.<br></br> 
+        <Image src={Light} thumbnail /> </h4><h4>That's a lot of light shining in! </h4> 
+        </div> */}
+       <h2>{printOrg} has sent <b>{bookTotal}</b> books and counting!<br></br></h2>
+       <Image src={Light} thumbnail /><br></br>
+        <h4>Where would you like to start? Make a selection below.</h4>
+        </section>
+
            <article>
     
              <div className="card-div">   
@@ -50,7 +62,7 @@ const currentUser = users.find(u => u.id == localStorage.getItem("lumeni_user"))
             <Card.Title>Parcels<br></br> <Button variant="primary" size="sm" onClick={() => {
                    history.push(`/parcels`)}}>Go</Button></Card.Title>
              <Card.Text>
-              How do we keep track of the hundreds of books we send each year? Click here to add, view, and edit parcels and mark returns.  
+              Keep track of parcels, each containing one book. Click here to add, view, and edit sent parcels and mark returns.  
             </Card.Text>
           </section>
           </div>
@@ -62,7 +74,7 @@ const currentUser = users.find(u => u.id == localStorage.getItem("lumeni_user"))
            <Card.Title>Facilities<br></br><Button variant="primary" size="sm" onClick={() => {
                    history.push(`/facilities`)}}>Go</Button></Card.Title>
           <Card.Text>
-           Where are our books going? Click here to view or add to our list of destination facilities and details about each. 
+           Manage our list of destination facilities. Click here to view or add to the list and view specific details about each. 
           </Card.Text>
           </section>
           </div>
@@ -73,7 +85,7 @@ const currentUser = users.find(u => u.id == localStorage.getItem("lumeni_user"))
     <Card.Title>Returns<br></br><Button variant="primary" size="sm" onClick={() => {
                    history.push(`/returns`)}}>Go</Button></Card.Title>
     <Card.Text>
-      How many books that we send don't make it to their recipient? Click here to view the returned list.  
+      Some parcels are returned to us by the destination facility. Click here to view the list of books that have been returned. 
     </Card.Text>
 </section>
 </div>
@@ -85,7 +97,7 @@ const currentUser = users.find(u => u.id == localStorage.getItem("lumeni_user"))
         <Card.Title>Reports <br></br><Button variant="primary" size="sm" onClick={() => {
                    history.push(`/reports`)}}>Go</Button></Card.Title>
         <Card.Text>
-      Need some stats? Click here to find data about our most common destinations, genres, total books sent, and more. 
+      Data about our most common destinations & genres, total books sent, and more can be found here.  
         </Card.Text>
         
 </section>

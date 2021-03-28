@@ -31,8 +31,9 @@ export const FacilityList = () => {
         {/* <header> <NavBar /> </header> */}
          <section className="main-container">
          <div className="section-heading">
-         <h4>Facilities</h4>
-         <div className="btn-header"><Button variant="secondary" size="sm" className="btn-add" onClick={toggleForm}>Add New</Button>{' '}</div></div> 
+         <h4>Facilities</h4><br></br>
+         {/* <div className="btn-header"><Button variant="secondary" size="sm" className="btn-add" onClick={toggleForm}>Add New</Button>{' '}</div> */}
+         </div> 
         
          <article className="table-facility-list">
          

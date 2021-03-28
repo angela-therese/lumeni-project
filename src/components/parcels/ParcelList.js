@@ -39,6 +39,7 @@ export const ParcelList = () => {
         },[searchField, sortedParcels])
 
         return (
+            
             <>
            <article className="form-and-list-container">
           

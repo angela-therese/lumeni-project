@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap'
 
 export const FacilityForm = () => {
 
-    const { addFacility, getFacilityById, updateFacility, deleteFacility } = useContext(FacilityContext)
+    const { addFacility, getFacilities, getFacilityById, updateFacility, deleteFacility } = useContext(FacilityContext)
 
     const [ facility, setFacility ] = useState({
        name: "",
@@ -60,10 +60,31 @@ export const FacilityForm = () => {
                 notes: facility.notes
 
             })
-            .then(() => history.push("/facilities"))
-            
+            // .then(() => history.push("/facilities"))
+             .then(() => setFacility({
+
+                name: "",
+                city: "",
+                state: "",
+                notes: "" ,
+                title: "",
+           
+               
+        
+            }))
+            .then(getFacilities)
+            .then(() => history.push(`/facilities`))
+        
         }
     }
+
+    const handleFacilityDelete = () => {
+        deleteFacility(facility.id)
+            .then(() => {
+                history.push("/facilities")
+            })
+
+     }
 
         useEffect(() => {
            
@@ -87,17 +108,16 @@ export const FacilityForm = () => {
       }
        
 
-
+      if(facilityId){
     return (
         <>
         <section className="facility-comp">
 
-        <div className="div-header"></div>
         <div className="facility-form-comp">
 
         <form className="FacilityForm">
         <fieldset>
-        <h3> {facilityId ? <>Edit Facility</> : <>Add a Facility</>}</h3>
+        <h5> {facilityId ? <>Edit Facility</> : <>Add a Facility</>}</h5>
        
         <div className="form-group form-fac">
 
@@ -127,19 +147,12 @@ export const FacilityForm = () => {
                 handleSaveFacility()
               }}>
           {facilityId ? <>Submit</> : <>Save</>}</Button>
-{/* 
-        <button className="btn-del" size="sm" onClick={handleDelete}>Delete</button>  */}
-        <Button variant="secondary" size="sm" className="btn-ret" onClick={() => {
-                    history.push("/facilities/")}}>Return to List</Button>{' '}
+          {/* <button className="btn-del"  onClick={handleFacilityDelete}>Delete</button>
+           */}
+
         </div>
-        
-             
        </div>
        </fieldset>
-      
-      
-
-           {/* <button onClick={handleDelete} className="btn btn-primary delete-btn"> {messageId ? <> Delete </>: <> Cancel </>}</button> */}
         </form>
         </div>
         </section>
@@ -147,7 +160,60 @@ export const FacilityForm = () => {
 
 
      )
-}
+    } else {
+        return (
+        <>
+        <section className="facility-comp">
+
+        <div className="facility-form-comp">
+
+        <form className="FacilityForm">
+        <fieldset>
+        <h5> {facilityId ? <>Edit Facility</> : <>Add a Facility</>}</h5>
+       
+        <div className="form-group form-fac">
+
+            <label htmlFor="facilityName">Facility Name </label>
+            <input className="input-fac" type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Enter facility name here." value={facility.name}/>
+            <label htmlFor="cityName">City</label>
+            <input className="input-fac" type="text" id="city" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="City" value={facility.city}/>
+            <label htmlFor="facilityState">State</label>
+             <Form.Control as="select" id="state" value={facility.state} onChange={handleControlledInputChange}>
+                <option>Please select a state</option>
+                <option>KY</option>
+                <option>MD</option>
+                <option>OH</option>
+                <option>TN</option>
+                <option>VA</option>
+                <option>WV</option>
+             </Form.Control>
+             <label htmlFor="facilityName">Facility Notes</label>
+            <input className="input-fac" type="textarea" id="notes" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box" placeholder="Optional notes here" value={facility.notes}/>
+
+
+             <div className="btns-container">
+       <Button variant="info" size="sm" className="btn-save" 
+             disabled={isLoading}
+             onClick={event => {
+                event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                handleSaveFacility()
+              }}>
+          {facilityId ? <>Submit</> : <>Save</>}</Button>
+          
+
+        </div>
+       </div>
+       </fieldset>
+        </form>
+        </div>
+        </section>
+        </>
+     )}
+    }
+
+    
+
+
 
 
 

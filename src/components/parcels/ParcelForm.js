@@ -88,7 +88,8 @@ export const ParcelForm = () => {
                 
 
             })
-            .then(() => setParcel({
+
+.then(() => setParcel({
 
                 dateSent: "",
                 parcelNumber: "",
@@ -100,6 +101,19 @@ export const ParcelForm = () => {
                
         
             }))
+
+            // .then(() => setParcel({
+
+            //     dateSent: "",
+            //     parcelNumber: "",
+            //     facilityId: 0,
+            //     genreId: 0, 
+            //     title: "",
+            //     return: false,
+            //     returnDate:false,
+               
+        
+            // }))
             // .then(getParcels)
             // .then(() => history.push(`/parcels`))
         
@@ -223,14 +237,6 @@ export const ParcelForm = () => {
                        handleCancelReturn()
                      }}>Undo Return</button> 
                     </div>
-
-                    {/* <div className="form-group form-parcel">
-                    <div className="div-label-input">
-                    <label>Returned <br></br>(If applicable)</label>
-                    <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="returnDate" value={parcel.returnDate}/>
-                    </div>
-                    </div> */}
-                   
         
                    
                
@@ -344,6 +350,24 @@ export const ParcelForm = () => {
      )
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {/* <input list="states"  name="facility-state" />
 <datalist id="states">

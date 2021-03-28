@@ -1,9 +1,11 @@
 .nav-menu{
     display: flex;
+    justify-content: flex-start;
     background-color: black;
     /* background-color: #0E1428; */
     width: 15vw;
-    height: 100%;
+    height: 125%;
+    position:absolute
 
 }
 
@@ -20,7 +22,7 @@
 
 .nav-link{
     /* border: 1px whitesmoke solid; */
-    color: thistle;
+    color: whitesmoke;
     font-size: larger;
     font-weight: bold;
     margin-bottom: 1em;

@@ -34,11 +34,11 @@ export const NavBar =() => {
             <Nav defaultActiveKey="/home" className="flex-column nav-menu">
            
                 <Image src={Logo } fluid />
-                <Nav.Link href="/">Home</Nav.Link>
-                <div className="menu-item"><Nav.Link eventKey="link-3" href="/parcels">Parcels</Nav.Link></div><br></br>
-                <div className="menu-item"><Nav.Link eventKey="link-2" href="/facilities">Facilities</Nav.Link></div><br></br>
-                <div className="menu-item"><Nav.Link eventKey="link-4" href="/returns">Returns</Nav.Link></div><br></br>
-                <div className="menu-item"><Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link></div><br></br>
+                <div className="menu-item"><Nav.Link href="/">Home</Nav.Link></div>
+                <div className="menu-item"><Nav.Link eventKey="link-3" href="/parcels">Parcels</Nav.Link></div>
+                <div className="menu-item"><Nav.Link eventKey="link-2" href="/facilities">Facilities</Nav.Link></div>
+                <div className="menu-item"><Nav.Link eventKey="link-4" href="/returns">Returns</Nav.Link></div>
+                <div className="menu-item"><Nav.Link eventKey="link-1" href="/reports">Reports</Nav.Link></div>
                 {/* <Nav.Link eventKey="disabled" disabled>
                     Disabled
                  </Nav.Link> */}
@@ -50,4 +50,3 @@ export const NavBar =() => {
 
         )
     }
-

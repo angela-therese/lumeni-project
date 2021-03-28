@@ -4,6 +4,22 @@ fieldset {
     width: 25vw;
 }
 
+.main-container {
+    width: 60vw
+}
+.table-facility-list {
+    width: 53vw;
+   height: 80vh;
+   padding-right: 0em;
+   margin-left: 2em;
+    overflow-y: auto;
+}
+.facility-container {
+    
+    display:flex;
+    flex-direction: row;
+    width: 60vw;
+}
 .FacilityForm {
     margin: 2em;
     display: flex;
@@ -11,15 +27,20 @@ fieldset {
 
 }
 
-.table-facility-list {
-    width: 60vw;
+/* .table-facility-list {
+    width: 50vw;
     margin-left: 2em
-}
+} */
 
 .form-fac {
-   width: 30vw
+   width: 20vw
 }
+.facility-form-comp {
+    width: 25vw;
+    margin-top: 3em;
+    margin-right: 2em;
 
+}
 h4.section-heading {
     text-align: left;
 }
@@ -42,18 +63,11 @@ h4.section-heading {
 .section-heading {
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: 40vw;
    margin:  0 0 0 0
 }
 
-.facility-container {
-    
-    display:flex;
-    flex-direction: column;
-    width: 75vw;
-    
 
-}
 
 /* //DETAILS */
 .card-container {
@@ -158,9 +172,7 @@ h4.section-heading {
     text-align: center
 }
 
-.table-facility-list {
-    width: 70vw
-}
+
 
 .facility-detail-card {
     width: 60vw

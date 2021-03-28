@@ -41,11 +41,6 @@ export const ApplicationViews = () => {
                 <FacilityList />
             </Route>
 
-            <Route exact path='/facilities/add'>
-                <NavBar /> 
-                <FacilityForm />
-            </Route>
-
             <Route exact path="/facilities/edit/:facilityId(\d+)">
               <NavBar /> 
               <FacilityForm />

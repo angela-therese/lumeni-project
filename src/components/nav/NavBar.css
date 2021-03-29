@@ -16,7 +16,7 @@
     background-color:black;
     height: 8vh;
     color: white;
-    width: 15vw;
+    width: 20vw;
 }
 
 .nav-link{
@@ -26,6 +26,7 @@
     font-size: larger;
    background-color: rgb(10, 10, 10);
    border: black 1px solid;
+   margin-bottom: 2em;
 
    text-align: center;
 

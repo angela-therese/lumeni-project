@@ -7,10 +7,10 @@ fieldset {
 
 
 .main-container {
-    width: 60vw
+    width: 50vw
 }
 .table-facility-list {
-    width: 53vw;
+    width: 50vw;
     height: 80vh;
    padding-right: 0em;
    margin-left: 2em;
@@ -21,17 +21,19 @@ fieldset {
     
     display:flex;
     flex-direction: row;
-    width: 60vw;
+    width: 50vw;
 }
 .FacilityForm {
-    /* margin: 2em; */
+    margin: 2em;
     display: flex;
     flex-direction: column;
 
 }
 
 .facility-comp {
-    width: 20vw
+    width: 25vw;
+    margin-left: 2em
+
 }
 .form-fac {
    width: 20vw

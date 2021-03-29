@@ -1,14 +1,84 @@
 .reports-container {
-    height: 100vh;
     width: 80vw;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
+    
+}
+.charts-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 75vw;
+    margin-top: 4em;
+    /* height: 90vh; */
+   
+    padding-top: 2em;
+    border-radius: 3em;
+}
+
+.states-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70vw;
+    
+}
+.state-total-bar {
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 50vh;
+    width: 30vw;
+    background-color: rgb(174, 183, 192);
+    border-radius: 2em;
+    padding: 2em
 }
-.reports-state-list {
+
+.state-percent-chart {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 30vw;
+    background-color: rgb(174, 183, 192);
+    border-radius: 2em;
+    padding: 2em
+   
+}
+.genre-div {
+    margin-top: 3em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 70vw;
 }
+
+.genre-top-bar {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 30vw;
+    background-color: rgb(174, 183, 192);
+    border-radius: 2em;
+    padding: 2em
+}
+
+.genre-percent-chart {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 30vw;
+    background-color: rgb(174, 183, 192);
+    border-radius: 2em;
+    padding: 2em
+
+}
+
+

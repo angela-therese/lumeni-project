@@ -75,7 +75,8 @@ h4.section-heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80vw
+    width: 80vw;
+    height: 100vh
 }
 
 .btn-add {
@@ -118,11 +119,7 @@ h4.section-heading {
 } */
 
 
-.btn-return {
-    
-    
 
-}
 
 .btn-del {
   background-color:  #D95D39;
@@ -177,4 +174,11 @@ h4.section-heading {
 
 .facility-detail-card {
     width: 60vw
+}
+
+ .search {
+     width: 15vw;
+     margin-bottom: 2em;
+     font-size: small;
+    
 }

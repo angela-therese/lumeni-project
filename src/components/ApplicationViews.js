@@ -26,7 +26,7 @@ export const ApplicationViews = () => {
     return (
         <>
         <Route exact path="/">
-             <NavBar /> 
+             {/* <NavBar />  */}
                 <UserProvider>
                     <ParcelProvider>
                         <Home />
@@ -38,17 +38,17 @@ export const ApplicationViews = () => {
         <FacilityProvider>
             <UserProvider>
             <Route exact path='/facilities/'>
-                <NavBar /> 
+                {/* <NavBar />  */}
                 <FacilityList />
             </Route>
 
             <Route exact path="/facilities/edit/:facilityId(\d+)">
-              <NavBar /> 
+              {/* <NavBar />  */}
               <FacilityForm />
             </Route>
 
             <Route exact path="/facilities/details/:facilityId(\d+)">
-                <NavBar /> 
+                {/* <NavBar />  */}
                 <FacilityDetail/>
             </Route>
             </UserProvider>
@@ -59,27 +59,24 @@ export const ApplicationViews = () => {
                 <GenreProvider>
                  <UserProvider>
                      <Route exact path='/parcels/'>
-                        <NavBar /> 
                         <ParcelList />
                      </Route>
                 
                      <Route exact path="/parcels/edit/:parcelId(\d+)">
-                         <NavBar /> 
                          <ParcelForm />
                      </Route>
 
                      <Route exact path="/parcels/return/:parcelId(\d+)">
-                        <NavBar /> 
                         <ParcelReturnForm />
-                        
                     </Route>
+
                     <Route exact path="/reports">
-                        <NavBar /> 
+                        {/* <NavBar />  */}
                         <ReportList />
                     </Route>
 
                     <Route exact path="/returns">
-                         <NavBar /> 
+                      
                         <ReturnList />
                     </Route>
                     </UserProvider>

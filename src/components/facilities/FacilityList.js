@@ -1,15 +1,19 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+
 import { FacilityContext } from "./FacilityProvider"
 import { FacilityForm } from "./FacilityForm"
-import { NavBar } from "../nav/NavBar"
+
 import './Facility.css'
-import { Table } from "react-bootstrap"
-import { Button } from "react-bootstrap"
+import { Table, Button} from "react-bootstrap"
+import { SearchBar } from "../SearchBar"
+
 
 
 export const FacilityList = () => {
     const history = useHistory()
+    const [searchField, setSearchField] = useState("")
+    const [filteredFacilities, setFiltered] = useState([])
     const { facilities, getFacilities } = useContext(FacilityContext)
     
 
@@ -17,10 +21,25 @@ export const FacilityList = () => {
         getFacilities()
     },[])
 
-  const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
+    const sortedFacilities =  facilities.sort((a, b) => (a.state > b.state) ? 1 : (a.state === b.state) ?((a.name > b.name) ? 1: -1 ) : -1)
 
- const [showForm, setShowForm] = useState(false)
-    const toggleForm = () => {setShowForm(true)}
+    useEffect(() => {
+      
+      if(searchField !== "") {
+          const list = sortedFacilities.filter(f => {
+             return f.name.toLowerCase().includes(searchField.toLowerCase())
+          })
+          setFiltered(list) 
+      }
+      else {
+          setFiltered(sortedFacilities)
+      }
+      },[searchField, sortedFacilities])
+
+  
+
+//  const [showForm, setShowForm] = useState(false)
+//     const toggleForm = () => {setShowForm(true)}
    
     // if(showForm === true){
       return (
@@ -30,11 +49,13 @@ export const FacilityList = () => {
          
         {/* <header> <NavBar /> </header> */}
          <section className="main-container">
-         <div className="section-heading">
-         <h4>Facilities</h4><br></br>
-         {/* <div className="btn-header"><Button variant="secondary" size="sm" className="btn-add" onClick={toggleForm}>Add New</Button>{' '}</div> */}
-         </div> 
-        
+         <section className="section-heading">
+          <div><h4>Facilities</h4></div>
+
+           <article className="search-section"><label>Search Facilities</label>
+            <SearchBar className="search-bar" placeholder="Enter facility name" handleChange={(e)=> setSearchField(e.target.value)}/></article> 
+            </section> 
+
          <article className="table-facility-list">
          
          <section className="facilities-table">
@@ -51,7 +72,7 @@ export const FacilityList = () => {
              
              </tr>
          </thead>
-         {sortedFacilities.map(facility => { 
+         {filteredFacilities.map(facility => { 
           const returnCount = facility.parcels?.filter(p => p.return === true);         return (
                  <tbody>
                      <tr>

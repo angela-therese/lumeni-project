@@ -185,8 +185,8 @@ label {
     width: 5vw;
     padding: 0;
     margin-bottom: 2px;
-    background-color: lightgray;
-    color: black;
+    background-color: rgb(65, 65, 65);
+    color: white;
     border: none;
     border-radius: .2em;
     
@@ -196,8 +196,8 @@ label {
     width: 5vw;
     padding: 0;
     margin: 0;
-    background-color: #7b9e89;
-    color: black;
+    background-color: #24a0ed;
+    color: white;
     border: none;
     border-radius: .2em;
 

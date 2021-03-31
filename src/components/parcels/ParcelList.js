@@ -47,19 +47,17 @@ export const ParcelList = () => {
             <>
 
                
-    
-
+            <div className="main-container">
+            
             <article className="form-and-list-container">
-          
                 <section className="list-container">
-         
-                 <section className="returns-heading">
+                <section className="returns-heading">
                     <div><h4>Parcels</h4></div> 
                     <label>Search Parcels</label>
                     <SearchBar classname="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/>
                  </section>
-
                 <section className="table-list">
+              
                     <Table striped bordered hover size="sm">
                      <thead>
                          <tr>
@@ -103,6 +101,7 @@ export const ParcelList = () => {
                 <ParcelForm/>
    
                 </article>
+                </div>
             </>
     
         )

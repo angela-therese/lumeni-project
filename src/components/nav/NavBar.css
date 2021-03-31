@@ -1,5 +1,5 @@
 .nav-menu{
-    padding-top:3em;
+    padding-top:6em;
     display: flex;
     justify-content: ;
     background-color: black;
@@ -18,7 +18,7 @@
     background-color:black;
     height: 8vh;
     color: white;
-    width: 20vw;
+    width: 15vw;
 }
 
 .nav-link{

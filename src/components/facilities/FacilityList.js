@@ -49,11 +49,11 @@ export const FacilityList = () => {
          
         {/* <header> <NavBar /> </header> */}
          <section className="main-container">
-         <section className="section-heading">
+         <section className="facility-heading">
           <div><h4>Facilities</h4></div>
 
-           <article className="search-section"><label>Search Facilities</label>
-            <SearchBar className="search-bar" placeholder="Enter facility name" handleChange={(e)=> setSearchField(e.target.value)}/></article> 
+           <article className="search-section"></article> <label>Search Facilities</label>
+            <SearchBar className="search-bar" placeholder="Enter facility name" handleChange={(e)=> setSearchField(e.target.value)}/>
             </section> 
 
          <article className="table-facility-list">

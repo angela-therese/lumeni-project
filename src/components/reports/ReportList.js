@@ -21,6 +21,7 @@ export const ReportList = () => {
 
             //STATE CALCULATIONS
             const currentYearTotal = sortedParcels.filter(p => p.dateSent.includes("2021"))
+            const currentYearLength = currentYearTotal?.length
             
             const totalKY = sortedParcels.filter(p => p.facility?.state === "KY")
             const kyPercentage = ((totalKY.length / currentYearTotal.length)*100).toFixed(2)
@@ -62,30 +63,32 @@ export const ReportList = () => {
         const genreThree = topGenres[2]?.name
         const genreFour = topGenres[3]?.name
         const genreFive = topGenres[4]?.name
-        const totalTopgenres = topGenres[0]?.parcelLength + topGenres[1]?.parcelLength + topGenres[2]?.parcelLength+topGenres[3]?.parcelLength+ topGenres[4]?.parcelLength
+        const totalTopGenres = topGenres[0]?.parcelLength + topGenres[1]?.parcelLength + topGenres[2]?.parcelLength+topGenres[3]?.parcelLength+ topGenres[4]?.parcelLength
 
         const genrePercentFirst = ((topGenres[0]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentSecond = ((topGenres[1]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentThird = ((topGenres[2]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentFourth = ((topGenres[3]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentFifth = ((topGenres[4]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
-        const genrePercentOthers = (currentYearTotal-totalTopgenres)/((currentYearTotal.length)*100).toFixed(2)
+        const genrePercentOthers = (((currentYearLength-totalTopGenres)/currentYearLength)*100).toFixed(2)
+       
+        console.log(currentYearTotal)
+        console.log(totalTopGenres)
+        console.log(genrePercentOthers)
         
         //CHARTS
         
-
-
-
-
      return(
        <>
-        <article className="reports-container"> 
-         <h3>Data Summaries</h3>
-         <h5>View trends according to destinations and genres.</h5>
         
+        <article className="reports-container"> 
+        <header>
+         <h5>Data Summaries</h5>
+         <p>View trends according to destinations and genres.</p>
+        </header>
         <section className="charts-div">
+        
         <article className="states-div">
-            <h4>States</h4>
         <section className="state-total-bar">
         <h5>Books per State</h5>
         <Bar 
@@ -93,7 +96,7 @@ export const ReportList = () => {
                 labels:['KY', 'MD', 'OH', 'TN', 'VA', 'WV'],
                 datasets: [
                     {
-                        label: 'Books Sent',
+                        label: 'Number of Books Sent',
                         data: [totalKY.length, totalMD.length, totalTN.length, totalOH.length, totalVA.length, totalWV.length],
                         backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
@@ -116,13 +119,13 @@ export const ReportList = () => {
             />
             </section>
             <section className="state-percent-chart">
-                <h5>Percentage of Books per State</h5>
+                <h5>Percentage by State</h5>
         <Doughnut
             data={{
                 labels:['KY', 'MD', 'OH', 'TN', 'VA', 'WV'],
                 datasets: [
                     {
-                        label: 'Books Sent',
+                        label: 'hey' ,
                         data: [ kyPercentage, mdPercentage, ohPercentage, tnPercentage, vaPercentage, wvPercentage],
                         backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
@@ -139,9 +142,9 @@ export const ReportList = () => {
             </article>
 
             <article className="genre-div">
-            <h4>Genres</h4>
+           
             <section className="genre-top-bar">
-            <h5>Top Five Genres Total Books</h5>
+            <h5>Most Popular Genres</h5>
             <Bar 
             data={{
                 labels:[genreOne, genreTwo, genreThree, genreFour, genreFive],
@@ -171,7 +174,7 @@ export const ReportList = () => {
 
             </section>
             <section className="genre-percent-chart">
-            <h5>Top Five Genres % of Total Books</h5>
+            <h5>Top 5 Genres by Percent</h5>
             <Pie
             data={{
                 labels:[genreOne, genreTwo, genreThree, genreFour, genreFive, 'Others'],
@@ -204,33 +207,3 @@ export const ReportList = () => {
 
 }
 
-{/* <h5>Yearly Total </h5><p>{currentYearTotal.length}</p>
-        <article className="reports-state-list">
-        
-       
-        <div className ="state-totals-list">
-        <h5>State-by-State</h5>
-        <h6>Kentucky</h6>
-        <p>{totalKY.length} -- {kyPercentage}</p>
-        <h6>Maryland</h6>
-        <p>{totalMD.length} -- {mdPercentage}</p>
-        <h6>Ohio</h6>
-        <p>{totalOH.length} -- {ohPercentage}</p>
-        <h6>Tennessee</h6>
-        <p>{totalTN.length} -- {tnPercentage}</p>
-        <h6>Virginia</h6>
-        <p>{totalVA.length} -- {vaPercentage}</p>
-        <h6>West Virginia</h6>
-        <p>{totalWV.length} -- {wvPercentage}</p>
-        </div>
-        
-        <div className="genre-totals-list">
-            <h5>Genres</h5>
-             <p>{topGenres[0]?.name}--{topGenres[0]?.parcelLength}--{genrePercentFirst}</p>
-             <p>{topGenres[1]?.name}--{topGenres[1]?.parcelLength}--{genrePercentSecond}</p>
-             <p>{topGenres[2]?.name}--{topGenres[2]?.parcelLength}--{genrePercentThird}</p>
-             <p>{topGenres[3]?.name}--{topGenres[3]?.parcelLength}--{genrePercentFourth}</p>
-        </div>
-       
-    </article>
-    </>   */}

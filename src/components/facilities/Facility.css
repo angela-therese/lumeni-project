@@ -1,18 +1,24 @@
 
-
+#root {
+    height: 100vh
+}
 fieldset {
     
     width: 25vw;
-   
 }
 
+.facility-heading {
+    margin-left: 2em
+}
 
 .main-container {
-    width: 50vw;
-    height: 100vh;
+ width: 55vw;
+ height: 80vh;
+ margin-top: 6em;
+ padding-top: 0em;
 }
 .table-facility-list {
-    width: 45vw;
+    width: 50vw;
     height: 70vh;
    padding-right: 0em;
    margin-left: 2em;
@@ -33,7 +39,7 @@ fieldset {
 }
 
 .form-container {
-    width: 25vw;
+    width: 20vw;
     margin-left: 2em
 
 }
@@ -41,10 +47,11 @@ fieldset {
    width: 20vw
 }
 .facility-form-comp {
+   
+   
     width: 25vw;
-    margin-top: 6em;
     margin-right: 2em;
-    margin-left: 3em;
+    /* margin-left: 3em; */
     background-color: lightgray;
     border-radius: 4em;
     padding-top: .2em;
@@ -65,9 +72,15 @@ fieldset {
 
 }
 
-h4.section-heading {
-    text-align: left;
+.facility-comp{
+    margin-left: 0em;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;   
 }
+
+
 .div-header {
     /* display: flex;
     flex-direction: row; */
@@ -84,10 +97,10 @@ h4.section-heading {
     color: white
 }
 
-.section-heading {
+.heading {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 10vw;
    margin:  0 0 0 0
 }
 

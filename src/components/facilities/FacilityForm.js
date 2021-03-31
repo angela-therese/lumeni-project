@@ -111,9 +111,9 @@ export const FacilityForm = () => {
       if(facilityId){
     return (
         <>
-        <section className="facility-comp">
+        <section className="form-container">
 
-        <div className="facility-form-comp">
+        <div className="facility-form-edit">
 
         <form className="FacilityForm">
         <fieldset>
@@ -147,8 +147,10 @@ export const FacilityForm = () => {
                 handleSaveFacility()
               }}>
           {facilityId ? <>Submit</> : <>Save</>}</Button>
-          {/* <button className="btn-del"  onClick={handleFacilityDelete}>Delete</button>
-           */}
+                    
+          <Button variant="link" size="sm" className="btn-save" onClick={() => {
+                    history.push("/facilities/")}}>Return to list</Button>
+           
 
         </div>
        </div>

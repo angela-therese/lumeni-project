@@ -38,7 +38,25 @@ export const ReturnList = () => {
         },[searchField, sortedParcels])
 
     
+        // const handleCancelReturn = () => {
+                
+        //     setIsLoading(true)
 
+        //     updateParcel({
+        //         dateSent: parcel.dateSent,
+        //         parcelNumber: parseInt(parcel.parcelNumber),
+        //         facilityId: parcel.facilityId,
+        //         genreId: parseInt(parcel.genreId),
+        //         title: parcel.title,
+        //         return: false,
+        //         returnDate:"",
+        //         id: parcel.id
+        //     })
+        //     .then(getParcels)
+        //     .then(() => history.push(`/parcels`))
+        
+        
+        //     }
 
         return (
             <>

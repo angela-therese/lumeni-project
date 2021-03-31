@@ -62,12 +62,14 @@ export const ReportList = () => {
         const genreThree = topGenres[2]?.name
         const genreFour = topGenres[3]?.name
         const genreFive = topGenres[4]?.name
+        const totalTopgenres = topGenres[0]?.parcelLength + topGenres[1]?.parcelLength + topGenres[2]?.parcelLength+topGenres[3]?.parcelLength+ topGenres[4]?.parcelLength
 
         const genrePercentFirst = ((topGenres[0]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentSecond = ((topGenres[1]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentThird = ((topGenres[2]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentFourth = ((topGenres[3]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
         const genrePercentFifth = ((topGenres[4]?.parcelLength / currentYearTotal.length)*100).toFixed(2)
+        const genrePercentOthers = (currentYearTotal-totalTopgenres)/((currentYearTotal.length)*100).toFixed(2)
         
         //CHARTS
         
@@ -77,15 +79,15 @@ export const ReportList = () => {
 
      return(
        <>
-
-        
         <article className="reports-container"> 
-        <div><h3>Data Summaries</h3></div>
+         <h3>Data Summaries</h3>
+         <h5>View trends according to destinations and genres.</h5>
         
         <section className="charts-div">
         <article className="states-div">
+            <h4>States</h4>
         <section className="state-total-bar">
-        <h5>Number of Books Sent to States</h5>
+        <h5>Books per State</h5>
         <Bar 
             data={{
                 labels:['KY', 'MD', 'OH', 'TN', 'VA', 'WV'],
@@ -93,7 +95,7 @@ export const ReportList = () => {
                     {
                         label: 'Books Sent',
                         data: [totalKY.length, totalMD.length, totalTN.length, totalOH.length, totalVA.length, totalWV.length],
-                        backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+                        backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
                 ]
             }}
@@ -122,7 +124,7 @@ export const ReportList = () => {
                     {
                         label: 'Books Sent',
                         data: [ kyPercentage, mdPercentage, ohPercentage, tnPercentage, vaPercentage, wvPercentage],
-                        backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+                        backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
                 ]
             }}
@@ -137,7 +139,9 @@ export const ReportList = () => {
             </article>
 
             <article className="genre-div">
+            <h4>Genres</h4>
             <section className="genre-top-bar">
+            <h5>Top Five Genres Total Books</h5>
             <Bar 
             data={{
                 labels:[genreOne, genreTwo, genreThree, genreFour, genreFive],
@@ -145,7 +149,7 @@ export const ReportList = () => {
                     {
                         label: 'Top Genres',
                         data: [topGenres[0]?.parcelLength, topGenres[1]?.parcelLength, topGenres[2]?.parcelLength, topGenres[3]?.parcelLength, topGenres[4]?.parcelLength],
-                        backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+                        backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
                 ]
             }}
@@ -167,14 +171,15 @@ export const ReportList = () => {
 
             </section>
             <section className="genre-percent-chart">
-            <Doughnut
+            <h5>Top Five Genres % of Total Books</h5>
+            <Pie
             data={{
-                labels:[genreOne, genreTwo, genreThree, genreFour, genreFive],
+                labels:[genreOne, genreTwo, genreThree, genreFour, genreFive, 'Others'],
                 datasets: [
                     {
                         label: 'Books Sent',
-                        data: [ genrePercentFirst, genrePercentSecond, genrePercentThird, genrePercentFourth, genrePercentFifth],
-                        backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+                        data: [ genrePercentFirst, genrePercentSecond, genrePercentThird, genrePercentFourth, genrePercentFifth, genrePercentOthers],
+                        backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
                 ]
             }}

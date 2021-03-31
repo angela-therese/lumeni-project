@@ -4,28 +4,29 @@ import { FacilityContext } from "../facilities/FacilityProvider";
 import { GenreContext } from "../GenreProvider"
 import "./Parcel.css"
 import { useHistory, useParams } from 'react-router-dom';
-import { Form } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
+import { Button, Modal, Form } from 'react-bootstrap'
 
 
 export const ParcelForm = () => {
 
     const { getParcels, addParcel, getParcelById, updateParcel, deleteParcel} = useContext(ParcelContext)
-
     const { facilities, getFacilities } = useContext(FacilityContext)
-
     const { genres, getGenres } = useContext(GenreContext)
+
+
+    const [show, setShow] = useState(false)
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true); 
 
     //button inactive while waiting for data
     const [isLoading, setIsLoading] = useState(true);
     
 
     const {parcelId} = useParams();
-	const history = useHistory();
+	  const history = useHistory();
    
     const [ parcel, setParcel ] = useState({
 
-       
         dateSent: "",
         parcelNumber:null,
         facilityId: null,
@@ -34,19 +35,16 @@ export const ParcelForm = () => {
         return: false,
         returnDate:"",
         returnStatus: ""
-        
 
     })
     
 
     //this function updates state with input change
-        const handleControlledInputChange = (event) => {
-            const newParcel = {...parcel}
-
-            newParcel[event.target.id] = event.target.value
-
-            setParcel(newParcel)
-    }
+     const handleControlledInputChange = (event) => {
+        const newParcel = {...parcel}
+        newParcel[event.target.id] = event.target.value
+        setParcel(newParcel)
+      }
 
     
     // const currentDate = new Date()
@@ -102,23 +100,8 @@ export const ParcelForm = () => {
         
             }))
 
-            // .then(() => setParcel({
-
-            //     dateSent: "",
-            //     parcelNumber: "",
-            //     facilityId: 0,
-            //     genreId: 0, 
-            //     title: "",
-            //     return: false,
-            //     returnDate:false,
-               
-        
-            // }))
-            // .then(getParcels)
-            // .then(() => history.push(`/parcels`))
-        
+     }
     }
-}
 
         useEffect(() => {
             getGenres().then(getFacilities)
@@ -146,13 +129,32 @@ export const ParcelForm = () => {
 
          }
 
+         const handleReturnParcel= () => {
+            
+
+          setIsLoading(true)
+
+          updateParcel({
+           
+              dateSent: parcel.dateSent,
+              parcelNumber: parseInt(parcel.parcelNumber),
+              facilityId: parcel.facilityId,
+              genreId: parseInt(parcel.genreId),
+              title: parcel.title,
+              return: true,
+              returnDate:parcel.returnDate,
+              id: parcel.id
+
+          })
+          .then(getParcels)
+          .then(() => history.push(`/parcels`))
+      }
+
          const handleCancelReturn = () => {
                 
-        
             setIsLoading(true)
 
             updateParcel({
-             
                 dateSent: parcel.dateSent,
                 parcelNumber: parseInt(parcel.parcelNumber),
                 facilityId: parcel.facilityId,
@@ -161,7 +163,6 @@ export const ParcelForm = () => {
                 return: false,
                 returnDate:"",
                 id: parcel.id
-
             })
             .then(getParcels)
             .then(() => history.push(`/parcels`))
@@ -176,7 +177,55 @@ export const ParcelForm = () => {
          if(parcelId){
              return (
                 <>
+                {/* MODAL START */}
+                 <Modal show={show} onHide={handleClose} size="sm">
+                   <Modal.Header closeButton>
+                     <Modal.Title>Mark Returned</Modal.Title>
+                   </Modal.Header>
+                 <Modal.Body>
+                  
+                <section className="parcel-container">
+        
+        {/* <div className="div-header"></div> */}
+        <div className="parcel-return-container">
+
+        <form className="ParcelForm">
+        <fieldset>
+        <h5>Date Received</h5>
+    
+            <div className="form-group form-parcel">
+            <div className="div-label-input modal-date-input">
+            {/* <label>Date Returned</label> */}
+            <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="returnDate" value={parcel.returnDate}/>
+            </div>
+
+<div className="btns-container">
+      
+       <Button variant="info" className="btn btn-primary" size="sm"
+             disabled={isLoading}
+             onClick={event => {
+               event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+               handleReturnParcel()
+             }}>
+         Save</Button> 
+
+    
+        <Button variant="link" size="sm" className="btn-ret" onClick={() => {
+                    history.push("/parcels/")}}>Go Back to Parcel List</Button>{' '}
+        </div>
+        </div>
+       </fieldset>
+        </form>
+        
+        </div>
+        {/* <ReturnList /> */}
+        </section>
+                   </Modal.Body>
                 
+            
+                </Modal>
+
+                {/* END MODAL */}
                 <section className="form-container">
         
                 {/* <div className="div-header"></div> */}
@@ -184,9 +233,17 @@ export const ParcelForm = () => {
         
                 <form className="ParcelForm">
                 <fieldset>
-                <h5> {parcelId ? <>Edit Parcel</> : <>Add a Parcel</>}</h5>
-            
-                <div className="form-group form-parcel">
+                <h5> {parcelId ? <>Edit Parcel </> : <>Add a Parcel</>} <br></br></h5> <br></br>
+                
+
+                <Button variant="primary" onClick={handleShow} size="sm">
+                  Mark Returned
+                </Button>  <Button variant="secondary" size="sm"  onClick={event => {
+                       event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+                       handleCancelReturn()
+                     }}>Undo Return</Button> 
+
+                   <div className="form-group form-parcel">
                     <div className="div-label-input">
                     <label>Date Sent</label>
                     <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}/>
@@ -228,42 +285,46 @@ export const ParcelForm = () => {
                     <div className="div-label-input">
                     <label>Book Title</label>
                     <input type="text" id="title" onChange={handleControlledInputChange} required autoFocus className="form-control form-text-box form-input" placeholder="Enter title" value={parcel.title}/>
-                     </div>
+                    </div><br></br>
 
-                     <div className="div-label-input">
-                     <label>Undo Return </label>
-                     <button className="btn btn-primary btn-undo" type="date" onClick={event => {
+                         
+                    
+                     {/* <label>Return Parcel </label> */}
+                    
+                 
+
+                     {/* <div className="div-label-input">
+                     <label></label> 
+                     <Button className="btn-undo" size="sm"  onClick={event => {
                        event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                        handleCancelReturn()
-                     }}>Undo Return</button> 
+                     }}>Reverse Return</Button> 
                     </div>
-        
+         */}
                    
                
-              <div className="btns-container">
-               <Button variant="info" className="btn btn-primary" size="sm"
-                     disabled={isLoading}
-                     onClick={event => {
+                    <div className="btn-div">
+                     <Button variant="info" className="btn btn-primary" size="sm"
+                       disabled={isLoading}
+                       onClick={event => {
                        event.preventDefault() // Prevent browser from submitting the form and refreshing the page
                        handleSaveParcel()
                      }}>
-                  {parcelId ? <>Submit</> : <>Save</>}</Button> 
-
-                  
-                   
-                  <button className="btn-del" onClick={handleParcelDelete}>Delete</button>
-               
-                <Button variant="link" size="sm" className="btn-ret" onClick={() => {
-                            history.push("/parcels/")}}>Return to List</Button>{' '}
+                      {parcelId ? <>Submit</> : <>Save</>}</Button> 
+                     <button className="btn-del" onClick={handleParcelDelete}>Delete</button>
+                     <Button variant="link" size="sm" className="btn-ret" onClick={() => {
+                         history.push("/parcels/")}}>Return to List</Button>{' '}
                    </div>
+
                 </div>
+               
                </fieldset>
-                </form>
+              </form>
                 
-                </div>
-                </section>
-                {/* </section> */}
-                </>
+              </div>
+              </section>
+               
+              </>
 
         
              )
@@ -273,16 +334,16 @@ export const ParcelForm = () => {
     return (
         <>
 
-        <section className="form-container">
+        <section className="container-form">
 
         {/* <div className="div-header"></div> */}
       
 
-        <form className="ParcelForm">
+        {/* <form className="parcel-form"> */}
         {/* <fieldset> */}
         <h5> {parcelId ? <>Edit Parcel</> : <>Add Parcel</>}</h5>
     
-        <div className="form-group form-parcel">
+        {/* <div className="form-group form-parcel"> */}
             <div className="div-label-input">
             <label>Date Sent</label>
             <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}/>
@@ -338,9 +399,9 @@ export const ParcelForm = () => {
            
       
            </div>
-        </div>
+        {/* </div> */}
        {/* </fieldset> */}
-        </form>
+        {/* </form> */}
         {/* </div> */}
         </section>
         {/* </section> */}

@@ -1,32 +1,52 @@
 .form-and-list-container {
+  
     height: 100vh;
     width: 85vw;
     margin-left: 2em;
+    display: flex;
+    flex-direction: row;
+    
 }
 .list-container {
     display:flex;
     flex-direction: column;
-    width: 52vw;
+    width: 43vw;
     font-size: smaller;
 }
-    .table-parcels-list {
-    width: 52vw;
-    margin-left: 1em;
-    height: 80vh;
+.table-list {
+    width: 40vw;
+    /* margin-left: 1em; */
+    height: 70vh;
     overflow-y: auto;
-            }
-
-
-.form-container {
-    width: 25vw;
-    margin: 2em;
 }
-    .ParcelForm {
+
+.container-form {
+    border-radius: 2em;
+    background-color: lightgray;
+    padding: 2em;
+    margin-right: 3em
+}
+.form-container { 
+    height: 100vh;
+}
+.container-add-form {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   height:38vh;
+    width: 35vw;
+   
+}
+    .parcel-form {
     display: flex;
     flex-direction: column;
     margin: 1em;
     font-size: small; 
-    width: 20vw;
+    height: 38vw;
+    margin: 2em;
+    padding-top: 1em;
+    background-color: lightgray;
+    border-radius: 3em
     }
 
         .btns-container {
@@ -123,7 +143,7 @@ label {
     font-size: smaller;
 }
 
-.parcelNumber {
+/* .parcelNumber {
     width: 5vw;
 }
 
@@ -137,7 +157,7 @@ label {
 
 .genre {
     width: 6vw
-}
+} */
 
 .mod {
     width: 10vw
@@ -147,10 +167,19 @@ label {
     width: 4vw
 }
 
+.btn-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2em;
+    width: 30vw
+    
+}
 
 .btn-undo{
-    width: 13vw;
-    
+    width: 8vw;
+    height:fit-content;
+    margin-left: 3.5em;;
 }
 .btn-edit {
     width: 5vw;
@@ -202,6 +231,11 @@ label {
    color: whitesmoke;
    border: none;
    padding: 6px 0px;
-   margin:0px 0px ;
+    margin-left: .5em;
+   margin-right: .5em ;
    width: 8vw;
+}
+
+.modal-date-input{
+    margin: 2em
 }

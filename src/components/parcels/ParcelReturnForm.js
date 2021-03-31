@@ -11,11 +11,11 @@ import { Button } from 'react-bootstrap'
 
 export const ParcelReturnForm = () => {
 
-    const { getParcels, addParcel, getParcelById, updateParcel} = useContext(ParcelContext)
+    const { getParcels, getParcelById, updateParcel} = useContext(ParcelContext)
 
-    const { facilities, getFacilities } = useContext(FacilityContext)
+    const {  getFacilities } = useContext(FacilityContext)
 
-    const { genres, getGenres } = useContext(GenreContext)
+    const {  getGenres } = useContext(GenreContext)
 
     //button inactive while waiting for data
     const [isLoading, setIsLoading] = useState(true);
@@ -94,7 +94,10 @@ export const ParcelReturnForm = () => {
 
          if(parcelId){
              return (
+
                 <>
+
+                
                 
                 <section className="parcel-container">
         
@@ -107,7 +110,7 @@ export const ParcelReturnForm = () => {
             
                     <div className="form-group form-parcel">
                     <div className="div-label-input">
-                    <label>Date Returned</label>
+                    {/* <label>Date Returned</label> */}
                     <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="returnDate" value={parcel.returnDate}/>
                     </div>
         
@@ -130,7 +133,7 @@ export const ParcelReturnForm = () => {
                 </form>
                 
                 </div>
-                <ReturnList />
+                {/* <ReturnList /> */}
                 </section>
                 
                 </>

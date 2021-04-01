@@ -84,8 +84,9 @@ export const ReportList = () => {
        <>
         
         <article className="reports-container"> 
-        <div><h2>Data Summaries</h2></div>
-        <h6>Identify trends in book request genres and destinations</h6> <br></br>
+        {/* <Image src={Reports} /> */}
+        <div><h2>Reports</h2></div>
+        <br></br><h6>Identify trends in book request genres and destinations</h6> <br></br>
        
         <section className="charts-div">
         <article className="total-div"><h4>Books YTD:<br></br>{currentYearLength} </h4></article>

@@ -46,8 +46,6 @@ export const ParcelList = () => {
         return (
             
             <>
-
-               
             <div className="main-container">
             <div><h2>Parcels</h2></div> 
             <div><Image src={Parcel}/></div>

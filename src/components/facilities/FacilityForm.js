@@ -173,7 +173,7 @@ export const FacilityForm = () => {
         <>
         {/* <section className="facility-comp"> */}
 
-        {/* <div className="facility-form-container"> */}
+        <div className="form-container">
 
         <form className="FacilityForm">
         <fieldset>
@@ -213,7 +213,7 @@ export const FacilityForm = () => {
        </div>
        </fieldset>
         </form>
-        {/* </div> */}
+        </div>
         {/* </section> */}
         </>
      )}

@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react"
 import { ParcelContext } from "../parcels/ParcelProvider"
 import { GenreContext } from "../GenreProvider"
 import { Bar, Pie, Doughnut } from "react-chartjs-2"
+import { Image } from "react-bootstrap"
+import Reports from "../images/Report.png"
 
 import './Reports.css'
 
@@ -82,12 +84,11 @@ export const ReportList = () => {
        <>
         
         <article className="reports-container"> 
-        <header>
-         <h5>Data Summaries</h5>
-         <p>View trends according to destinations and genres.</p>
-        </header>
+        <div><h2>Data Summaries</h2></div>
+        <h6>Identify trends in book request genres and destinations</h6> <br></br>
+       
         <section className="charts-div">
-        
+        <article className="total-div"><h4>Books YTD:<br></br>{currentYearLength} </h4></article>
         <article className="states-div">
         <section className="state-total-bar">
         <h5>Books per State</h5>

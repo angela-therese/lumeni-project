@@ -122,11 +122,13 @@ export const ParcelForm = () => {
          }, [])
 
          const handleParcelDelete = () => {
+
+          if(window.confirm('Are you sure you want to delete this record?')) {
             deleteParcel(parcel.id)
                 .then(() => {
                     history.push("/parcels")
                 })
-
+              }
          }
 
          const handleReturnParcel= () => {

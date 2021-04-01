@@ -55,28 +55,39 @@
 }
 
 .FacilityForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 2em;
-    height: fit-content;
     width: 30vw;
     display: flex;
     flex-direction: column;
     background-color: lightgray;
     border-radius: 3em;
     padding: 2em;
-
+    font-size: smaller
 
 }
 
+.FacilityFormEdit {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 2em;
+    width: 30vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    border-radius: 3em;
+    padding: 2em;
+    font-size: smaller
+
+
+}
 .facility-form-edit {
     width: 25vw;
     height: 100vh
-    /* margin-top: 6em;
-    margin-right: 2em;
-    margin-left: 3em; */
-    /* background-color: lightgray;
-    border-radius: 4em;
-    padding-top: .2em; */
-    
 
 }
 
@@ -85,6 +96,7 @@
 /*DETAILS */
 .card-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80vw;
@@ -180,9 +192,3 @@
     width: 60vw
 }
 
- .search {
-     width: 15vw;
-     margin-bottom: 2em;
-     font-size: small;
-    
-}

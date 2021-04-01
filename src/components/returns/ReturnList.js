@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom"
 import { ParcelContext } from "../parcels/ParcelProvider"
 import { SearchBar } from "../SearchBar"
 import './Parcel.css'
-import { Table, Button } from "react-bootstrap"
+import { Table, Button, Image } from "react-bootstrap"
+import Return from "../images/Return.png"
 
 
 
@@ -28,7 +29,7 @@ export const ReturnList = () => {
       
         if(searchField !== "") {
             const list = sortedParcels.filter(p => {
-               return p.title.toLowerCase().includes(searchField.toLowerCase()) 
+               return p.title.toLowerCase().includes(searchField.toLowerCase()) || p.facility?.name.toLowerCase().includes(searchField.toLowerCase()) || p.facility?.state.toLowerCase().includes(searchField.toLowerCase())
             })
             setFiltered(list) 
         }
@@ -38,39 +39,20 @@ export const ReturnList = () => {
         },[searchField, sortedParcels])
 
     
-        // const handleCancelReturn = () => {
-                
-        //     setIsLoading(true)
-
-        //     updateParcel({
-        //         dateSent: parcel.dateSent,
-        //         parcelNumber: parseInt(parcel.parcelNumber),
-        //         facilityId: parcel.facilityId,
-        //         genreId: parseInt(parcel.genreId),
-        //         title: parcel.title,
-        //         return: false,
-        //         returnDate:"",
-        //         id: parcel.id
-        //     })
-        //     .then(getParcels)
-        //     .then(() => history.push(`/parcels`))
-        
-        
-        //     }
-
         return (
             <>
-           <article className="returns-container">
-           <div>
+           <article className="main-container">
+           <div><h2>Returns</h2></div>
+           <div><Image src={Return}/></div>
             <section className="returns-heading">
-            <div><h4>Returns</h4></div> 
-            <label>Search Returns</label>
-            <SearchBar className="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/><br></br>
             
             </section>
 
             <section className="table-parcels-list">
-            <Table striped bordered hover size="sm">
+            <div className="search-bar">
+            <label>Search Returns</label>
+            <SearchBar className="search-bar" placeholder="Enter destination or title" handleChange={(e)=> setSearchField(e.target.value)}/><br></br></div>
+            <Table className="return-table" striped bordered hover size="sm">
             <thead>
             <tr>
              <th>#</th>
@@ -110,7 +92,7 @@ export const ReturnList = () => {
     </section>
     {/* </section> */}
     
-    </div>
+    
     </article>
 
     </>

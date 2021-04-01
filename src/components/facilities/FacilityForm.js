@@ -101,10 +101,12 @@ export const FacilityForm = () => {
          }, [])
 
         const handleDelete = () => {
+            if(window.confirm('Are you sure you want to delete this record?')) {
         deleteFacility(facility.id)
           .then(() => {
             history.push("/facilities")
           })
+        }
       }
        
 
@@ -115,7 +117,7 @@ export const FacilityForm = () => {
 
         
 
-        <form className="FacilityForm">
+        <form className="FacilityFormEdit">
         <fieldset>
         <h5> {facilityId ? <>Edit Facility</> : <>Add a Facility</>}</h5>
        
@@ -147,6 +149,10 @@ export const FacilityForm = () => {
                 handleSaveFacility()
               }}>
           {facilityId ? <>Submit</> : <>Save</>}</Button>
+          <Button variant="secondary" size="sm" className="btn-save" 
+             disabled={isLoading}
+             onClick={handleDelete}>
+          Delete</Button>
                     
           <Button variant="link" size="sm" className="btn-save" onClick={() => {
                     history.push("/facilities/")}}>Return to list</Button>

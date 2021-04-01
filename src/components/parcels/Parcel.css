@@ -209,21 +209,6 @@ label {
     font-size: smaller;
 }
 
-/* .parcelNumber {
-    width: 5vw;
-}
-
-.date {
-    width: 8vw;
-}
-
-.facility {
-    width: 16vw;
-}
-
-.genre {
-    width: 6vw
-} */
 
 .mod {
     width: 10vw
@@ -308,4 +293,13 @@ label {
 
 .form-parcel-modal {
     width: 20vw
+}
+
+.total-div { 
+    text-align: center;
+    width: 85 vw
+}
+
+.search-bar {
+    width: 15vw
 }

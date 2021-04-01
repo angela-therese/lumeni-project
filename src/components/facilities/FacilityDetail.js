@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { FacilityContext } from "./FacilityProvider"
-import { Card, Button, Table, Modal} from "react-bootstrap"
+import { Card, Button, Table, Modal, Image} from "react-bootstrap"
+import Facility from "../images/Facility.png"
 import './Facility.css'
 
 export const FacilityDetail = () => {
@@ -26,10 +27,8 @@ export const FacilityDetail = () => {
   return (
   <>
   <article className="card-container">
+  <Image src={Facility} thumbnail/>
   <Card className="facility-detail-card">
-        
-  <Card.Header> <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /></Card.Header>
- 
   <Card.Body>
     <Card.Title>{facility.name}</Card.Title>
     <Card.Text>

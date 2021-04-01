@@ -1,3 +1,4 @@
+
 .nav-menu{
     padding-top:4em;
     display: flex;
@@ -5,7 +6,7 @@
     background-color: black;
     /* background-color: #0E1428; */
     width: 15vw;
-    height: auto;
+    height: 125vh;
     /* position: sticky */
   
 }

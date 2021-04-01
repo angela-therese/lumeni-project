@@ -28,7 +28,7 @@ export const NavBar =() => {
                     Disabled
                  </Nav.Link> */}
             </Nav>
-        
+            
             {/* </section> */}
             
             </>

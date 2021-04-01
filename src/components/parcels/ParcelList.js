@@ -4,7 +4,8 @@ import { ParcelContext } from "./ParcelProvider"
 import { ParcelForm } from "./ParcelForm"
 import { SearchBar } from "../SearchBar"
 import './Parcel.css'
-import { Table, Modal, Button } from "react-bootstrap"
+import { Table, Image } from "react-bootstrap"
+import Parcel from "../images/Parcel.png"
 
 
 
@@ -48,14 +49,17 @@ export const ParcelList = () => {
 
                
             <div className="main-container">
+            <div><h2>Parcels</h2></div> 
+            <div><Image src={Parcel}/></div>
             
             <article className="form-and-list-container">
                 <section className="list-container">
+               
                 <section className="returns-heading">
-                    <div><h4>Parcels</h4></div> 
                     <label>Search Parcels</label>
                     <SearchBar classname="search-bar" placeholder="Enter title" handleChange={(e)=> setSearchField(e.target.value)}/>
                  </section>
+               
                 <section className="table-list">
               
                     <Table striped bordered hover size="sm">

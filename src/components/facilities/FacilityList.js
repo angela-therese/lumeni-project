@@ -5,8 +5,9 @@ import { FacilityContext } from "./FacilityProvider"
 import { FacilityForm } from "./FacilityForm"
 
 import './Facility.css'
-import { Table, Button} from "react-bootstrap"
+import { Table, Button, Image} from "react-bootstrap"
 import { SearchBar } from "../SearchBar"
+import Facility from "../images/Facility.png"
 
 
 
@@ -44,22 +45,23 @@ export const FacilityList = () => {
     // if(showForm === true){
       return (
         <>   
-   
-        {/* <section className="facility-container"> */}
          
-        {/* <header> <NavBar /> </header> */}
+       
          <section className="main-container">
-         <section className="facility-heading">
-          <div><h4>Facilities</h4></div>
+          <div><h2>Facilities</h2></div>
+          <div><Image src={Facility}/></div>
 
-           <article className="search-section"></article> <label>Search Facilities</label>
+           <article className="form-and-list-container">
+             <section className="list-container">
+             
+             <section className="returns-heading">
+             <label>Search Facilities</label>
             <SearchBar className="search-bar" placeholder="Enter facility name" handleChange={(e)=> setSearchField(e.target.value)}/>
-            </section> 
+             </section>
+            
+             <section className="table-list">
 
-         <article className="table-facility-list">
-         
-         <section className="facilities-table">
-         <Table striped bordered hover size="sm">
+             <Table striped bordered hover size="sm">
          <thead>
              <tr>
              <th className="fac-table">Facility Name</th>
@@ -92,84 +94,21 @@ export const FacilityList = () => {
               )}
           </Table>
            </section>
-     
-     
-         </article>
+
+            </section>
+            <FacilityForm />
+            
+             
+             
+             </article> 
          </section>
-         {/* </section> */}
          
           
-      <FacilityForm />
+    
       </>
       )
-    
-//     } else {
-// return (
-  
-//   <>    
-//    <section className="facility-container">
-    
-//    {/* <header> <NavBar /> </header> */}
-//     <section>
-//     <div className="section-heading">
-//     <h4>Facilities</h4>
-//     <div className="btn-header"><Button variant="secondary" size="sm" className="btn-add" onClick={toggleForm}>Add New</Button>{' '}</div></div> 
-   
-//     <article className="table-facility-list">
-    
-//     <section className="facilities-table">
-//     <Table striped bordered hover size="sm">
-//     <thead>
-//         <tr>
-//         <th className="fac-table">Facility Name</th>
-//         <th className="mod-table"></th>
-//         <th className="city-table">City</th>
-//         <th className="state-table">State</th>
-//         <th className="sent-table">Parcels</th>
-//         <th className="returns-table">Returns</th>
-//         <th className="mod-table"></th>
-        
-//         </tr>
-//     </thead>
-//     {sortedFacilities.map(facility => { 
-//      const returnCount = facility.parcels?.filter(p => p.return === true);         return (
-//             <tbody>
-//                 <tr>
-//                 <td className="fac-table table-data" >{facility.name}</td>
-//                 <td className="mod-table table-data"><Button variant="link" size="sm" className="btn-det" onClick={() => { history.push(`/facilities/details/${facility.id}`)}}>Details</Button></td>
-//                 <td className="city-table table-data">{facility.city}</td>
-//                 <td className="state-table table-data">{facility.state}</td>
-//                 <td className="sent-table table-data">{facility.parcels?.length}</td>
-//                 <td className="returns-table table-data">{returnCount?.length}</td>
-//                 <td className="mod-table table-data"><Button variant="info" size="sm" className="btn-edit"  onClick={() => {
-//                     history.push(`/facilities/edit/${facility.id}`)
-//               }}>Edit</Button> </td> 
-               
-//                 </tr>
-//             </tbody>
-//          )} 
-//          )}
-//      </Table>
-//       </section>
 
-
-    // </article>
-    // </section>
-    // </section>
-    
-      // </>
-     
-    // )}
 }
          
 
   
-
-
-
-
-
-
-
-//onClick={() => {
-  // history.push("/facilities/add")}}

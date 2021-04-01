@@ -1,9 +1,13 @@
 .main-container {
+    padding-top: 2em;
     display: flex;
     flex-direction: column;
-   
-    
+    width: 85vw;
+    align-items: center;
+    margin-top: 0em
 }
+
+
 .form-and-list-container {
   
     height: 95vh;
@@ -43,24 +47,34 @@
 
 .container-form {
     border-radius: 4em;
-    background-color: lightgray;
     padding: 2em;
     margin-right: 2em;
     margin-left: 2em;
     font-size: smaller;
+    height: 100vh;
+    margin-top: 10em
 }
 .form-container { 
-    height: 100vh;
+    height: 100vh
+
 }
+
 .container-add-form {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
-   height:38vh;
+   height:fit-content;
     width: 35vw;
    
 }
-    .parcel-form {
+    
+.form-parcel {
+    height:fit-content;
+    background-color: lightgray;
+    padding: 1em;
+    border-radius: 2em;
+}
+.parcel-form {
     display: flex;
     flex-direction: column;
     margin: 1em;
@@ -71,6 +85,35 @@
     background-color: lightgray;
     border-radius: 3em
     }
+
+/*EDIT FORM*/
+
+.form-edit-container {
+    width: 85vw;
+    height: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 4em;
+    /*  */
+
+}
+
+.ParcelForm {
+    width: 100vw;
+    margin: 0em
+}
+.parcel-form-edit {
+    height: fit-content;
+    width: 30vw;
+    background-color: lightgray;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.edit-form-fieldset {
+    width: 80vw
+}
 
         .btns-container {
     display: flex;
@@ -193,9 +236,9 @@ label {
 .btn-div {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 2em;
-    width: 30vw
+    width: 25vw
     
 }
 
@@ -261,4 +304,8 @@ label {
 
 .modal-date-input{
     margin: 2em
+}
+
+.form-parcel-modal {
+    width: 20vw
 }

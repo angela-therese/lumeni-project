@@ -111,9 +111,9 @@ export const FacilityForm = () => {
       if(facilityId){
     return (
         <>
-        <section className="form-container">
+        <section className="form-edit-container">
 
-        <div className="facility-form-edit">
+        
 
         <form className="FacilityForm">
         <fieldset>
@@ -156,7 +156,7 @@ export const FacilityForm = () => {
        </div>
        </fieldset>
         </form>
-        </div>
+      
         </section>
         </>
 
@@ -165,9 +165,9 @@ export const FacilityForm = () => {
     } else {
         return (
         <>
-        <section className="facility-comp">
+        {/* <section className="facility-comp"> */}
 
-        <div className="facility-form-comp">
+        {/* <div className="facility-form-container"> */}
 
         <form className="FacilityForm">
         <fieldset>
@@ -207,8 +207,8 @@ export const FacilityForm = () => {
        </div>
        </fieldset>
         </form>
-        </div>
-        </section>
+        {/* </div> */}
+        {/* </section> */}
         </>
      )}
     }

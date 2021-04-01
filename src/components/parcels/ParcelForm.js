@@ -178,7 +178,7 @@ export const ParcelForm = () => {
              return (
                 <>
                 {/* MODAL START */}
-                 <Modal show={show} onHide={handleClose} size="sm">
+                 <Modal show={show} onHide={handleClose} >
                    <Modal.Header closeButton>
                      <Modal.Title>Mark Returned</Modal.Title>
                    </Modal.Header>
@@ -193,7 +193,7 @@ export const ParcelForm = () => {
         <fieldset>
         <h5>Date Received</h5>
     
-            <div className="form-group form-parcel">
+            <div className="form-group form-parcel-modal">
             <div className="div-label-input modal-date-input">
             {/* <label>Date Returned</label> */}
             <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="returnDate" value={parcel.returnDate}/>
@@ -226,13 +226,13 @@ export const ParcelForm = () => {
                 </Modal>
 
                 {/* END MODAL */}
-                <section className="form-container">
+                <section className="form-edit-container">
         
                 {/* <div className="div-header"></div> */}
-                <div className="parcel-form-container">
+                <div className="parcel-form-edit">
         
                 <form className="ParcelForm">
-                <fieldset>
+                <fieldset className="edit-form-fieldset">
                 <h5> {parcelId ? <>Edit Parcel </> : <>Add a Parcel</>} <br></br></h5> <br></br>
                 
 
@@ -243,7 +243,8 @@ export const ParcelForm = () => {
                        handleCancelReturn()
                      }}>Undo Return</Button> 
 
-                   <div className="form-group form-parcel">
+                   <div className="form-group form-parcel-edit">
+                     
                     <div className="div-label-input">
                     <label>Date Sent</label>
                     <input className="form-input date-input" type="date" onChange={handleControlledInputChange} id="dateSent" value={parcel.dateSent}/>
@@ -303,7 +304,9 @@ export const ParcelForm = () => {
          */}
                    
                
-                    <div className="btn-div">
+                    
+                </div>
+                <div className="btn-div">
                      <Button variant="info" className="btn btn-primary" size="sm"
                        disabled={isLoading}
                        onClick={event => {
@@ -316,10 +319,10 @@ export const ParcelForm = () => {
                          history.push("/parcels/")}}>Return to List</Button>{' '}
                    </div>
 
-                </div>
                
                </fieldset>
               </form>
+              
                 
               </div>
               </section>
@@ -341,8 +344,9 @@ export const ParcelForm = () => {
 
         {/* <form className="parcel-form"> */}
         {/* <fieldset> */}
+        <div className="form-parcel">
         <h5> {parcelId ? <>Edit Parcel</> : <>Add Parcel</>}</h5>
-    
+        
         {/* <div className="form-group form-parcel"> */}
             <div className="div-label-input">
             <label>Date Sent</label>
@@ -396,7 +400,7 @@ export const ParcelForm = () => {
                handleSaveParcel()
              }}>
           {parcelId ? <>Submit</> : <>Save</>}</Button> 
-           
+          </div>
       
            </div>
         {/* </div> */}

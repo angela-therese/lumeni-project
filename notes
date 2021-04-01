@@ -1,3 +1,6 @@
+                   <Link to="/" style={{ color: '#FFF' }} />
+
+                   
                      REDUCE
                        const countOccurrences = function(arr, val){
                return arr.reduce((acc, elem) => {

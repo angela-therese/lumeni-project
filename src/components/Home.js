@@ -40,7 +40,7 @@ const currentUser = users.find(u => u.id == localStorage.getItem("lumeni_user"))
            <br></br>
            <h1>Welcome, {printUser}!</h1>
            <Image src={Logo} fluid /><br></br>
-           <h2>{printOrg} has sent <b>{bookTotal}</b> books and counting!<br></br></h2>
+           <h2>You have sent <b>{bookTotal}</b> books and counting!<br></br></h2>
  
           <h3>Where would you like to start today?</h3><br></br>
         </section>

@@ -132,8 +132,7 @@ export const ParcelForm = () => {
          }
 
          const handleReturnParcel= () => {
-            
-
+         
           setIsLoading(true)
 
           updateParcel({
@@ -150,9 +149,11 @@ export const ParcelForm = () => {
           })
           .then(getParcels)
           .then(() => history.push(`/parcels`))
-      }
+        }
+      
 
          const handleCancelReturn = () => {
+          if(window.confirm('Are you sure you want to return this book?')) {
                 
             setIsLoading(true)
 
@@ -168,9 +169,9 @@ export const ParcelForm = () => {
             })
             .then(getParcels)
             .then(() => history.push(`/parcels`))
-        
-        
+      
     }
+  }
 
      
 

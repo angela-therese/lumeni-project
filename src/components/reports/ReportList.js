@@ -86,11 +86,11 @@ export const ReportList = () => {
         
         <article className="reports-container"> 
         {/* <Image src={Reports} /> */}
-        <div><h2>Reports</h2></div>
+        <div><h2>Yearly Reports</h2></div>
         <br></br><h6>Identify trends in book request genres and destinations</h6> <br></br>
        
         <section className="charts-div">
-        <article className="total-div"><h4>Books YTD:<br></br>{currentYearLength} </h4></article>
+        <article className="total-div"><h4>Books Year-To-Date:<br></br>{currentYearLength} </h4></article>
         <article className="states-div">
         <section className="state-total-bar">
         <h5>Books per State</h5>

@@ -33,8 +33,8 @@ export const FacilityDetail = () => {
     <Card.Title>{facility.name}</Card.Title>
     <Card.Text>
       <h6>Total books sent: {facility.parcels?.length}</h6>
-      <h6>Total books returned: {returnCount?.length}</h6><br></br>
-      <h6>Notes</h6>
+      <h6>Total books returned: {returnCount?.length}</h6>
+      <h6>Notes:</h6><br></br>
       <p>{facility.notes}</p>
       <h6>{facility.name} Parcel List</h6>
       <Table striped border hover size="sm">

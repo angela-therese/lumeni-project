@@ -1,12 +1,10 @@
+
 .main-container {
-   
     display: flex;
     flex-direction: column;
     width: 85vw;
     height: 100vh;
     align-items: center;
-    
-  
    }
 
 
@@ -201,9 +199,11 @@ label {
     color: white;
     border: none;
     border-radius: .2em;
-    
 }
 
+.btn-edit-list:hover {
+    background-color: cadetblue;
+}
 .btn-return-list {
     width: 5vw;
     padding: 0;

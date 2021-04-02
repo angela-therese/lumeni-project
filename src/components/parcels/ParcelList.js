@@ -4,7 +4,7 @@ import { ParcelContext } from "./ParcelProvider"
 import { ParcelForm } from "./ParcelForm"
 import { SearchBar } from "../SearchBar"
 import './Parcel.css'
-import { Table, Image } from "react-bootstrap"
+import { Table, Image, Button} from "react-bootstrap"
 import Parcel from "../images/Parcel.png"
 
 
@@ -85,8 +85,8 @@ export const ParcelList = () => {
                                  <td>{p.title}</td>
                                  <td>{returned}</td>
                                
-                                 <td><button className="btn-edit-list" onClick={() => {
-                                     history.push(`/parcels/edit/${p.id}`)}}>Edit</button>
+                                 <td><Button className="btn-edit-list" size="sm" onClick={() => {
+                                     history.push(`/parcels/edit/${p.id}`)}}>Edit</Button>
                                  {/* <button className="btn-return-list" onClick={() => {
                                     history.push(`/parcels/return/${p.id}`)}}>Return</button> */}
                                  </td>

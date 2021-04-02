@@ -38,6 +38,7 @@ export const ReportList = () => {
            
 
             const totalTN = sortedParcels.filter(p => p.facility?.state === "TN")
+            debugger
             const tnPercentage = ((totalTN.length / currentYearTotal.length)*100).toFixed(2)
            
 
@@ -99,7 +100,7 @@ export const ReportList = () => {
                 datasets: [
                     {
                         label: 'Number of Books Sent',
-                        data: [totalKY.length, totalMD.length, totalTN.length, totalOH.length, totalVA.length, totalWV.length],
+                        data: [totalKY.length, totalMD.length, totalOH.length, totalTN.length,  totalVA.length, totalWV.length],
                         backgroundColor: ['rgba(193,66,50)', 'rgba(191,127,63)', 'rgba(191,191,63)', 'rgba(127,191,63)', 'rgba(105,160,215)', 'rgba(160,143, 177)']
                     },
                 ]

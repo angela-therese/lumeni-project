@@ -66,7 +66,7 @@ export const ParcelList = () => {
                          <th>#</th>
                          <th>Date</th>
                          <th>Destination</th>
-                         <th>Title</th>
+                         <th>Book</th>
                          <th>Returned</th>
                          <th></th>
                          </tr>

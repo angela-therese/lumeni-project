@@ -10,7 +10,7 @@ export const UserProvider = (props) => {
     // const history = useHistory()
 
     const getUsers = () => {
-    return fetch("http://localhost:8088/users")
+    return fetch("https://lumeni-api.herokuapp.com/users")
     .then(res => res.json())
     .then(setUsers)
 }

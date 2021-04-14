@@ -11,13 +11,13 @@ export const FacilityProvider = (props) => {
     const history = useHistory()
 
     const getFacilities = () => {
-        return fetch("http://localhost:8088/facilities/?_embed=parcels")
+        return fetch("https://lumeni-api.herokuapp.com/facilities/?_embed=parcels")
         .then(res => res.json())
         .then(setFacilities)
     }
 
     const addFacility = facilityObj => {
-        return fetch("http://localhost:8088/facilities", {
+        return fetch("https://lumeni-api.herokuapp.com/facilities/?_embed=parcels/facilities", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,12 +28,12 @@ export const FacilityProvider = (props) => {
     }
 
     const getFacilityById = (id) => {
-        return fetch(`http://localhost:8088/facilities/${id}/?_embed=parcels`)
+        return fetch(`https://lumeni-api.herokuapp.com/facilities/${id}/?_embed=parcels`)
         .then(res => res.json())
     } 
 
     const updateFacility = facility => {
-        return fetch (`http://localhost:8088/facilities/${facility.id}/`, {
+        return fetch (`https://lumeni-api.herokuapp.com/facilities/${facility.id}/`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -43,7 +43,7 @@ export const FacilityProvider = (props) => {
             .then(getFacilities)
     }
     const deleteFacility = facilityId => {
-        return fetch(`http://localhost:8088/facilities/${facilityId}?_embed=parcels`, {
+        return fetch(`https://lumeni-api.herokuapp.com/facilities/${facilityId}?_embed=parcels`, {
             method: "DELETE"
         })
             .then(getFacilities)

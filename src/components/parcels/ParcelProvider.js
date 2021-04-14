@@ -17,7 +17,7 @@ export const ParcelProvider = (props) => {
     }
 
     const addParcel = parcelObj => {
-        return fetch(`http://lumeni-api.herokuapp.com/parcels`, {
+        return fetch(`https://lumeni-api.herokuapp.com/parcels`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,12 +30,12 @@ export const ParcelProvider = (props) => {
     }
 
     const getParcelById = (id) => {
-        return fetch(`http://lumeni-api.herokuapp.com/parcels/${id}`)
+        return fetch(`https://lumeni-api.herokuapp.com/parcels/${id}`)
         .then(res => res.json())
     } 
 
     const updateParcel= parcel=> {
-        return fetch (`http://lumeni-api.herokuapp.com/parcels/${parcel.id}`, {
+        return fetch (`https://lumeni-api.herokuapp.com/parcels/${parcel.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +47,7 @@ export const ParcelProvider = (props) => {
 
     const deleteParcel = parcelId => {
 
-        return fetch(`http://lumeni-api.herokuapp.com/parcels/${parcelId}`, {
+        return fetch(`https://lumeni-api.herokuapp.com/parcels/${parcelId}`, {
             method: "DELETE"
         })
        

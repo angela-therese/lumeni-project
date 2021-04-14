@@ -9,7 +9,7 @@ export const GenreProvider = (props) => {
     // const history = useHistory()
 
     const getGenres = () => {
-    return fetch("http://lumeni-api.herokuapp.com/genres/?_embed=parcels")
+    return fetch("https://lumeni-api.herokuapp.com/genres/?_embed=parcels")
     .then(res => res.json())
     .then(setGenres)
 }

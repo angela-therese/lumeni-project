@@ -4,7 +4,8 @@
     flex-direction: column;
     width: 85vw;
     align-items: center;
-    margin-top: 0em
+    margin-top: 0em;
+    overflow-y:auto
 }
 
 

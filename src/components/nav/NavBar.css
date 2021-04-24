@@ -1,13 +1,15 @@
 
 .nav-menu{
-    padding-top:4em;
+    
+    
     display: flex;
-    justify-content: ;
+    justify-content: center ;
+    align-items: center;
     background-color: black;
     /* background-color: #0E1428; */
     width: 15vw;
-    height: 125vh;
-    /* position: sticky */
+    height: auto;
+    /* position: fixed; */
   
 }
 
@@ -35,6 +37,13 @@
 
 }
 
+.btnLogout {
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 6em;
+    width: 10vw;
+    font-weight: bolder;
+}
 .active {
     /* background-color: darkgray; */
 }

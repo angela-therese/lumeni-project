@@ -11,7 +11,7 @@ export const ParcelProvider = (props) => {
     
 
     const getParcels = () => {
-        return fetch(`https://lumeni-api.herokuapp.com/parcels?_expand=facility&_expand=genre`)
+        return fetch(`https://lumeni-api.herokuapp.com/parcels?_expand=genre&_expand=facility`)
         .then(res => res.json())
         .then(setParcels)
     }
